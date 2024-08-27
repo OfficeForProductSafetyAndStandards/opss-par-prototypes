@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Start
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "/partnership-table"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Apply for a new partnership
+      </h1>
+
+      <p>During this journey you will need the following information</p>
+
+      <p>This form will let you apply for a Primary Authority Partnership with a chosen
+        organisation. Before starting this journey, you will need to have an 
+        agreement in place with the organisation you with to partnership with.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Local Authority's contact details for each retulatory area</li>
+        <li>The organisation's address &amp; contact details</li>
+        <li>Summary document detailing the partnership</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/partnership-application/confirm-agreement",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

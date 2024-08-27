@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Regulatory Functions
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/partnership-table"
+    },
+    {
+      text: "Apply for partnership",
+      href: "/partnership-application/task-list"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/partnership-application/task-list" method="post">
+
+        {{ govukCheckboxes({
+          id: "regulatory-function",
+          name: "regulatory-function",
+          fieldset: {
+            legend: {
+              text: "Which regulartory functions apply to this partnership?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "environmental-health",
+              text: "Environmental health",
+              checked: data['regulatory-function'] and "environmental-health" in data['regulatory-function']
+            },
+            {
+              value: "explosives-licensing",
+              text: "Explosives licensing",
+              checked: data['regulatory-function'] and "explosives-licensing" in data['regulatory-function']
+            },
+            {
+              value: "fire-safety",
+              text: "Fire safety",
+              checked: data['regulatory-function'] and "fire-safety" in data['regulatory-function']
+            },
+            {
+              value: "health-and-safety",
+              text: "Health and safety (reserved functions only)",
+              checked: data['regulatory-function'] and "health-and-safety" in data['regulatory-function']
+            },
+            {
+              value: "licensing",
+              text: "Licensing",
+              checked: data['regulatory-function'] and "licensing" in data['regulatory-function']
+            },
+            {
+              value: "petrol-storage",
+              text: "Petrol storage certification",
+              checked: data['regulatory-function'] and "petrol-storage" in data['regulatory-function']
+            },
+            {
+              value: "trading-standards",
+              text: "Trading-standards",
+              checked: data['regulatory-function'] and "trading-standards" in data['regulatory-function']
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

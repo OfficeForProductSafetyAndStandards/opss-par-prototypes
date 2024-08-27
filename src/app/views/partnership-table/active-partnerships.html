@@ -1,0 +1,277 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+{% from "moj/components/sub-navigation/macro.njk" import mojSubNavigation %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>
+      Manage your partnerships and apply for new partnerships with organisations.</p>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {{ govukButton({
+      text: "Start new application",
+      classes: "govuk-button--secondary",
+      href: "/partnership-application/start"
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {{ mojSubNavigation({
+  label: 'Sub navigation',
+  items: [{
+    text: 'Active partnerships (226)',
+    href: '/partnership-table/active-partnerships',
+    active: true
+  }, {
+    text: 'Draft applications (2)',
+    href: '/partnership-table/draft-applications'
+  }, {
+    text: 'Pending applications (3)',
+    href: '/partnership-table/pending-applications'
+  }, {
+    text: 'Pending revocations (2)',
+    href: '/partnership-table/pending-revocations'
+  }]
+}) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l">Active partnerships</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukInput({
+          id: "search-input",
+          name: "searchInput",
+          attributes: { placeholder: "Search" },
+          formGroup: {
+            afterInput: {
+              html: "<button type='submit' class='govuk-button govuk-!-margin-left-5' data-module='govuk-button'>Search</button>"
+            }
+          }
+        }) }}
+      </div>
+    </div>
+
+    {{ govukTable({
+      head: [
+        {
+          text: "Id"
+        },
+        {
+          text: "Primary Authority"
+        },
+        {
+          text: "Organisation"
+        },
+        {
+          text: "Partnership Type"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>20394</a>"
+          },
+          {
+            text: "Milton Keynes County Council"
+          },
+          {
+            text: "The Green Light Trust"
+          },
+          {
+            text: "Direct"
+          }
+        ]
+      ]
+    }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        {{ govukPagination({
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              current: true,
+              href: "#"
+            },
+            {
+              number: 2,
+              href: "#"
+            },
+            {
+              number: 3,
+              href: "#"
+            },
+            {
+              ellipsis: true
+            },
+            {
+              number: 23,
+              href: "#"
+            }
+          ]
+        }) }}
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="govuk-pagination-description">
+          <p class="govuk-body govuk-pagination-description__text">
+            Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> or <span class="govuk-!-font-weight-bold">226</span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
