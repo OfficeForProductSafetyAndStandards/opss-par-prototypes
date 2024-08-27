@@ -1,0 +1,365 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} - Select Organisation
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/partnership-table"
+    },
+    {
+      text: "Apply for partnership",
+      href: "/partnership-application/task-list"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Select the organisation for your partnership</h1>
+      <p>This list contains existing organisations in the Primary Authority Registry. If the organisation you want to create a partnership with doesn't exist, you can select to create a new organisation.
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ govukButton({
+        text: "Create a new organisation",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+  </div>
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <h2 class="govuk-heading-m">Filters</h2>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{ govukCheckboxes({
+        name: "entity-type",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Entity Type",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "building-society",
+            text: "Building society"
+          },
+          {
+            value: "cio",
+            text: "CIO"
+          },
+          {
+            value: "bencom",
+            text: "BenCom"
+          },
+          {
+            value: "cic",
+            text: "CIC"
+          },
+          {
+            value: "co-op",
+            text: "Co-op"
+          },
+          {
+            value: "credit-union",
+            text: "Credit union"
+          },
+          {
+            value: "friendly-society",
+            text: "Friently society"
+          },
+          {
+            value: "limited-company",
+            text: "Limited company"
+          },
+          {
+            value: "llp",
+            text: "LLP"
+          },
+          {
+            value: "limited-partner",
+            text: "Limited partner"
+          },
+          {
+            value: "partnership",
+            text: "Partnership"
+          },
+          {
+            value: "sole-trader",
+            text: "Sole trader"
+          },
+          {
+            value: "trust",
+            text: "Trust"
+          },
+          {
+            value: "unincorporated-association",
+            text: "Unincorporated association"
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="govuk-button-group">
+        <a class="govuk-link" href="#">Apply</a>
+
+        <a class="govuk-link" href="#">Reset</a>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          {{ govukInput({
+            id: "search-input",
+            name: "searchInput",
+            attributes: { placeholder: "Search" },
+            formGroup: {
+              classes: "govuk-!-margin-bottom-0",
+              afterInput: {
+                html: "<button type='submit' class='govuk-button govuk-!-margin-left-5' data-module='govuk-button'>Search</button>"
+              }
+            }
+          }) }}
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          {{ govukSelect({
+            id: "sort",
+            name: "sort",
+            formGroup: {
+              classes: "govuk-keep-right govuk-!-margin-bottom-0"
+            },
+            label: {
+              text: "Sort by"
+            },
+            items: [
+              {
+                value: "created",
+                text: "Recently created"
+              },
+              {
+                value: "updated",
+                text: "Recently updated",
+                selected: true
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    {{ govukTable({
+      head: [
+        {
+          text: "Trading name"
+        },
+        {
+          text: "Companies house number"
+        },
+        {
+          text: "Address"
+        },
+        {
+          text: ""
+        }
+      ],
+      rows: [
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ],
+        [
+          {
+            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
+          },
+          {
+            text: "28392034"
+          },
+          {
+            html: "10 Beech Street<br />London<br />EC5 6JK"
+          },
+          {
+            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
+          }
+        ]
+      ]
+    }) }}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          {{ govukPagination({
+            next: {
+              href: "#"
+            },
+            items: [
+              {
+                number: 1,
+                current: true,
+                href: "#"
+              },
+              {
+                number: 2,
+                href: "#"
+              },
+              {
+                number: 3,
+                href: "#"
+              }
+            ]
+          }) }}
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <div class="govuk-pagination-description">
+            <p class="govuk-body govuk-pagination-description__text">
+              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> or <span class="govuk-!-font-weight-bold">115</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

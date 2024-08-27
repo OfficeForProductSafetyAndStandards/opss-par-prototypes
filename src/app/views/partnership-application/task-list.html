@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Task List
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Partnership Application</h1>
+
+      <p class="govuk-body govuk-!-font-weight-bold">Parthership Application is incomplete</p>
+
+      <p class="govuk-body">You have completed <span class="govuk-!-font-weight-bold">
+        {% if (data['review']) %}
+          5
+        {% elseif (data['other-information']) %}
+          4
+        {% elseif (data['contact']) %}
+          3
+        {% elseif (data['contact-details']) %}
+          2
+        {% elseif (data['partnership-type']) %}
+          1
+        {% else %}
+          0
+        {% endif %}
+      </span> of <span class="govuk-!-font-weight-bold">5</span> sections.</p>
+
+
+      {% set cannotStartYetStatus = {
+        tag: {
+          text: "Cannot start yet",
+          classes: "govuk-tag--grey"
+        }
+      } %}
+
+      {% set notYetStartedStatus = {
+        tag: {
+          text: "Not yet started",
+          classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {% set completedStatus = {
+        tag: {
+          text: "Completed",
+          classes: "govuk-tag--green"
+        } 
+      } %}
+
+      <h2 class="govuk-heading-m">1. Parthership Type</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Select partnership type"
+            },
+            href: "/partnership-application/partnership-type",
+            status: (completedStatus if data['partnership-type'] else notYetStartedStatus)
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">2. Regulatory Functions</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Select Regulatory Function"
+            },
+            href: ("/partnership-application/regulatory-function" if data['partnership-type']),
+            status: (completedStatus if data['regulatory-function'] else (notYetStartedStatus if data['partnership-type'] else cannotStartYetStatus))
+          },
+          {
+            title: {
+              text: "Add contact details"
+            },
+            href: ("/partnership-application/contact-details" if data['regulatory-function']),
+            status: (completedStatus if data['contact-details'] else (notYetStartedStatus if data['regulatory-function'] else cannotStartYetStatus))
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">3. Organisation</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Select Organisation"
+            },
+            href: ("/partnership-application/select-organisation" if data['contact-details']),
+            status: (completedStatus if data['organisation'] else (notYetStartedStatus if data['contact-details'] else cannotStartYetStatus))
+          },
+          {
+            title: {
+              text: "Add additional details (optional)"
+            },
+            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation'] else cannotStartYetStatus))
+          },
+          {
+            title: {
+              text: "Add contact"
+            },
+            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation'] else cannotStartYetStatus))
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">4. Additional details (optional)</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Add any other information"
+            },
+            status: cannotStartYetStatus
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">5. Review all details and submit</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Add any other information"
+            },
+            status: cannotStartYetStatus
+          }
+        ]
+      }) }}
+
+      <div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Apply", href: "#" }) }}
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

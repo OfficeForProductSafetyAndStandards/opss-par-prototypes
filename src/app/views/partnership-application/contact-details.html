@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+  Parthership Application – {{ serviceName }} – Contacts for regulartory functions
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/partnership-table"
+    },
+    {
+      text: "Apply for partnership",
+      href: "/partnership-application/task-list"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Contact for regulartory functions
+      </h1>
+
+      <p>
+        You must add at least one contact each for the selected regulartory functions
+      </p>
+
+      {{ govukDetails({
+        summaryText: "Why am I only seeing some regulartory functions?",
+        text: "You are only required to add contacts to the regulartory functions selected. Therefore this screen will only display the regulartory functions added to your application in the previous step."
+      }) }}
+
+      <h2 class="govuk-heading-m">Added contacts</h2>
+
+        {% if ("environmental-health" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Environmental health</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+        {% if ("explosives-licensing" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Explosives licensing</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+        {% if ("fire-safety" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Fire safety</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+        {% if ("health-and-safety" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Health and safety (reserved functions only)</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+        {% if ("licensing" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Licensing</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+        {% if ("petrol-storage" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Petrol storage certification</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+        {% if ("trading-standards" in data['regulatory-function']) %}
+          <h3 class="govuk-heading-s">Trading standards</h3>
+          <p>No contact added</p>
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% endif %}
+
+        {{ govukButton({
+          text: "Add new contact",
+          classes: "govuk-button--secondary"
+        }) }}
+        <form class="form" action="/partnership-application/task-list" method="post">
+
+
+          {{ govukInput({
+            id: "contact-details",
+            name: "contact-details",
+            value: "true",
+            classes: "govuk-visually-hidden"
+          }) }}
+
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Save and Continue"
+            }) }}
+            <a class="govuk-link" href="/partnership-application/task-list">Cancel</a>
+          </div>
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

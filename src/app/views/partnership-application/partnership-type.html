@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block pageTitle %}
+  Parthership Application – {{ serviceName }} – Parthership Type
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/partnership-table"
+    },
+    {
+      text: "Apply for partnership",
+      href: "/partnership-application/task-list"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application/task-list" method="post">
+
+        {{ govukRadios({
+          name: "partnership-type",
+          id: "partnership-type",
+          value: data['partnership-type'],
+          fieldset: {
+            legend: {
+              text: "What kind of partnership are you applying for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          formGroup: {
+          beforeInputs: {
+            html: "<details class='govuk-details'>
+                    <summary class='govuk-details__summary'>
+                      <span class='govuk-details__summary-text'>
+                        What is the difference between a direct and coordinated partnership?
+                      </span>
+                    </summary>
+                    <div class='govuk-details__text'>
+                      <p>Direct partnership refers to a partnership between a local authority
+                        and an organisation, such as a business looking to seek advice for
+                        their own benefit.</p>
+                      <p>Coordinated partnership refers to a partnership between a local
+                        authority and an organisation with members, such as franchisees,
+                        looking to seek advice on behalf of their members.</p>
+                    </div>
+                  </details>"
+          }
+          },
+          items: [
+            {
+              value: "direct",
+              text: "Direct"
+            },
+            {
+              value: "coordinated",
+              text: "Coordinated"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

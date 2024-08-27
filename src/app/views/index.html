@@ -1,0 +1,84 @@
+{% extends "layouts/anonymous.html" %}
+
+{% block pageTitle %}
+  Start page – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Don't have an account?
+      </h2>
+
+      <p>
+        Businesses interested in joining a partnership can call 0121 345 1201 or e-mail  to be guided through the process.
+      <a class="govuk-link" href="mailto:pa@businessandtrade.gov.uk">pa@businessandtrade.gov.uk</a>
+      </p>
+
+      <p>
+        To get access to the Primary Authority Register:
+      </p>
+
+      <p>Local authorities must use this service to:</p>
+
+      <p>This secure service supports the operation of Primary Authority, which allows businesses to receive assured and tailored advice on meeting regulations through direct or co-ordinated partnerships with local authorities, including fire and rescue authorities.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>businesses or organisations representing them need to be in a partnership</li>
+        <li>
+          <a class="govuk-link" href="mailto:pa@businessandtrade.gov.uk">pa@businessandtrade.gov.uk</a>local authorities should call 0121 345 1201 or e-mail </li>
+        <li>local regulators should contact the local administrator at their local authority</li>
+      </ul>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>submit and publish inspection plans</li>
+        <li>notify primary authorities of proposed enforcement actions against businesses in partnerships</li>
+        <li>apply to nominate partnerships</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "#",
+        isStartButton: true
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Resources
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Search the public list of partnerships
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Access tools and templates for local authorities
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Read more about Primary Authority
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

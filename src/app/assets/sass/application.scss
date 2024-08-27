@@ -1,0 +1,22 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Add extra styles here
+.govuk-pagination-description {
+    display: table;
+    width: 100%
+}
+
+.govuk-pagination-description__text {
+    height: 45px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.govuk-keep-right {
+    display: table; 
+    margin-left: auto;
+}
