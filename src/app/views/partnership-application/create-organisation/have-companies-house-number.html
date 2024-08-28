@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Have companies house number
@@ -32,11 +33,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data['companies-house-number-error'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Check that the Companies house number is correct",
+              href: "#"
+            }
+          ]
+        }) }}
+      {% endif %}
+
       <!-- This is a route stored in routes.js -->
       <form class="form" action="/partnership-application/create-organisation/companies-house-answer" method="post">
-
-        {% set companiesHouseHtml %}
-        {{ govukInput({
+      
+        {% set companiesHouseInputOptions = {
           id: "companies-house-number",
           name: "companies-house-number",
           value: data['companies-house-number'],
@@ -45,7 +57,18 @@
           label: {
             text: "Companies house number"
           }
-        }) }}
+        } %}
+
+        {% if data['companies-house-number-error'] %}
+          {% set companiesHouseInputOptions = companiesHouseInputOptions | merge({
+            errorMessage: {
+              text: "Check that the number you entered is correct"
+            }
+          }) %}
+        {% endif %}
+
+        {% set companiesHouseHtml %}
+        {{ govukInput(companiesHouseInputOptions) }}
         {% endset -%}
 
         {{ govukRadios({
