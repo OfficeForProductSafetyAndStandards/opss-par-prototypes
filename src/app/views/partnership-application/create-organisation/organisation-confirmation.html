@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Organisation confirmation
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Select organisation",
+        href: "/partnership-application/select-organisation"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Is this the organisation you want to form a partnership with?
+      </h1>
+
+      <p>
+        These details are from companies house.
+      </p>
+
+    {% set addressItems = [
+                  data['address-line-1'],
+                  data['address-line-2'],
+                  data['address-town'],
+                  data['address-county'],
+                  data['address-postcode']
+                ] %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Companies house number"
+            },
+            value: {
+              text: data['companies-house-number']
+            }
+          },
+          {
+            key: {
+              text: "Trading name"
+            },
+            value: {
+              text: data['organisation-name']
+            }
+          },
+          {
+            key: {
+              text: "Registered office address"
+            },
+            value: {
+              html: addressItems | select() | join ("<br />")
+            }
+          }
+        ]
+      }) }}
+
+      <form class="form" action="/partnership-application/create-organisation/confirm-organisation-answer" method="post">
+
+          {{ govukRadios({
+            name: "is-organisation-correct",
+            items: [
+              {
+                value: "yes-add",
+                text: "Yes, add organisation to my application"
+              },
+              {
+                value: "no-search",
+                text: "No, search again"
+              },
+              {
+                value: "no-enter-manually",
+                text: "No, enter details manually"
+              }
+            ]
+          }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/create-organisation/have-companies-house-number">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -8,15 +8,16 @@
     display: table;
     width: 100%
 }
-
 .govuk-pagination-description__text {
     height: 45px;
     display: table-cell;
     vertical-align: middle;
     text-align: right;
 }
-
 .govuk-keep-right {
     display: table; 
     margin-left: auto;
+}
+.govuk-totally-hidden {
+    display: none;
 }

@@ -94,19 +94,19 @@
               text: "Select Organisation"
             },
             href: ("/partnership-application/select-organisation" if data['contact-details']),
-            status: (completedStatus if data['organisation'] else (notYetStartedStatus if data['contact-details'] else cannotStartYetStatus))
+            status: (completedStatus if data['organisation-name'] else (notYetStartedStatus if data['contact-details'] else cannotStartYetStatus))
           },
           {
             title: {
               text: "Add additional details (optional)"
             },
-            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation'] else cannotStartYetStatus))
+            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation-name'] else cannotStartYetStatus))
           },
           {
             title: {
               text: "Add contact"
             },
-            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation'] else cannotStartYetStatus))
+            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation-name'] else cannotStartYetStatus))
           }
         ]
       }) }}

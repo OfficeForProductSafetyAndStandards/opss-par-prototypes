@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Organisation name
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Select organisation",
+        href: "/partnership-application/select-organisation"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application/create-organisation/organisation-address" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is the name of the organisation you are partnering with?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          id: "organisation-name",
+          name: "organisation-name",
+          value: data['organisation-name']
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/create-organisation/have-companies-house-number">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
