@@ -1,0 +1,134 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Legal entities
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Legal entities</h1>    
+
+      {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+          {{ data['legal-entity-success-message'] }}
+        </h3>
+      {% endset %}
+
+      {% if data['legal-entity-success-message'] %}
+      {{ govukNotificationBanner({
+        html: html,
+        type: "success"
+      }) }}  
+      {% endif %}
+
+      {{ govukInsetText({
+        html: "<p>You can add multiple related legal entites to this application.</p>
+        <p>When approved, each legal entity in the application will have its own unique partnership created and will act independent of each other.</p>
+        <p>For more information, see help section XXXX in the <a href='#'>Primary Authority statutory guidance - GOV.UK (www.gov.uk)</a> (opens in a new tab)"
+      }) }}
+
+      <h2 class="govuk-heading-m">Legal entities in this application</h2>
+
+      {% for item in data['legal-entites'] | select() %}
+        {{ govukSummaryList({
+            card: {
+              title: {
+                text: item.tradingName
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/partnership-application/legal-entities/remove-partnership?index=" + loop.index0,
+                    text: "Remove"
+                  }
+                ]
+              }
+            },
+            rows: [
+              {
+                key: {
+                  text: "Companies house number"
+                },
+                value: {
+                  html: item.companiesHouseNumber
+                }
+              },
+              {
+                key: {
+                  text: "Business area"
+                },
+                value: {
+                  html: item.businessArea
+                }
+              },
+              {
+                key: {
+                  text: "Legal entity type"
+                },
+                value: {
+                  html: item.legalEntityType
+                }
+              },
+              {
+                key: {
+                  text: "Registed office address"
+                },
+                value: {
+                  html: item.address | values | join ("<br />")
+                }
+              }
+            ]
+          }) }}
+      {% else %}
+        <p>No legal entities have been added</p>
+      {% endfor %}
+
+      {{ govukButton({
+        text: "Add legal entity",
+        classes: "govuk-button--secondary",
+        href: "/partnership-application/legal-entities/select-organisation"
+      }) }}
+      
+      <form class="form" action="/partnership-application/task-list" method="post">
+        {{ govukInput({
+          id: "legal-entites-completed",
+          name: "legal-entites-completed",
+          value: "true",
+          classes: "govuk-totally-hidden"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

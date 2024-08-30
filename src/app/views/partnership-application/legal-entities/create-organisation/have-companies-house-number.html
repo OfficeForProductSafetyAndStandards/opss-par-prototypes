@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Have companies house number
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Legal entities",
+        href: "/partnership-application/legal-entities/show-list"
+      },
+      {
+        text: "Select organisation",
+        href: "/partnership-application/legal-entities/select-organisation"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['companies-house-number-error'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Check that the Companies house number is correct",
+              href: "#"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      <!-- This is a route stored in routes.js -->
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/companies-house-answer" method="post">
+      
+        {% set companiesHouseInputOptions = {
+          id: "companies-house-number",
+          name: "companies-house-number",
+          value: data['companies-house-number'],
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Companies house number"
+          }
+        } %}
+
+        {% if data['companies-house-number-error'] %}
+          {% set companiesHouseInputOptions = companiesHouseInputOptions | merge({
+            errorMessage: {
+              text: "Check that the number you entered is correct"
+            }
+          }) %}
+        {% endif %}
+
+        {% set companiesHouseHtml %}
+        {{ govukInput(companiesHouseInputOptions) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "have-companies-house-number",
+          value: data['have-companies-house-number'],
+          fieldset: {
+            legend: {
+              text: "Do you have access to the Companies House number?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: companiesHouseHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/legal-entities/create-organisation/legal-entity-type">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -6,27 +6,24 @@
 
 {% block content %}
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Partnership Application</h1>      
+    </div>
+  </div>
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">Partnership Application</h1>
 
       <p class="govuk-body govuk-!-font-weight-bold">Parthership Application is incomplete</p>
 
       <p class="govuk-body">You have completed <span class="govuk-!-font-weight-bold">
-        {% if (data['review']) %}
-          5
-        {% elseif (data['other-information']) %}
-          4
-        {% elseif (data['contact']) %}
-          3
-        {% elseif (data['contact-details']) %}
+        {% if (data['organisation-details-completed']) %}
           2
-        {% elseif (data['partnership-type']) %}
+        {% elseif (data['partnership-type-completed']) %}
           1
         {% else %}
           0
         {% endif %}
-      </span> of <span class="govuk-!-font-weight-bold">5</span> sections.</p>
+      </span> of <span class="govuk-!-font-weight-bold">3</span> mandatory sections.</p>
 
 
       {% set cannotStartYetStatus = {
@@ -40,6 +37,20 @@
         tag: {
           text: "Not yet started",
           classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {% set legalEntityCountStatus = {
+        tag: {
+          text: data["legal-entites"] | length + " added",
+          classes: "govuk-tag--green"
+        }
+      } %}
+
+      {% set additionalAddressesCountStatus = {
+        tag: {
+          text: data["additional-addresses"] | length + " added",
+          classes: "govuk-tag--green"
         }
       } %}
 
@@ -64,54 +75,39 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">2. Regulatory Functions</h2>
+      <h2 class="govuk-heading-m">2. Organisation details</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
           {
             title: {
-              text: "Select Regulatory Function"
+              text: "Add legal entity"
             },
-            href: ("/partnership-application/regulatory-function" if data['partnership-type']),
-            status: (completedStatus if data['regulatory-function'] else (notYetStartedStatus if data['partnership-type'] else cannotStartYetStatus))
+            href: ("/partnership-application/legal-entities/show-list" if data['partnership-type-completed']),
+            status: (legalEntityCountStatus if data['partnership-type-completed'] else cannotStartYetStatus)
           },
           {
             title: {
-              text: "Add contact details"
+              text: "Additional addresses (optional)"
             },
-            href: ("/partnership-application/contact-details" if data['regulatory-function']),
-            status: (completedStatus if data['contact-details'] else (notYetStartedStatus if data['regulatory-function'] else cannotStartYetStatus))
+            status: (additionalAddressesCountStatus if data['legal-entites-completed'] else cannotStartYetStatus)
+          },
+          {
+            title: {
+              text: "Add primary contact details"
+            },
+            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
+          },
+          {
+            title: {
+              text: "Add contacts for legal entity"
+            },
+            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">3. Organisation</h2>
-      {{ govukTaskList({
-        idPrefix: "first-section",
-        items: [
-          {
-            title: {
-              text: "Select Organisation"
-            },
-            href: ("/partnership-application/select-organisation" if data['contact-details']),
-            status: (completedStatus if data['organisation'] else (notYetStartedStatus if data['contact-details'] else cannotStartYetStatus))
-          },
-          {
-            title: {
-              text: "Add additional details (optional)"
-            },
-            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation'] else cannotStartYetStatus))
-          },
-          {
-            title: {
-              text: "Add contact"
-            },
-            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['organisation'] else cannotStartYetStatus))
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-m">4. Additional details (optional)</h2>
+      <h2 class="govuk-heading-m">3. Additional details (optional)</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
@@ -124,7 +120,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">5. Review all details and submit</h2>
+      <h2 class="govuk-heading-m">4. Review and submit</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
@@ -141,6 +137,26 @@
         {{ govukButton({ text: "Apply", href: "#" }) }}
       </div>
 
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <h3 class="govuk-heading-s">
+        Local Authority:
+      </h3>
+        <ul class="govuk-list">
+          <li>
+            Milton Keynes Council
+          </li>
+        </ul>
+      <h3 class="govuk-heading-s">
+        Regulatory functions:
+      </h3>
+        <ul class="govuk-list">
+          {% for item in data['session-regulatory-functions'] %}
+            <li>{{ data['regulatory-functions'] | find('value', item) | value('text') }}</li>
+          {% else %}
+            <li>None</li>
+          {% endfor %}
+        </ul>
     </div>
   </div>
 {% endblock %}

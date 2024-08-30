@@ -13,7 +13,7 @@
   items: [
     {
       text: "Home",
-      href: "/partnership-table"
+      href: "/partnership-table/active-partnerships"
     },
     {
       text: "Apply for partnership",
@@ -71,6 +71,13 @@
               text: "Coordinated"
             }
           ]
+        }) }}
+
+        {{ govukInput({
+          id: "partnership-type-completed",
+          name: "partnership-type-completed",
+          value: "true",
+          classes: "govuk-totally-hidden"
         }) }}
 
         <div class="govuk-button-group">

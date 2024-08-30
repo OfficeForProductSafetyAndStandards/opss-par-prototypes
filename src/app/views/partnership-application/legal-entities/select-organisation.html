@@ -3,6 +3,8 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 
+{% set organisations = "./app/data/organisations.json" | read_json %}
+
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} - Select Organisation
 {% endblock %}
@@ -10,17 +12,21 @@
 {% block beforeContent %}
 
   {{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "/partnership-table"
-    },
-    {
-      text: "Apply for partnership",
-      href: "/partnership-application/task-list"
-    }
-  ]
-}) }}
+    items: [
+      {
+        text: "Home",
+        href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Legal entities",
+        href: "/partnership-application/legal-entities/show-list"
+      }
+    ]
+  }) }}
 
 {% endblock %}
 
@@ -34,7 +40,8 @@
     <div class="govuk-grid-column-one-third">
       {{ govukButton({
         text: "Create a new organisation",
-        classes: "govuk-button--secondary"
+        classes: "govuk-button--secondary",
+        href: "/partnership-application/legal-entities/create-organisation/legal-entity-type"
       }) }}
     </div>
   </div>
@@ -42,7 +49,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-quarter">
       <h2 class="govuk-heading-m">Filters</h2>
-
+      
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
       {{ govukCheckboxes({
@@ -169,6 +176,24 @@
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
+    {% set newArray = [] %}
+    {% for item in organisations %}
+        {% set newItem =           
+          [{
+            html: "<a href='#'' class='govuk-link'>"+ item.tradingName + "</a>"
+          },
+          {
+            text: item.companiesHouseNumber
+          },
+          {
+            html: item.address | values | join ("<br />")
+          },
+          {
+            html: "<a href='/partnership-application/legal-entities/select-partnership?index=" + loop.index0 +"' role='button' draggable='false' class='govuk-button govuk-button--secondary' data-module='govuk-button' contenteditable='false' style='cursor: pointer;'>Select</a>"
+          }] %}
+        {% set newArray = (newArray.push(newItem), newArray) %}
+    {% endfor %}
+
     {{ govukTable({
       head: [
         {
@@ -184,148 +209,7 @@
           text: ""
         }
       ],
-      rows: [
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ],
-        [
-          {
-            html: "<a href='#'' class='govuk-link'>Ableworld (UK) Limited</a>"
-          },
-          {
-            text: "28392034"
-          },
-          {
-            html: "10 Beech Street<br />London<br />EC5 6JK"
-          },
-          {
-            html: "<button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>Select</button>"
-          }
-        ]
-      ]
+      rows: newArray
     }) }}
 
       <div class="govuk-grid-row">
@@ -355,7 +239,7 @@
         <div class="govuk-grid-column-one-half">
           <div class="govuk-pagination-description">
             <p class="govuk-body govuk-pagination-description__text">
-              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> or <span class="govuk-!-font-weight-bold">115</span></p>
+              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">115</span></p>
           </div>
         </div>
       </div>
