@@ -20,8 +20,12 @@
         href: "/partnership-application/task-list"
       },
       {
+        text: "Legal entities",
+        href: "/partnership-application/legal-entities/show-list"
+      },
+      {
         text: "Select organisation",
-        href: "/partnership-application/select-organisation"
+        href: "/partnership-application/legal-entities/select-organisation"
       }
     ]
   }) }}
@@ -46,7 +50,7 @@
       {% endif %}
 
       <!-- This is a route stored in routes.js -->
-      <form class="form" action="/partnership-application/create-organisation/companies-house-answer" method="post">
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/companies-house-answer" method="post">
       
         {% set companiesHouseInputOptions = {
           id: "companies-house-number",
@@ -100,7 +104,7 @@
           {{ govukButton({
             text: "Continue"
           }) }}
-          <a class="govuk-link" href="/partnership-application/create-organisation/legal-entity-type">Back</a>
+          <a class="govuk-link" href="/partnership-application/legal-entities/create-organisation/legal-entity-type">Back</a>
         </div>
 
       </form>

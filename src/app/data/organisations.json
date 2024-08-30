@@ -2,8 +2,21 @@
     {
         "tradingName": "Ableworld (UK) Limited",
         "companiesHouseNumber": "27382937",
+        "businessArea": "Manufacturing",
+        "legalEntityType": "Limited Company",
         "address": {
             "line1": "10 Beech Street",
+            "town": "London",
+            "postcode": "EC5 6JK"
+        }
+    },
+    {
+        "tradingName": "Ableworld 2 (UK) Limited",
+        "companiesHouseNumber": "27382937",
+        "businessArea": "Manufacturing",
+        "legalEntityType": "Limited Company",
+        "address": {
+            "line1": "12 Beech Street",
             "town": "London",
             "postcode": "EC5 6JK"
         }

@@ -22,3 +22,17 @@ addFilter('values', function (object) {
 addFilter('merge', function (obj1, obj2) {
     return Object.assign({}, obj1, obj2);
 });
+
+// Find an item in an array
+addFilter('find', function (array, attr, value) {
+    return array.find(obj => {
+        return obj[attr] == value
+    });
+})
+
+// Return the object's attribute's value
+addFilter('value', function (obj, attr) {
+    if (obj)
+        return obj[attr];
+    return '';
+})

@@ -73,6 +73,13 @@
           ]
         }) }}
 
+        {{ govukInput({
+          id: "partnership-type-completed",
+          name: "partnership-type-completed",
+          value: "true",
+          classes: "govuk-totally-hidden"
+        }) }}
+
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Continue"

@@ -12,17 +12,21 @@
 {% block beforeContent %}
 
   {{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "/partnership-table/active-partnerships"
-    },
-    {
-      text: "Apply for partnership",
-      href: "/partnership-application/task-list"
-    }
-  ]
-}) }}
+    items: [
+      {
+        text: "Home",
+        href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Legal entities",
+        href: "/partnership-application/legal-entities/show-list"
+      }
+    ]
+  }) }}
 
 {% endblock %}
 
@@ -37,7 +41,7 @@
       {{ govukButton({
         text: "Create a new organisation",
         classes: "govuk-button--secondary",
-        href: "/partnership-application/create-organisation/legal-entity-type"
+        href: "/partnership-application/legal-entities/create-organisation/legal-entity-type"
       }) }}
     </div>
   </div>
@@ -185,7 +189,7 @@
             html: item.address | values | join ("<br />")
           },
           {
-            html: "<a href='/partnership-application/select-partnership-answer?index=" + loop.index0 +"' role='button' draggable='false' class='govuk-button govuk-button--secondary' data-module='govuk-button' contenteditable='false' style='cursor: pointer;'>Select</a>"
+            html: "<a href='/partnership-application/legal-entities/select-partnership?index=" + loop.index0 +"' role='button' draggable='false' class='govuk-button govuk-button--secondary' data-module='govuk-button' contenteditable='false' style='cursor: pointer;'>Select</a>"
           }] %}
         {% set newArray = (newArray.push(newItem), newArray) %}
     {% endfor %}
@@ -235,7 +239,7 @@
         <div class="govuk-grid-column-one-half">
           <div class="govuk-pagination-description">
             <p class="govuk-body govuk-pagination-description__text">
-              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> or <span class="govuk-!-font-weight-bold">115</span></p>
+              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">115</span></p>
           </div>
         </div>
       </div>

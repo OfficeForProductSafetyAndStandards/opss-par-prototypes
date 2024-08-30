@@ -20,8 +20,12 @@
         href: "/partnership-application/task-list"
       },
       {
+        text: "Legal entities",
+        href: "/partnership-application/legal-entities/show-list"
+      },
+      {
         text: "Select organisation",
-        href: "/partnership-application/select-organisation"
+        href: "/partnership-application/legal-entities/select-organisation"
       }
     ]
   }) }}
@@ -41,14 +45,6 @@
         These details are from companies house.
       </p>
 
-    {% set addressItems = [
-                  data['address-line-1'],
-                  data['address-line-2'],
-                  data['address-town'],
-                  data['address-county'],
-                  data['address-postcode']
-                ] %}
-
       {{ govukSummaryList({
         rows: [
           {
@@ -56,7 +52,7 @@
               text: "Companies house number"
             },
             value: {
-              text: data['companies-house-number']
+              text: data['new-organisation'].companiesHouseNumber
             }
           },
           {
@@ -64,7 +60,7 @@
               text: "Trading name"
             },
             value: {
-              text: data['organisation-name']
+              text: data['new-organisation'].tradingName
             }
           },
           {
@@ -72,13 +68,13 @@
               text: "Registered office address"
             },
             value: {
-              html: addressItems | select() | join ("<br />")
+              html: data['new-organisation'].address | values | join ("<br />")
             }
           }
         ]
       }) }}
 
-      <form class="form" action="/partnership-application/create-organisation/confirm-organisation-answer" method="post">
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/confirm-organisation-answer" method="post">
 
           {{ govukRadios({
             name: "is-organisation-correct",
@@ -102,7 +98,7 @@
           {{ govukButton({
             text: "Continue"
           }) }}
-          <a class="govuk-link" href="/partnership-application/create-organisation/have-companies-house-number">Back</a>
+          <a class="govuk-link" href="/partnership-application/legal-entities/create-organisation/have-companies-house-number">Back</a>
         </div>
 
       </form>
