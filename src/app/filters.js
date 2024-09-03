@@ -36,3 +36,28 @@ addFilter('value', function (obj, attr) {
         return obj[attr];
     return '';
 })
+
+// Add an object to an array
+addFilter('push', function (arr, obj) {
+    if (arr)
+        arr.push(obj);
+    else
+        arr = [obj];
+
+    return arr;
+})
+
+// counts the number of elements in an array's attribute (assuming that attribute has the property 'length')
+addFilter('countArr', function (arr, attr) {
+    let count = 0;
+
+    if (!arr)
+        return count;
+
+    arr.forEach(element => {
+        if (element[attr])
+            count = count + element[attr].length;
+    });
+
+    return count;
+})

@@ -49,7 +49,7 @@
 
       {% set additionalAddressesCountStatus = {
         tag: {
-          text: data["additional-addresses"] | length + " added",
+          text: data["legal-entites"] | countArr('additionalAddress') + " added",
           classes: "govuk-tag--green"
         }
       } %}
@@ -90,18 +90,21 @@
             title: {
               text: "Additional addresses (optional)"
             },
+            href: ("/partnership-application/additional-addresses/show-list" if data['legal-entites-completed']),
             status: (additionalAddressesCountStatus if data['legal-entites-completed'] else cannotStartYetStatus)
           },
           {
             title: {
               text: "Add primary contact details"
             },
-            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
+            href: ("/partnership-application/contact-details/primary-contact" if data['legal-entites-completed']),
+            status: (completedStatus if data['primary-first-name'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
           },
           {
             title: {
               text: "Add contacts for legal entity"
             },
+            href: ("/partnership-application/contact-details/show-list" if data['legal-entites-completed']),
             status: (completedStatus if data['contact'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
           }
         ]
