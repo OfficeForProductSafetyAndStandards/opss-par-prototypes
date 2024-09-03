@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Additional addresses
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Add additional addresses for the legal entities (optional)</h1>    
+
+      {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+          {{ data['additional-addresses-success-message'] }}
+        </h3>
+      {% endset %}
+
+      {% if data['additional-addresses-success-message'] %}
+      {{ govukNotificationBanner({
+        html: html,
+        type: "success"
+      }) }}  
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p>Addresses must be a physical location where letters can be delivered.</p>
+
+      {% for item in data['legal-entites'] | select() %}
+
+        {% set additionalAddresses = [
+              {
+                key: {
+                  text: "Registed office address"
+                },
+                value: {
+                  html: item.address | values | join ("<br />")
+                }
+              }]
+        %}
+
+        {% set entityLoop = loop %}
+        {% for additionalAddress in item.additionalAddress or [] | select() %}
+          {% set additionalAddresses = additionalAddresses | push({
+                key: {
+                  text: "Additional office address"
+                },
+                value: {
+                  html: additionalAddress | values | select() | join ("<br />")
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Copy",
+                      visuallyHiddenText: "address"
+                    },
+                    {
+                      href: "/partnership-application/additional-addresses/show-edit-address?entity=" + entityLoop.index0 + "&address=" + loop.index0,
+                      text: "Change",
+                      visuallyHiddenText: "address"
+                    },
+                    {
+                      href: "/partnership-application/additional-addresses/remove-address?entity=" + entityLoop.index0 + "&address=" + loop.index0,
+                      text: "Remove",
+                      visuallyHiddenText: "address"
+                    }
+                  ]
+                }
+              }) %}
+        {% endfor %}
+
+        {{ govukSummaryList({
+            card: {
+              title: {
+                text: item.tradingName
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/partnership-application/additional-addresses/show-add-address?index=" + loop.index0,
+                    text: "Add address"
+                  }
+                ]
+              }
+            },
+            rows: additionalAddresses
+          }) }}
+      {% else %}
+        <p>No legal entities have been added</p>
+      {% endfor %}
+
+      <form class="form" action="/partnership-application/task-list" method="post">
+        {{ govukInput({
+          id: "additional-addresses-completed",
+          name: "additional-addresses-completed",
+          value: "true",
+          classes: "govuk-totally-hidden"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

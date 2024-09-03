@@ -42,7 +42,7 @@ router.post('/partnership-application/legal-entities/create-organisation/compani
 
 // Route for Create Organisation "Is this the organisation you want to form a partnership with?"
 router.post('/partnership-application/legal-entities/create-organisation/confirm-organisation-answer', function (req, res) {
-    var isOrganisationCorrect = req.session.data['is-organisation-correct']
+    let isOrganisationCorrect = req.session.data['is-organisation-correct']
     if (isOrganisationCorrect == "yes-add") {
         req.session.data['legal-entites'].push(req.session.data['new-organisation']);
         req.session.data['new-organisation'] = undefined;
@@ -86,9 +86,9 @@ router.post('/partnership-application/legal-entities/create-organisation/new-org
 // we load the orgnisations file and load the correct index'd item
 router.get('/partnership-application/legal-entities/select-partnership', function (req, res) {
     const fileContent = fs.readFileSync("./app/data/organisations.json", 'utf8');
-    var organisations = JSON.parse(fileContent);
+    let organisations = JSON.parse(fileContent);
 
-    var index = parseInt(req.query.index);
+    let index = parseInt(req.query.index);
 
     if (!req.session.data['legal-entites'])
         req.session.data['legal-entites'] = [];
@@ -102,9 +102,9 @@ router.get('/partnership-application/legal-entities/select-partnership', functio
 
 // Route for removing a legal entity from the list
 router.get('/partnership-application/legal-entities/remove-partnership', function (req, res) {
-    var index = parseInt(req.query.index);
+    let index = parseInt(req.query.index);
 
-    var list = req.session.data['legal-entites'];
+    let list = req.session.data['legal-entites'];
     let item = list[index];
     delete list[index];
 
@@ -121,4 +121,130 @@ router.get('/partnership-application/legal-entities/remove-partnership', functio
 router.get('/partnership-application/legal-entities/show-list', function (req, res) {
     req.session.data['legal-entity-success-message'] = undefined;
     res.redirect('/partnership-application/legal-entities/list');
+})
+
+// Route to go to the additional-addresses list
+router.get('/partnership-application/additional-addresses/show-list', function (req, res) {
+    req.session.data['additional-addresses-success-message'] = undefined;
+    res.redirect('/partnership-application/additional-addresses/list');
+})
+
+// Route to go to the add-additional-addresses list
+router.get('/partnership-application/additional-addresses/show-add-address', function (req, res) {
+    let index = parseInt(req.query.index);
+    let list = req.session.data['legal-entites'];
+
+    req.session.data['selected-legal-entity'] = list[index];
+    req.session.data['selected-legal-entity-index'] = index;
+    res.redirect('/partnership-application/additional-addresses/add-address');
+})
+
+// Route to add address
+router.post('/partnership-application/additional-addresses/add-address-answer', function (req, res) {
+    let index = req.session.data['selected-legal-entity-index'];
+    let list = req.session.data['legal-entites'];
+    let org = req.session.data['selected-legal-entity'];
+
+    let address = {
+        "line1": req.session.data['address-line-1'],
+        "line2": req.session.data['address-line-2'],
+        "town": req.session.data['address-town'],
+        "county": req.session.data['address-county'],
+        "postcode": req.session.data['address-postcode'],
+    };
+
+    if (!list[index].additionalAddress) {
+        list[index].additionalAddress = [];
+    }
+
+    list[index].additionalAddress.push(address);
+    req.session.data['legal-entites'] = list;
+
+    req.session.data['address-line-1'] = undefined;
+    req.session.data['address-line-2'] = undefined;
+    req.session.data['address-town'] = undefined;
+    req.session.data['address-county'] = undefined;
+    req.session.data['address-postcode'] = undefined;
+    req.session.data['selected-legal-entity-index'] = undefined;
+    req.session.data['selected-legal-entity'] = undefined;
+
+    req.session.data['additional-addresses-success-message'] = "Address has been added to " + org.tradingName;
+
+    res.redirect('/partnership-application/additional-addresses/list');
+})
+
+// Route to go to the edit-additional-addresses list
+router.get('/partnership-application/additional-addresses/show-edit-address', function (req, res) {
+    let entityIndex = parseInt(req.query.entity);
+    let addressIndex = parseInt(req.query.address);
+
+    let list = req.session.data['legal-entites'];
+    let address = list[entityIndex].additionalAddress[addressIndex];
+
+    req.session.data['address-line-1'] = address.line1;
+    req.session.data['address-line-2'] = address.line2;
+    req.session.data['address-town'] = address.town;
+    req.session.data['address-county'] = address.county;
+    req.session.data['address-postcode'] = address.postcode;
+
+    req.session.data['selected-legal-entity-index'] = entityIndex;
+    req.session.data['selected-legal-entity-address-index'] = addressIndex;
+    res.redirect('/partnership-application/additional-addresses/edit-address');
+})
+
+// Route to update the address
+router.post('/partnership-application/additional-addresses/edit-address-answer', function (req, res) {
+    let entityIndex = req.session.data['selected-legal-entity-index'];
+    let addressIndex = req.session.data['selected-legal-entity-address-index'];
+    let list = req.session.data['legal-entites'];
+
+    let address = {
+        "line1": req.session.data['address-line-1'],
+        "line2": req.session.data['address-line-2'],
+        "town": req.session.data['address-town'],
+        "county": req.session.data['address-county'],
+        "postcode": req.session.data['address-postcode'],
+    };
+
+    list[entityIndex].additionalAddress[addressIndex] = address;
+    req.session.data['legal-entites'] = list;
+
+    req.session.data['address-line-1'] = undefined;
+    req.session.data['address-line-2'] = undefined;
+    req.session.data['address-town'] = undefined;
+    req.session.data['address-county'] = undefined;
+    req.session.data['address-postcode'] = undefined;
+    req.session.data['selected-legal-entity-index'] = undefined;
+    req.session.data['selected-legal-entity-address-index'] = undefined;
+
+    req.session.data['additional-addresses-success-message'] = "Address has been updated";
+
+    res.redirect('/partnership-application/additional-addresses/list');
+})
+
+// Route to remove an address
+router.get('/partnership-application/additional-addresses/remove-address', function (req, res) {
+    let entityIndex = parseInt(req.query.entity);
+    let addressIndex = parseInt(req.query.address);
+
+    let list = req.session.data['legal-entites'];
+
+    delete list[entityIndex].additionalAddress[addressIndex];
+
+    if (!list[entityIndex].additionalAddress)
+        list[entityIndex].additionalAddress = [];
+
+    list[entityIndex].additionalAddress = list[entityIndex].additionalAddress.filter(n => n);
+
+    req.session.data['legal-entites'] = list;
+
+    req.session.data['additional-addresses-success-message'] = "Address has neem removed";
+
+    res.redirect('/partnership-application/additional-addresses/list');
+})
+
+// Route to go to the contact-details list
+router.get('/partnership-application/contact-details/show-list', function (req, res) {
+    req.session.data['contact-details-success-message'] = undefined;
+    res.redirect('/partnership-application/contact-details/list');
 })

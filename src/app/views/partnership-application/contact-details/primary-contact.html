@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Primary contact
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/partnership-application/task-list" method="post">
+
+        {% call govukFieldset({
+          legend: {
+            text: "Add primary contact",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        
+        <div id="organisations-address-hint" class="govuk-hint">
+          <p>Primary contact will receive all application notifications.</p>
+        </div>
+
+          {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            id: "primary-first-name",
+            name: "primary-first-name",
+            value: data['primary-first-name']
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "primary-last-name",
+            name: "primary-last-name",
+            value: data['primary-last-name']
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Phone number"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "primary-phone-number",
+            name: "primary-phone-number",
+            value: data['primary-phone-number']
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            id: "primary-email-address",
+            name: "primary-email-address",
+            value: data['primary-email-address']
+          }) }}
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save contact"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
