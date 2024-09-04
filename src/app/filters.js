@@ -61,3 +61,16 @@ addFilter('countArr', function (arr, attr) {
 
     return count;
 })
+
+// searches through an array for items containing an attribute with the given value and returns the collection
+addFilter('search', function (obj, arrAttr, attr, value) {
+    let results = [];
+
+    if (obj[arrAttr])
+        obj[arrAttr].forEach(element => {
+            if (element[attr] && element[attr] == value)
+                results.push(element);
+        });
+
+    return results;
+})

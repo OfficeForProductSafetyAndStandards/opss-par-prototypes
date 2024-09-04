@@ -248,3 +248,49 @@ router.get('/partnership-application/contact-details/show-list', function (req, 
     req.session.data['contact-details-success-message'] = undefined;
     res.redirect('/partnership-application/contact-details/list');
 })
+
+// Route to go to the contact-details list
+router.get('/partnership-application/contact-details/show-add-contact', function (req, res) {
+    let index = parseInt(req.query.index);
+
+    let list = req.session.data['legal-entites'];
+
+    req.session.data['selected-legal-entity'] = list[index];
+    req.session.data['selected-legal-entity-index'] = index;
+
+    res.redirect('/partnership-application/contact-details/add/regulatory-function');
+})
+
+router.post('/partnership-application/contact-details/add/save-contact', function (req, res) {
+    let index = req.session.data['selected-legal-entity-index'];
+    let list = req.session.data['legal-entites'];
+    let org = req.session.data['selected-legal-entity'];
+    let functions = req.session.data['session-regulatory-functions'];
+
+    if (!list[index].legalEntityContacts) {
+        list[index].legalEntityContacts = [];
+    }
+
+    functions.forEach(entity => {
+        list[index].legalEntityContacts.push({
+            "firstName": req.session.data['new-contact-first-name'],
+            "lastName": req.session.data['new-contact-last-name'],
+            "phoneNumber": req.session.data['new-contact-phone-number'],
+            "emailAddress": req.session.data['new-contact-email-address'],
+            "legalEntity": entity
+        });
+    });
+
+    req.session.data['legal-entites'] = list;
+
+    req.session.data['new-contact-first-name'] = undefined;
+    req.session.data['new-contact-last-name'] = undefined;
+    req.session.data['new-contact-phone-number'] = undefined;
+    req.session.data['new-contact-email-address'] = undefined;
+
+    req.session.data['selected-legal-entity-index'] = undefined;
+    req.session.data['selected-legal-entity'] = undefined;
+
+    req.session.data['contact-details-success-message'] = "Contact added to " + org.tradingName;
+    res.redirect('/partnership-application/contact-details/list');
+})

@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Contacts for legal entities
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Add contacts for all legal entities</h1>    
+
+      {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+          {{ data['contact-details-success-message'] }}
+        </h3>
+      {% endset %}
+
+      {% if data['contact-details-success-message'] %}
+      {{ govukNotificationBanner({
+        html: html,
+        type: "success"
+      }) }}  
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p>You must add at least one contact per regulatory function from all legal entities.</p>
+
+      {% macro contactDetails(arr) %}
+        {% for contact in arr %}
+          {{ contact.firstName }} {{ contact.lastName }}<br />
+          {{ contact.phoneNumber }}<br />
+          {{ contact.emailAddress }}<br />
+          {% if loop.last == false %}
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          {% endif %}
+        {% endfor %}
+      {% endmacro %}
+
+      {% for legalEntity in data['legal-entites'] | select() %}
+        {% set entityFunctions = [] %}
+        {% for sessionRegulatoryFunction in data['session-regulatory-functions'] %}
+          {% set entityContacts = legalEntity | search('legalEntityContacts', 'legalEntity', sessionRegulatoryFunction)  %}
+
+          {% set entityFunctions = entityFunctions | push({
+                  key: {
+                    text: data['regulatory-functions'] | find('value', sessionRegulatoryFunction) | value('text')
+                  },
+                  value: {
+                    html: contactDetails(entityContacts)
+                  }
+          }) %}
+        {% endfor %}
+
+        {{ govukSummaryList({
+            card: {
+              title: {
+                text: legalEntity.tradingName
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/partnership-application/contact-details/show-add-contact?index=" + loop.index0,
+                    text: "Add contact"
+                  }
+                ]
+              }
+            },
+            rows: entityFunctions
+          }) }}
+      {% else %}
+        <p>No legal entities have been added</p>
+      {% endfor %}
+
+      <form class="form" action="/partnership-application/task-list" method="post">
+        {{ govukInput({
+          id: "contacts-completed",
+          name: "contacts-completed",
+          value: "true",
+          classes: "govuk-totally-hidden"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

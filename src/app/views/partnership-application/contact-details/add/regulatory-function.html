@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – New contact regulatory function
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Add contacts for all legal entities",
+        href: "/partnership-application/contact-details/show-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application/contact-details/add/details" method="post">
+
+        {% set items = [] %}
+
+        {% for sessionRegulatoryFunction in data['new-contact-regulatory-function'] %}
+          {% set items = items | push(
+            {
+                value: sessionRegulatoryFunction,
+                text: data['regulatory-functions'] | find('value', sessionRegulatoryFunction) | value('text'),
+                checked: data['new-contact-regulatory-function'] and sessionRegulatoryFunction in data['new-contact-regulatory-function']
+            }) %}
+        {% endfor %}
+
+        {{ govukCheckboxes({
+          name: "new-contact-regulatory-function",
+          fieldset: {
+            legend: {
+              text: "Add contact for " +  data['selected-legal-entity'].tradingName,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select regulatory functions to add your contact to."
+          },
+          items: items
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/contact-details/show-list">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
