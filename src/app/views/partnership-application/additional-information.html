@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Additional information
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application/task-list" method="post">
+
+      {{ govukTextarea({
+        name: "additional-information",
+        id: "additional-information",
+        value: data['additional-information'],
+        label: {
+          text: "Is there additional information about your partnership? (optional)",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "This could include additional information not specified in teh application itself."
+        }
+      }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save additional information"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

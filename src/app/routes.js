@@ -294,3 +294,13 @@ router.post('/partnership-application/contact-details/add/save-contact', functio
     req.session.data['contact-details-success-message'] = "Contact added to " + org.tradingName;
     res.redirect('/partnership-application/contact-details/list');
 })
+
+router.get('/partnership-application/contact-details/add/copy-primary-contact', function (req, res) {
+
+    req.session.data['new-contact-first-name'] = req.session.data['primary-first-name'];
+    req.session.data['new-contact-last-name'] = req.session.data['primary-last-name'];
+    req.session.data['new-contact-phone-number'] = req.session.data['primary-phone-number'];
+    req.session.data['new-contact-email-address'] = req.session.data['primary-email-address'];
+
+    res.redirect('/partnership-application/contact-details/add/details');
+})
