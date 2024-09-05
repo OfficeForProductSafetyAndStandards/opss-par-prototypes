@@ -105,7 +105,7 @@
               text: "Add contacts for legal entity"
             },
             href: ("/partnership-application/contact-details/show-list" if data['legal-entites-completed']),
-            status: (completedStatus if data['contact'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
+            status: (completedStatus if data['contacts-completed'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
           }
         ]
       }) }}
@@ -118,7 +118,8 @@
             title: {
               text: "Add any other information"
             },
-            status: cannotStartYetStatus
+            href: ("/partnership-application/additional-information" if data['contacts-completed']),
+            status: (completedStatus if data['additional-information'] else (notYetStartedStatus if data['contacts-completed'] else cannotStartYetStatus))
           }
         ]
       }) }}
@@ -129,16 +130,13 @@
         items: [
           {
             title: {
-              text: "Add any other information"
+              text: "Review all details and submit"
             },
-            status: cannotStartYetStatus
+            href: ("/partnership-application/review-details" if data['contacts-completed']),
+            status: (notYetStartedStatus if data['contacts-completed'] else cannotStartYetStatus)
           }
         ]
       }) }}
-
-      <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Apply", href: "#" }) }}
-      </div>
 
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">

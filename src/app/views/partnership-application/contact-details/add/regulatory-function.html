@@ -35,8 +35,7 @@
       <form class="form" action="/partnership-application/contact-details/add/details" method="post">
 
         {% set items = [] %}
-
-        {% for sessionRegulatoryFunction in data['new-contact-regulatory-function'] %}
+        {% for sessionRegulatoryFunction in data['session-regulatory-functions'] %}
           {% set items = items | push(
             {
                 value: sessionRegulatoryFunction,
@@ -55,7 +54,7 @@
             }
           },
           hint: {
-            text: "Select regulatory functions to add your contact to."
+            html: "Select regulatory functions to add your contact to."
           },
           items: items
         }) }}
