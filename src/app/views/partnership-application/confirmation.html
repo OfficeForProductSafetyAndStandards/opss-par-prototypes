@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>848394</strong>"
+      }) }}
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        We've sent your application requesting review of the application to your primary contact:
+      </p>
+      <p>
+        <a class="govuk-link" href="mailto:{{ data['primary-email-address']}}">{{ data['primary-email-address']}}</a>
+      </p>
+
+      <p>
+        Once your primary contact has confirmed the application, it will be sent to the Office for Product Safety and Standards
+        (OPSS) for review. They will contact you when the partnership has been approved or if more informaiton is needed.
+      </p>
+
+      <p>If you have any queries, contact OPSS at<br />
+        <a class="govuk-link" href="mailto:pa@businessandtrade.gov.uk">pa@businessandtrade.gov.uk</a>
+      </p>
+
+      <p>
+        <a class="govuk-link" href="/partnership-table/draft-applications">View all draft applications</a>
+      </p>
+      <p>
+        <a href="#">
+          What did you think of this service?
+        </a> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

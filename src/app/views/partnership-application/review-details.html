@@ -1,5 +1,7 @@
 {% extends "layouts/main.html" %}
 
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Check answers
 {% endblock %}
@@ -29,57 +31,25 @@
         Review your information before submitting your application
       </h1>
 
+      <h2 class="govuk-heading-m">
+        Partnership details
+      </h2>
+
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Question 1"
+              text: "Parthership type"
             },
             value: {
-              text: "Answer 1"
+              text: data['partnership-type'] | capitalize
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/partnership-application/partnership-type",
                   text: "Change",
-                  visuallyHiddenText: "Question 1"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Question 2"
-            },
-            value: {
-              text: "Answer 2"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Question 2"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Question 3"
-            },
-            value: {
-              text: "Answer 3"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
+                  visuallyHiddenText: "partnership type"
                 }
               ]
             }
@@ -88,18 +58,175 @@
       }) }}
 
       <h2 class="govuk-heading-m">
-        Now send your application
+        Organisation details
       </h2>
 
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Primary contact for your organisation"
+            },
+            value: {
+              html: [data['primary-first-name'] + " " +  data['primary-last-name'], data['primary-phone-number'], data['primary-email-address']] | select | join('<br />')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/partnership-application/contact-details/primary-contact",
+                  text: "Change",
+                  visuallyHiddenText: "partnership type"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
-      <form action="/confirmation" method="post" novalidate>
+      <h2 class="govuk-heading-m">
+        Legal entities
+      </h2>
 
-        {{ govukButton({
-          text: "Accept and send"
+      {% for legalEntity in data['legal-entites'] | select() %}
+
+        {% set entityLoop = loop %}
+        {% set additionalAddresses = [] %}
+        {% for additionalAddress in legalEntity.additionalAddress or [] | select() %}
+          {% set additionalAddresses = additionalAddresses | push({
+                key: {
+                  text: "Additional office address"
+                },
+                value: {
+                  html: additionalAddress | values | select() | join ("<br />")
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/partnership-application/additional-addresses/show-edit-address?entity=" + entityLoop.index0 + "&address=" + loop.index0,
+                      text: "Change",
+                      visuallyHiddenText: "address"
+                    }
+                  ]
+                }
+              }) %}
+        {% endfor %}
+        
+        {% set additionalContacts = [] %}
+        {% for additionalContact in legalEntity.legalEntityContacts or [] | select() %}
+          {% set additionalContacts = additionalContacts | push({
+            key: {
+              text: "Contact " + data['regulatory-functions'] | find('value', additionalContact.legalEntity) | value('text')
+            },
+            value: {
+              html: [additionalContact.firstName + " " + additionalContact.lastName, additionalContact.phoneNumber, additionalContact.emailAddress] | select() | join ("<br />")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/partnership-application/contact-details/show-edit-contact?entity=" + entityLoop.index0 + "&address=" + loop.index0,
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          }) %}
+        {% endfor %}
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: legalEntity.tradingName
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          rows: [{
+                  key: {
+                    text: "Companies house number"
+                  },
+                  value: {
+                    text: legalEntity.companiesHouseNumber
+                  }
+                },
+                {
+                  key: {
+                    text: "Legal entity type"
+                  },
+                  value: {
+                    text: legalEntity.legalEntityType
+                  }
+                },
+                {
+                  key: {
+                    text: "Business area"
+                  },
+                  value: {
+                    text: legalEntity.businessArea
+                  }
+                },
+                {
+                  key: {
+                    text: "Registered address"
+                  },
+                  value: {
+                    html: legalEntity.address | values | select() | join('<br />')
+                  }
+                }] | merge(additionalAddresses) | merge(additionalContacts)
         }) }}
+
+      {% endfor %}
+
+
+      <h2 class="govuk-heading-m">
+        Additional details
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Additional partnership information (optional)"
+            },
+            value: {
+              text: data['additional-information']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/partnership-application/additional-information",
+                  text: "Change",
+                  visuallyHiddenText: "additional information"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/partnership-application/confirmation" method="post" novalidate>
+
+        {{ govukCheckboxes({
+          name: "confirm",
+          items: [
+            {
+              value: "confirm",
+              text: "I confirm the details above are accurate to the best of my knowledge"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+        </div>
 
       </form>
 

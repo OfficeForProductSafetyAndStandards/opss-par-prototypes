@@ -20,6 +20,9 @@ addFilter('values', function (object) {
 
 // Merge two objects together, useful for when you're conditionally showing an error message
 addFilter('merge', function (obj1, obj2) {
+    if (Array.isArray(obj1) && Array.isArray(obj2))
+        return obj1.concat(obj2);
+
     return Object.assign({}, obj1, obj2);
 });
 
