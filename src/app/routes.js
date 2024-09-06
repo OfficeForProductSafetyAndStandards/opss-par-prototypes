@@ -265,7 +265,7 @@ router.post('/partnership-application/contact-details/add/save-contact', functio
     let index = req.session.data['selected-legal-entity-index'];
     let list = req.session.data['legal-entites'];
     let org = req.session.data['selected-legal-entity'];
-    let functions = req.session.data['session-regulatory-functions'];
+    let functions = req.session.data['new-contact-regulatory-function'];
 
     if (!list[index].legalEntityContacts) {
         list[index].legalEntityContacts = [];
@@ -303,4 +303,104 @@ router.get('/partnership-application/contact-details/add/copy-primary-contact', 
     req.session.data['new-contact-email-address'] = req.session.data['primary-email-address'];
 
     res.redirect('/partnership-application/contact-details/add/details');
+})
+
+// Route to go to the edit-contact list
+router.get('/partnership-application/contact-details/show-edit-contact', function (req, res) {
+    let entityIndex = parseInt(req.query.entity);
+    let contactIndex = parseInt(req.query.contact);
+
+    let list = req.session.data['legal-entites'];
+    let contact = list[entityIndex].legalEntityContacts[contactIndex];
+
+    req.session.data['new-contact-first-name'] = contact.firstName;
+    req.session.data['new-contact-last-name'] = contact.lastName;
+    req.session.data['new-contact-phone-number'] = contact.phoneNumber;
+    req.session.data['new-contact-email-address'] = contact.emailAddress;
+
+    req.session.data['selected-legal-entity'] = list[entityIndex];
+    req.session.data['selected-legal-entity-index'] = entityIndex;
+    req.session.data['selected-legal-entity-contact-index'] = contactIndex;
+
+    res.redirect('/partnership-application/contact-details/edit/details');
+})
+
+router.get('/partnership-application/contact-details/edit/copy-primary-contact', function (req, res) {
+
+    req.session.data['new-contact-first-name'] = req.session.data['primary-first-name'];
+    req.session.data['new-contact-last-name'] = req.session.data['primary-last-name'];
+    req.session.data['new-contact-phone-number'] = req.session.data['primary-phone-number'];
+    req.session.data['new-contact-email-address'] = req.session.data['primary-email-address'];
+
+    res.redirect('/partnership-application/contact-details/edit/details');
+})
+
+router.post('/partnership-application/contact-details/edit/save-contact', function (req, res) {
+    let entityIndex = req.session.data['selected-legal-entity-index'];
+    let contactIndex = req.session.data['selected-legal-entity-contact-index'];
+    let org = req.session.data['selected-legal-entity'];
+
+    let list = req.session.data['legal-entites'];
+
+    list[entityIndex].legalEntityContacts[contactIndex].firstName = req.session.data['new-contact-first-name'];
+    list[entityIndex].legalEntityContacts[contactIndex].lastName = req.session.data['new-contact-last-name'];
+    list[entityIndex].legalEntityContacts[contactIndex].phoneNumber = req.session.data['new-contact-phone-number'];
+    list[entityIndex].legalEntityContacts[contactIndex].emailAddress = req.session.data['new-contact-email-address'];
+
+    req.session.data['legal-entites'] = list;
+
+    req.session.data['new-contact-first-name'] = undefined;
+    req.session.data['new-contact-last-name'] = undefined;
+    req.session.data['new-contact-phone-number'] = undefined;
+    req.session.data['new-contact-email-address'] = undefined;
+
+    req.session.data['selected-legal-entity-index'] = undefined;
+    req.session.data['selected-legal-entity'] = undefined;
+    req.session.data['selected-legal-entity-contact-index'] = undefined;
+
+    req.session.data['contact-details-success-message'] = "Contact updated for " + org.tradingName;
+    res.redirect('/partnership-application/review-details');
+})
+
+router.post('/partnership-application/try-submit', function (req, res) {
+
+    let confirm = req.session.data['confirm'];
+
+    if (confirm == 'confirm') {
+        req.session.data['confirm-invalid'] = undefined;
+
+        // Reset session data
+        for (let property in req.session.data) {
+            if (req.session.data.hasOwnProperty(property)) {
+                if (!['legal-entity-types', 'regulatory-functions', 'session-regulatory-functions'].includes(property)) {
+                    req.session.data[property] = undefined;
+                }
+            }
+        }
+
+        res.redirect('/partnership-application/confirmation');
+    }
+    else {
+        req.session.data['confirm-invalid'] = true;
+        res.redirect('/partnership-application/review-details');
+    }
+})
+
+// Redirect is used on the check answers page
+router.get('/partnership-application/redirect', function (req, res) {
+    let redirect = req.query.redirect;
+
+    // We want to remove the confirm checkbox validation if we're doing something else
+    req.session.data['confirm-invalid'] = undefined;
+    req.session.data['redirected'] = true;
+
+    res.redirect(redirect);
+})
+
+router.get('/partnership-application/redirect-done', function (req, res) {
+    let redirect = req.query.redirect;
+
+    req.session.data['redirected'] = undefined;
+
+    res.redirect(redirect);
 })

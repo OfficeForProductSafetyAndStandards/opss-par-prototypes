@@ -14,7 +14,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <p class="govuk-body govuk-!-font-weight-bold">Parthership Application is incomplete</p>
-
+      
       <p class="govuk-body">You have completed <span class="govuk-!-font-weight-bold">
         {% if (data['organisation-details-completed']) %}
           2
@@ -24,7 +24,6 @@
           0
         {% endif %}
       </span> of <span class="govuk-!-font-weight-bold">3</span> mandatory sections.</p>
-
 
       {% set cannotStartYetStatus = {
         tag: {
@@ -43,7 +42,7 @@
       {% set legalEntityCountStatus = {
         tag: {
           text: data["legal-entites"] | length + " added",
-          classes: "govuk-tag--green"
+          classes: data["legal-entites"] | length | equals(0, "govuk-tag--blue", "govuk-tag--green")
         }
       } %}
 
@@ -51,6 +50,13 @@
         tag: {
           text: data["legal-entites"] | countArr('additionalAddress') + " added",
           classes: "govuk-tag--green"
+        }
+      } %}
+
+      {% set contactsCountStatus = {
+        tag: {
+          text: data["legal-entites"] | countArr('legalEntityContacts') + " added",
+          classes: data["legal-entites"] | isLegalEntityContactsComplete(data['session-regulatory-functions']) | equals(true, "govuk-tag--green", "govuk-tag--blue")
         }
       } %}
 
@@ -105,7 +111,7 @@
               text: "Add contacts for legal entity"
             },
             href: ("/partnership-application/contact-details/show-list" if data['legal-entites-completed']),
-            status: (completedStatus if data['contacts-completed'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
+            status: (contactsCountStatus if data['contacts-completed'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
           }
         ]
       }) }}

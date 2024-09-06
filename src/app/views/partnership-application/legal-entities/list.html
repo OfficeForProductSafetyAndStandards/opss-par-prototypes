@@ -113,7 +113,7 @@
         href: "/partnership-application/legal-entities/select-organisation"
       }) }}
       
-      <form class="form" action="/partnership-application/task-list" method="post">
+      <form class="form" action="/partnership-application/redirect-done?redirect=/partnership-application/task-list" method="post">
         {{ govukInput({
           id: "legal-entites-completed",
           name: "legal-entites-completed",
@@ -125,7 +125,15 @@
           {{ govukButton({
             text: "Save and continue"
           }) }}
-          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}">Cancel</a>
         </div>
       </form>
     </div>

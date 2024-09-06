@@ -26,6 +26,17 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+      {% if data['confirm-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "You must confirm all the provided details are correct",
+              href: "#confirm"
+            }
+          ]
+        }) }}
+      {% endif %}
 
       <h1 class="govuk-heading-xl">
         Review your information before submitting your application
@@ -47,7 +58,7 @@
             actions: {
               items: [
                 {
-                  href: "/partnership-application/partnership-type",
+                  href: "/partnership-application/redirect?redirect=/partnership-application/partnership-type",
                   text: "Change",
                   visuallyHiddenText: "partnership type"
                 }
@@ -73,7 +84,7 @@
             actions: {
               items: [
                 {
-                  href: "/partnership-application/contact-details/primary-contact",
+                  href: "/partnership-application/redirect?redirect=/partnership-application/contact-details/primary-contact",
                   text: "Change",
                   visuallyHiddenText: "partnership type"
                 }
@@ -123,7 +134,7 @@
             actions: {
               items: [
                 {
-                  href: "/partnership-application/contact-details/show-edit-contact?entity=" + entityLoop.index0 + "&address=" + loop.index0,
+                  href: "/partnership-application/contact-details/show-edit-contact?entity=" + entityLoop.index0 + "&contact=" + loop.index0,
                   text: "Change",
                   visuallyHiddenText: "address"
                 }
@@ -140,7 +151,7 @@
             actions: {
               items: [
                 {
-                  href: "",
+                  href: "/partnership-application/redirect?redirect=/partnership-application/legal-entities/show-list",
                   text: "Change"
                 }
               ]
@@ -199,7 +210,7 @@
             actions: {
               items: [
                 {
-                  href: "/partnership-application/additional-information",
+                  href: "/partnership-application/redirect?redirect=/partnership-application/additional-information",
                   text: "Change",
                   visuallyHiddenText: "additional information"
                 }
@@ -209,9 +220,9 @@
         ]
       }) }}
 
-      <form action="/partnership-application/confirmation" method="post" novalidate>
+      <form action="/partnership-application/try-submit" method="post" novalidate>
 
-        {{ govukCheckboxes({
+        {% set confirmationCheckboxes = {
           name: "confirm",
           items: [
             {
@@ -219,7 +230,17 @@
               text: "I confirm the details above are accurate to the best of my knowledge"
             }
           ]
-        }) }}
+        } %}
+
+        {% if data['confirm-invalid'] %}
+          {% set confirmationCheckboxes = confirmationCheckboxes | merge({
+            errorMessage: {
+              text: "You must confirm the details before you can continue"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukCheckboxes(confirmationCheckboxes) }}
 
         <div class="govuk-button-group">
           {{ govukButton({
