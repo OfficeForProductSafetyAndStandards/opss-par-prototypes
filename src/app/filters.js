@@ -77,3 +77,31 @@ addFilter('search', function (obj, arrAttr, attr, value) {
 
     return results;
 })
+
+addFilter('equals', function (leftHandSide, rightHandSide, ifTrue, ifFalse) {
+    if (leftHandSide == rightHandSide)
+        return ifTrue;
+
+    return ifFalse;
+})
+
+addFilter('isLegalEntityContactsComplete', function (legalEntities, regFunctions) {
+    let valid = true;
+
+    legalEntities.forEach(org => {
+        regFunctions.forEach(function (regFunc) {
+            // Check if this regulatory function already exists in legalEntityContacts
+            if (org.legalEntityContacts) {
+                const hasContactForRegFunc = org.legalEntityContacts.some(contact => contact.legalEntity === regFunc);
+
+                if (!hasContactForRegFunc) {
+                    valid = false;
+                }
+            } else {
+                valid = false;
+            }
+        });
+    });
+
+    return valid;
+})

@@ -28,7 +28,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/partnership-application/task-list" method="post">
+      <form class="form" action="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/redirect-done?redirect=/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}" method="post">
 
       {{ govukTextarea({
         name: "additional-information",
@@ -48,7 +54,15 @@
           {{ govukButton({
             text: "Save additional information"
           }) }}
-          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}">Cancel</a>
         </div>
 
       </form>
