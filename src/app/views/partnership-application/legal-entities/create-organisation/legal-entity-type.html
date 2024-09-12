@@ -38,20 +38,42 @@
 
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-      <form class="form" action="/partnership-application/legal-entities/create-organisation/have-companies-house-number" method="post">
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/legal-entity-type-answer" method="post">
 
-        {{ govukRadios({
+      {% if data['legal-entity-type-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select a legal entity type",
+              href: "#legal-entity-type"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% set legalEntityRadios = {
           name: "legal-entity-type",
           value: data['legal-entity-type'],
           fieldset: {
             legend: {
-              text: "Select the legal entity type of the organisation",
+              text: "Select legal entity type",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: data['legal-entity-types']
-        }) }}
+        } %}
+
+        {% if data['legal-entity-type-invalid'] %}
+          {% set legalEntityRadios = legalEntityRadios | merge({
+            errorMessage: {
+              text: "Select legal entity type"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(legalEntityRadios) }}
 
         <div class="govuk-button-group">
           {{ govukButton({

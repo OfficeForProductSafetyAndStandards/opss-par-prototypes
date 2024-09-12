@@ -36,9 +36,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/partnership-application/legal-entities/create-organisation/organisation-address" method="post">
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/organisation-name-answer" method="post">
 
-        {{ govukInput({
+        {% if data['organisation-name-invalid'] %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+              {
+                text: "Enter the organisation name",
+                href: "#organisation-name"
+              }
+            ]
+          }) }}
+        {% endif %}
+
+        {% set organisationInput = {
           label: {
             text: "What is the name of the organisation you are partnering with?",
             classes: "govuk-label--l",
@@ -47,7 +59,17 @@
           id: "organisation-name",
           name: "organisation-name",
           value: data['organisation-name']
-        }) }}
+        } %}
+
+        {% if data['organisation-name-invalid'] %}
+          {% set organisationInput = organisationInput | merge({
+            errorMessage: {
+              text: "Enter the organisation name"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukInput(organisationInput) }}
 
         <div class="govuk-button-group">
           {{ govukButton({

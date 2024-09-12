@@ -4,6 +4,13 @@
   Partnership Application – {{ serviceName }} – Task List
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
@@ -12,18 +19,18 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <p class="govuk-body govuk-!-font-weight-bold">Parthership Application is incomplete</p>
       
       <p class="govuk-body">You have completed <span class="govuk-!-font-weight-bold">
         {% if (data['organisation-details-completed']) %}
+          3
+        {% elseif (data['regulatory-function-contacts-completed']) %}
           2
         {% elseif (data['partnership-type-completed']) %}
           1
         {% else %}
           0
         {% endif %}
-      </span> of <span class="govuk-!-font-weight-bold">3</span> mandatory sections.</p>
+      </span> of <span class="govuk-!-font-weight-bold">4</span> mandatory sections.</p>
 
       {% set cannotStartYetStatus = {
         tag: {
@@ -81,7 +88,21 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">2. Organisation details</h2>
+      <h2 class="govuk-heading-m">2. Primary authority details</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Add regulatory function contacts"
+            },
+            href: ("/partnership-application/regulatory-function-contacts/show-list" if data['partnership-type-completed']),
+            status: (completedStatus if data['regulatory-function-contacts-completed'] else (notYetStartedStatus if data['partnership-type-completed'] else cannotStartYetStatus))
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">3. Organisation details</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
@@ -89,8 +110,8 @@
             title: {
               text: "Add legal entity"
             },
-            href: ("/partnership-application/legal-entities/show-list" if data['partnership-type-completed']),
-            status: (legalEntityCountStatus if data['partnership-type-completed'] else cannotStartYetStatus)
+            href: ("/partnership-application/legal-entities/show-list" if data['regulatory-function-contacts-completed']),
+            status: (legalEntityCountStatus if data['regulatory-function-contacts-completed'] else cannotStartYetStatus)
           },
           {
             title: {
@@ -101,14 +122,14 @@
           },
           {
             title: {
-              text: "Add primary contact details"
+              text: "Add primary organisation contact for application"
             },
             href: ("/partnership-application/contact-details/primary-contact" if data['legal-entites-completed']),
             status: (completedStatus if data['primary-first-name'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
           },
           {
             title: {
-              text: "Add contacts for legal entity"
+              text: "Add regulatory function legal entity contacts"
             },
             href: ("/partnership-application/contact-details/show-list" if data['legal-entites-completed']),
             status: (contactsCountStatus if data['contacts-completed'] else (notYetStartedStatus if data['legal-entites-completed'] else cannotStartYetStatus))
@@ -116,7 +137,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">3. Additional details (optional)</h2>
+      <h2 class="govuk-heading-m">4. Additional details (optional)</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
@@ -130,7 +151,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">4. Review and submit</h2>
+      <h2 class="govuk-heading-m">5. Review and submit</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [

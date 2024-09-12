@@ -3,7 +3,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Legal entities
@@ -46,7 +46,7 @@
       {% endif %}
 
       {{ govukInsetText({
-        html: "<p>You can add multiple related legal entites to this application.</p>
+        html: "<p>You can add multiple eligible legal entities to this application as long as they all belong to the same group.</p>
         <p>When approved, each legal entity in the application will have its own unique partnership created and will act independent of each other.</p>
         <p>For more information, see help section XXXX in the <a href='#'>Primary Authority statutory guidance - GOV.UK (www.gov.uk)</a> (opens in a new tab)"
       }) }}

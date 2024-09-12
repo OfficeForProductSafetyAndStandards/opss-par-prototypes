@@ -34,12 +34,15 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Select the organisation for your partnership</h1>
-      <p>This list contains existing organisations in the Primary Authority Registry. If the organisation you want to create a partnership with doesn't exist, you can select to create a new organisation.
+      <h1 class="govuk-heading-l">Add a legal entity to the application</h1>
+      <p>Select a legal entity from the primary authority register's own library or choose to create a new legal entity.
     </div>
+  </div>
+
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
       {{ govukButton({
-        text: "Create a new organisation",
+        text: "Create a new legal entity",
         classes: "govuk-button--secondary",
         href: "/partnership-application/legal-entities/create-organisation/legal-entity-type"
       }) }}
@@ -47,91 +50,11 @@
   </div>
   
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-quarter">
-      <h2 class="govuk-heading-m">Filters</h2>
-      
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <div class="govuk-grid-column-full">
 
-      {{ govukCheckboxes({
-        name: "entity-type",
-        classes: "govuk-checkboxes--small",
-        fieldset: {
-          legend: {
-            text: "Entity Type",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "building-society",
-            text: "Building society"
-          },
-          {
-            value: "cio",
-            text: "CIO"
-          },
-          {
-            value: "bencom",
-            text: "BenCom"
-          },
-          {
-            value: "cic",
-            text: "CIC"
-          },
-          {
-            value: "co-op",
-            text: "Co-op"
-          },
-          {
-            value: "credit-union",
-            text: "Credit union"
-          },
-          {
-            value: "friendly-society",
-            text: "Friently society"
-          },
-          {
-            value: "limited-company",
-            text: "Limited company"
-          },
-          {
-            value: "llp",
-            text: "LLP"
-          },
-          {
-            value: "limited-partner",
-            text: "Limited partner"
-          },
-          {
-            value: "partnership",
-            text: "Partnership"
-          },
-          {
-            value: "sole-trader",
-            text: "Sole trader"
-          },
-          {
-            value: "trust",
-            text: "Trust"
-          },
-          {
-            value: "unincorporated-association",
-            text: "Unincorporated association"
-          }
-        ]
-      }) }}
-
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      <div class="govuk-button-group">
-        <a class="govuk-link" href="#">Apply</a>
-
-        <a class="govuk-link" href="#">Reset</a>
-      </div>
-    </div>
-
-    <div class="govuk-grid-column-three-quarters">
+      <h2 class="govuk-heading-m">
+        Primary authority register's library:
+      </h2>
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
@@ -149,7 +72,10 @@
         </div>
       </div>
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
+        <div class="govuk-grid-column-one-half">
+          <p><span class="govuk-!-font-weight-bold">{{ organisations | length }} results</span></p>
+        </div>
+        <div class="govuk-grid-column-one-half">
           {{ govukSelect({
             id: "sort",
             name: "sort",
@@ -162,12 +88,12 @@
             items: [
               {
                 value: "created",
-                text: "Recently created"
+                text: "Recently created",
+                selected: true
               },
               {
                 value: "updated",
-                text: "Recently updated",
-                selected: true
+                text: "Recently updated"
               }
             ]
           }) }}
@@ -180,13 +106,19 @@
     {% for item in organisations %}
         {% set newItem =           
           [{
-            html: "<a href='#'' class='govuk-link'>"+ item.tradingName + "</a>"
+            html: "<span class='govuk-!-font-weight-bold'>"+ item.tradingName + "</span>"
+          },
+          {
+            text: item.tradingName
           },
           {
             text: item.companiesHouseNumber
           },
           {
             html: item.address | values | join ("<br />")
+          },
+          {
+            text: ""
           },
           {
             html: "<a href='/partnership-application/legal-entities/select-partnership?index=" + loop.index0 +"' role='button' draggable='false' class='govuk-button govuk-button--secondary' data-module='govuk-button' contenteditable='false' style='cursor: pointer;'>Select</a>"
@@ -197,6 +129,9 @@
     {{ govukTable({
       head: [
         {
+          text: "Legal name"
+        },
+        {
           text: "Trading name"
         },
         {
@@ -206,10 +141,13 @@
           text: "Address"
         },
         {
+          text: "Group name of legal entities"
+        },
+        {
           text: ""
         }
       ],
-      rows: newArray
+      rows: newArray | skip(0) | take(10)
     }) }}
 
       <div class="govuk-grid-row">
@@ -239,7 +177,7 @@
         <div class="govuk-grid-column-one-half">
           <div class="govuk-pagination-description">
             <p class="govuk-body govuk-pagination-description__text">
-              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">115</span></p>
+              Showing items <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">{{ organisations | length }}</span></p>
           </div>
         </div>
       </div>
