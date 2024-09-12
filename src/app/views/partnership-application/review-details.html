@@ -170,7 +170,7 @@
                     text: "Legal entity type"
                   },
                   value: {
-                    text: legalEntity.legalEntityType
+                    text: data['legal-entity-types'] | find('value', legalEntity.legalEntityType) | value('text')
                   }
                 },
                 {
