@@ -46,7 +46,7 @@
       {% endif %}
       {% if data['have-companies-house-number-invalid'] %}
         {% set errorList = errorList | push({
-              text: "Select an option",
+              text: "Select if you have access to the Companies house number",
               href: "#have-companies-house-number"
             }) 
         %}
@@ -85,7 +85,7 @@
         {{ govukInput(companiesHouseInputOptions) }}
         {% endset -%}
 
-        {{ govukRadios({
+        {% set haveCompaniesHousenumberRadio = {
           name: "have-companies-house-number",
           value: data['have-companies-house-number'],
           fieldset: {
@@ -108,7 +108,15 @@
               text: "No"
             }
           ]
-        }) }}
+        } %}
+        {% if data['have-companies-house-number-invalid'] %}
+          {% set haveCompaniesHousenumberRadio = haveCompaniesHousenumberRadio | merge({
+            errorMessage: {
+              text: "Select if you have access to the Companies house number"
+            }
+          }) %}
+        {% endif %}
+        {{ govukRadios(haveCompaniesHousenumberRadio) }}
 
         <div class="govuk-button-group">
           {{ govukButton({
