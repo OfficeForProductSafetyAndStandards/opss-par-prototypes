@@ -70,7 +70,7 @@
 
         {% call govukFieldset({
           legend: {
-            text: "What is the organisation's official registered address?",
+            text: "What is the legal entity's official registered address?",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -78,7 +78,6 @@
         
         <div id="organisations-address-hint" class="govuk-hint">
           <p>Address must be a physical location where notices, letters and reminders can be delivered to the company.</p>
-          <p>You will be able to add additional addresses in the next step.</p>
         </div>
 
           {% set addressLine1Input = {

@@ -30,7 +30,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Add contacts for all legal entities</h1>    
+      <h1 class="govuk-heading-l">Regulatory function legal entity contacts</h1>    
 
       {% set html %}
         <h3 class="govuk-notification-banner__heading">
@@ -59,6 +59,8 @@
           {% if loop.last == false %}
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           {% endif %}
+        {% else %}
+          No contact added
         {% endfor %}
       {% endmacro %}
 
@@ -80,7 +82,7 @@
         {{ govukSummaryList({
             card: {
               title: {
-                text: legalEntity.tradingName
+                text: legalEntity.legalName
               },
               actions: {
                 items: [

@@ -29,12 +29,48 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% set errorList = [] %}
+      {% if data['new-contact-first-name-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter first name",
+              href: "#new-contact-first-name"
+            }) 
+        %}
+      {% endif %}
+      {% if data['new-contact-last-name-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter last name",
+              href: "#new-contact-last-name"
+            }) 
+        %}
+      {% endif %}
+      {% if data['new-contact-phone-number-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter phone number",
+              href: "#new-contact-phone-number"
+            }) 
+        %}
+      {% endif %}
+      {% if data['new-contact-email-address-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter email address",
+              href: "#new-contact-email-address"
+            }) 
+        %}
+      {% endif %}
+
+      {% if errorList | length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+      {% endif %}
 
       <form class="form" action="/partnership-application/contact-details/add/save-contact" method="post">
 
         {% call govukFieldset({
           legend: {
-            text: "Add contact for " +  data['selected-legal-entity'].tradingName,
+            text: "Add contact for " +  data['selected-legal-entity'].legalName,
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -49,11 +85,11 @@
             {{ functions | join(', ')}}
           </p>
           <p>
-            <a class='govuk-link' href='/partnership-application/contact-details/add/copy-primary-contact'>Copy in primary contact for application details</a>
+            <a class='govuk-link' href='/partnership-application/contact-details/add/copy-primary-contact'>Copy details from primary organisation contact</a>
           </p>
         </div>
 
-          {{ govukInput({
+          {% set firstNameInput = {
             label: {
               text: "First name"
             },
@@ -61,9 +97,17 @@
             name: "new-contact-first-name",
             value: data['new-contact-first-name'],
             autocomplete: "given-name"
-          }) }}
+          } %}
+          {% if data['new-contact-first-name-invalid'] %}
+            {% set firstNameInput = firstNameInput | merge({
+              errorMessage: {
+                text: "Enter first name"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(firstNameInput) }}
 
-          {{ govukInput({
+          {% set lastNameInput = {
             label: {
               text: "Last name"
             },
@@ -71,9 +115,17 @@
             name: "new-contact-last-name",
             value: data['new-contact-last-name'],
             autocomplete: "family-name"
-          }) }}
+          } %}
+          {% if data['new-contact-last-name-invalid'] %}
+            {% set lastNameInput = lastNameInput | merge({
+              errorMessage: {
+                text: "Enter last name"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(lastNameInput) }}
 
-          {{ govukInput({
+          {% set phoneNumberInput = {
             label: {
               text: "Phone number"
             },
@@ -82,9 +134,17 @@
             name: "new-contact-phone-number",
             value: data['new-contact-phone-number'],
             autocomplete: "tel-national"
-          }) }}
+          } %}
+          {% if data['new-contact-phone-number-invalid'] %}
+            {% set phoneNumberInput = phoneNumberInput | merge({
+              errorMessage: {
+                text: "Enter phone number"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(phoneNumberInput) }}
 
-          {{ govukInput({
+          {% set emailAddressInput = {
             label: {
               text: "Email address"
             },
@@ -92,7 +152,15 @@
             name: "new-contact-email-address",
             value: data['new-contact-email-address'],
             autocomplete: "email"
-          }) }}
+          } %}
+          {% if data['new-contact-email-address-invalid'] %}
+            {% set emailAddressInput = emailAddressInput | merge({
+              errorMessage: {
+                text: "Enter email address"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(emailAddressInput) }}
 
         {% endcall %}
 

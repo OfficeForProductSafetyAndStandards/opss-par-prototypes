@@ -103,12 +103,12 @@ router.post('/partnership-application/legal-entities/create-organisation/confirm
 })
 
 router.post('/partnership-application/legal-entities/create-organisation/organisation-name-answer', function (req, res) {
-    let answer = req.session.data['organisation-name'];
+    let answer = req.session.data['legal-name'];
     if (answer) {
-        req.session.data['organisation-name-invalid'] = undefined;
+        req.session.data['legal-name-invalid'] = undefined;
         res.redirect('/partnership-application/legal-entities/create-organisation/organisation-address');
     } else {
-        req.session.data['organisation-name-invalid'] = true;
+        req.session.data['legal-name-invalid'] = true;
         res.redirect('/partnership-application/legal-entities/create-organisation/organisation-name');
     }
 })
@@ -124,7 +124,8 @@ router.post('/partnership-application/legal-entities/create-organisation/new-org
 
     if (line1 && town && postcode) {
         let org = {
-            "tradingName": req.session.data['organisation-name'],
+            "legalName": req.session.data['legal-name'],
+            "tradingName": req.session.data['trading-name'],
             "legalEntityType": req.session.data['legal-entity-type'],
             "address": {
                 "line1": req.session.data['address-line-1'],
@@ -137,14 +138,15 @@ router.post('/partnership-application/legal-entities/create-organisation/new-org
 
         req.session.data['legal-entites'].push(org);
 
-        req.session.data['organisation-name'] = undefined;
+        req.session.data['legal-name'] = undefined;
+        req.session.data['trading-name'] = undefined;
         req.session.data['address-line-1'] = undefined;
         req.session.data['address-line-2'] = undefined;
         req.session.data['address-town'] = undefined;
         req.session.data['address-county'] = undefined;
         req.session.data['address-postcode'] = undefined;
 
-        req.session.data['legal-entity-success-message'] = org.tradingName + " has been added as a legal entity to your application";
+        req.session.data['legal-entity-success-message'] = org.legalName + " has been added as a legal entity to your application";
 
         res.redirect('/partnership-application/legal-entities/list');
     } else {
@@ -175,7 +177,7 @@ router.get('/partnership-application/legal-entities/select-partnership', functio
 
     req.session.data['legal-entites'].push(organisations[index]);
 
-    req.session.data['legal-entity-success-message'] = organisations[index].tradingName + " has been added as a legal entity to your application";
+    req.session.data['legal-entity-success-message'] = organisations[index].legalName + " has been added as a legal entity to your application";
 
     res.redirect('/partnership-application/legal-entities/list');
 })
@@ -193,7 +195,7 @@ router.get('/partnership-application/legal-entities/remove-partnership', functio
 
     req.session.data['legal-entites'] = list.filter(n => n);
 
-    req.session.data['legal-entity-success-message'] = item.tradingName + " has been removed from your application";
+    req.session.data['legal-entity-success-message'] = item.legalName + " has been removed from your application";
     res.redirect('/partnership-application/legal-entities/list');
 })
 
@@ -277,7 +279,7 @@ router.post('/partnership-application/additional-addresses/add-address-answer', 
     req.session.data['selected-legal-entity-index'] = undefined;
     req.session.data['selected-legal-entity'] = undefined;
 
-    req.session.data['additional-addresses-success-message'] = "Address has been added to " + org.tradingName;
+    req.session.data['additional-addresses-success-message'] = "Address has been added to " + org.legalName;
 
     res.redirect('/partnership-application/additional-addresses/list');
 })
@@ -380,28 +382,54 @@ router.post('/partnership-application/contact-details/add/save-contact', functio
         list[index].legalEntityContacts = [];
     }
 
-    functions.forEach(entity => {
-        list[index].legalEntityContacts.push({
-            "firstName": req.session.data['new-contact-first-name'],
-            "lastName": req.session.data['new-contact-last-name'],
-            "phoneNumber": req.session.data['new-contact-phone-number'],
-            "emailAddress": req.session.data['new-contact-email-address'],
-            "legalEntity": entity
+    req.session.data['new-contact-first-name-invalid'] = undefined;
+    req.session.data['new-contact-last-name-invalid'] = undefined;
+    req.session.data['new-contact-phone-number-invalid'] = undefined;
+    req.session.data['new-contact-email-address-invalid'] = undefined;
+
+    let firstName = req.session.data['new-contact-first-name']
+    let lastName = req.session.data['new-contact-last-name']
+    let phoneNumber = req.session.data['new-contact-phone-number']
+    let emailAddress = req.session.data['new-contact-email-address']
+
+    if (firstName && lastName && phoneNumber && emailAddress) {
+        functions.forEach(entity => {
+            list[index].legalEntityContacts.push({
+                "firstName": req.session.data['new-contact-first-name'],
+                "lastName": req.session.data['new-contact-last-name'],
+                "phoneNumber": req.session.data['new-contact-phone-number'],
+                "emailAddress": req.session.data['new-contact-email-address'],
+                "legalEntity": entity
+            });
         });
-    });
 
-    req.session.data['legal-entites'] = list;
+        req.session.data['legal-entites'] = list;
 
-    req.session.data['new-contact-first-name'] = undefined;
-    req.session.data['new-contact-last-name'] = undefined;
-    req.session.data['new-contact-phone-number'] = undefined;
-    req.session.data['new-contact-email-address'] = undefined;
+        req.session.data['new-contact-first-name'] = undefined;
+        req.session.data['new-contact-last-name'] = undefined;
+        req.session.data['new-contact-phone-number'] = undefined;
+        req.session.data['new-contact-email-address'] = undefined;
 
-    req.session.data['selected-legal-entity-index'] = undefined;
-    req.session.data['selected-legal-entity'] = undefined;
+        req.session.data['selected-legal-entity-index'] = undefined;
+        req.session.data['selected-legal-entity'] = undefined;
 
-    req.session.data['contact-details-success-message'] = "Contact added to " + org.tradingName;
-    res.redirect('/partnership-application/contact-details/list');
+        req.session.data['contact-details-success-message'] = "Contact added to " + org.legalName;
+        res.redirect('/partnership-application/contact-details/list');
+    } else {
+        if (!firstName) {
+            req.session.data['new-contact-first-name-invalid'] = true;
+        }
+        if (!lastName) {
+            req.session.data['new-contact-last-name-invalid'] = true;
+        }
+        if (!phoneNumber) {
+            req.session.data['new-contact-phone-number-invalid'] = true;
+        }
+        if (!emailAddress) {
+            req.session.data['new-contact-email-address-invalid'] = true;
+        }
+        res.redirect('/partnership-application/contact-details/add/details');
+    }
 })
 
 router.get('/partnership-application/contact-details/add/copy-primary-contact', function (req, res) {
@@ -467,8 +495,42 @@ router.post('/partnership-application/contact-details/edit/save-contact', functi
     req.session.data['selected-legal-entity'] = undefined;
     req.session.data['selected-legal-entity-contact-index'] = undefined;
 
-    req.session.data['contact-details-success-message'] = "Contact updated for " + org.tradingName;
+    req.session.data['contact-details-success-message'] = "Contact updated for " + org.legalName;
     res.redirect('/partnership-application/review-details');
+})
+
+router.post('/partnership-application/contact-details/primary-contact-answer', function (req, res) {
+    let firstName = req.session.data['primary-first-name'];
+    let lastName = req.session.data['primary-last-name'];
+    let phoneNumber = req.session.data['primary-phone-number'];
+    let emailAddress = req.session.data['primary-email-address'];
+
+    req.session.data['primary-first-name-invalid'] = undefined;
+    req.session.data['primary-last-name-invalid'] = undefined;
+    req.session.data['primary-phone-number-invalid'] = undefined;
+    req.session.data['primary-email-address-invalid'] = undefined;
+
+    if (firstName && lastName && phoneNumber && emailAddress) {
+        if (req.session.data['redirected']) {
+            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/review-details');
+        } else {
+            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/task-list');
+        }
+    } else {
+        if (!firstName) {
+            req.session.data['primary-first-name-invalid'] = true;
+        }
+        if (!lastName) {
+            req.session.data['primary-last-name-invalid'] = true;
+        }
+        if (!phoneNumber) {
+            req.session.data['primary-phone-number-invalid'] = true;
+        }
+        if (!emailAddress) {
+            req.session.data['primary-email-address-invalid'] = true;
+        }
+        res.redirect('/partnership-application/contact-details/primary-contact');
+    }
 })
 
 router.post('/partnership-application/try-submit', function (req, res) {

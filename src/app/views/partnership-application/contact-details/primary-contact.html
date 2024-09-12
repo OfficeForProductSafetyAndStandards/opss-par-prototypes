@@ -25,27 +25,62 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="{{ 
-              data['redirected'] | 
-              equals(
-                true, 
-                '/partnership-application/redirect-done?redirect=/partnership-application/review-details', 
-                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
-              ) }}" method="post">
+      {% set errorList = [] %}
+      {% if data['primary-first-name-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter first name",
+              href: "#primary-first-name"
+            }) 
+        %}
+      {% endif %}
+      {% if data['primary-last-name-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter last name",
+              href: "#primary-last-name"
+            }) 
+        %}
+      {% endif %}
+      {% if data['primary-phone-number-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter phone number",
+              href: "#primary-phone-number"
+            }) 
+        %}
+      {% endif %}
+      {% if data['primary-email-address-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter email address",
+              href: "#primary-email-address"
+            }) 
+        %}
+      {% endif %}
+
+      {% if errorList | length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+      {% endif %}
+
+
+      <form class="form" action="/partnership-application/contact-details/primary-contact-answer" method="post">
 
         {% call govukFieldset({
           legend: {
-            text: "Add primary contact",
+            text: "Add primary organisation contact for the application",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
         }) %}
         
         <div id="organisations-address-hint" class="govuk-hint">
-          <p>Primary contact will receive all application notifications.</p>
+          <p>Primary organisation contact will receive all application notifications for
+            reviewing the application before it's sent to the Orrice for Product Safety and
+            Standards
+          </p>
         </div>
 
-          {{ govukInput({
+          {% set firstNameInput ={
             label: {
               text: "First name"
             },
@@ -53,9 +88,17 @@
             name: "primary-first-name",
             value: data['primary-first-name'],
             autocomplete: "given-name"
-          }) }}
+          } %}
+          {% if data['primary-first-name-invalid'] %}
+            {% set firstNameInput = firstNameInput | merge({
+              errorMessage: {
+                text: "Enter first name"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(firstNameInput) }}
 
-          {{ govukInput({
+          {% set lastNameInput ={
             label: {
               text: "Last name"
             },
@@ -63,9 +106,17 @@
             name: "primary-last-name",
             value: data['primary-last-name'],
             autocomplete: "family-name"
-          }) }}
+          } %}
+          {% if data['primary-last-name-invalid'] %}
+            {% set lastNameInput = lastNameInput | merge({
+              errorMessage: {
+                text: "Enter last name"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(lastNameInput) }}
 
-          {{ govukInput({
+          {% set phoneNumberInput ={
             label: {
               text: "Phone number"
             },
@@ -74,9 +125,17 @@
             name: "primary-phone-number",
             value: data['primary-phone-number'],
             autocomplete: "tel-national"
-          }) }}
+          } %}
+          {% if data['primary-phone-number-invalid'] %}
+            {% set phoneNumberInput = phoneNumberInput | merge({
+              errorMessage: {
+                text: "Enter phone number"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(phoneNumberInput) }}
 
-          {{ govukInput({
+          {% set emailAddressInput ={
             label: {
               text: "Email address"
             },
@@ -84,7 +143,15 @@
             name: "primary-email-address",
             value: data['primary-email-address'],
             autocomplete: "email"
-          }) }}
+          } %}
+          {% if data['primary-email-address-invalid'] %}
+            {% set emailAddressInput = emailAddressInput | merge({
+              errorMessage: {
+                text: "Enter email address"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(emailAddressInput) }}
 
         {% endcall %}
 
@@ -100,7 +167,7 @@
                 true, 
                 '/partnership-application/review-details', 
                 '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
-              ) }}">Cancel</a>
+              ) }}">Back</a>
         </div>
 
       </form>
