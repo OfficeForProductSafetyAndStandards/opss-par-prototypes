@@ -29,15 +29,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="{{ 
-              data['redirected'] | 
-              equals(
-                true, 
-                '/partnership-application/redirect-done?redirect=/partnership-application/review-details', 
-                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
-              ) }}" method="post">
+      <form class="form" action="/partnership-application/partnership-type-answer" method="post">
 
-        {{ govukRadios({
+      {% if data['partnership-type-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select a partnership type",
+              href: "#partnership-type"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% set partnershipTypeRadios = {
           name: "partnership-type",
           id: "partnership-type",
           value: data['partnership-type'],
@@ -57,10 +63,10 @@
                       </span>
                     </summary>
                     <div class='govuk-details__text'>
-                      <p>Direct partnership refers to a partnership between a local authority
+                      <p><b>Direct partnership</b> refers to a partnership between a local authority
                         and an organisation, such as a business looking to seek advice for
                         their own benefit.</p>
-                      <p>Coordinated partnership refers to a partnership between a local
+                      <p><b>Coordinated partnership</b> refers to a partnership between a local
                         authority and an organisation with members, such as franchisees,
                         looking to seek advice on behalf of their members.</p>
                     </div>
@@ -77,7 +83,17 @@
               text: "Coordinated"
             }
           ]
-        }) }}
+        } %}
+
+        {% if data['partnership-type-invalid'] %}
+          {% set partnershipTypeRadios = partnershipTypeRadios | merge({
+            errorMessage: {
+              text: "Select a partnership type"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(partnershipTypeRadios) }}
 
         {{ govukInput({
           id: "partnership-type-completed",
@@ -88,7 +104,7 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Continue"
+            text: "Save and Continue"
           }) }}
           <a 
             class="govuk-link" 
@@ -98,7 +114,7 @@
                 true, 
                 '/partnership-application/review-details', 
                 '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
-              ) }}">Cancel</a>
+              ) }}">Back</a>
         </div>
 
       </form>

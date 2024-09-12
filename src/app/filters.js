@@ -78,6 +78,17 @@ addFilter('search', function (obj, arrAttr, attr, value) {
     return results;
 })
 
+addFilter('searchArray', function (arr, attr, value) {
+    let results = [];
+
+    arr.forEach(element => {
+        if (element[attr] && element[attr] == value)
+            results.push(element);
+    });
+
+    return results;
+})
+
 addFilter('equals', function (leftHandSide, rightHandSide, ifTrue, ifFalse) {
     if (leftHandSide == rightHandSide)
         return ifTrue;
@@ -104,4 +115,12 @@ addFilter('isLegalEntityContactsComplete', function (legalEntities, regFunctions
     });
 
     return valid;
+})
+
+addFilter('skip', function (arr, num) {
+    return arr.slice(num);
+})
+
+addFilter('take', function (arr, num) {
+    return arr.slice(0, num);
 })

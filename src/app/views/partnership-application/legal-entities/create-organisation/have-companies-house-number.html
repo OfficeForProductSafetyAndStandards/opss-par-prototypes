@@ -36,16 +36,26 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      {% set errorList = [] %}
       {% if data['companies-house-number-error'] %}
-        {{ govukErrorSummary({
-          titleText: "There is a problem",
-          errorList: [
-            {
+        {% set errorList = errorList | push({
               text: "Check that the Companies house number is correct",
               href: "#companies-house-number"
-            }
-          ]
+            }) 
+        %}
+      {% endif %}
+      {% if data['have-companies-house-number-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Select an option",
+              href: "#have-companies-house-number"
+            }) 
+        %}
+      {% endif %}
+
+      {% if errorList | length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
         }) }}
       {% endif %}
 

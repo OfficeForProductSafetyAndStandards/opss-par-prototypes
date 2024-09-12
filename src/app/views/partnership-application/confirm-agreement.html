@@ -17,20 +17,40 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="/partnership-application/task-list" method="post">
+      <form class="form" action="/partnership-application/confirm-agreement-answer" method="post">
 
-        {{ govukCheckboxes({
+      {% if data['confirm-agreement-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "You must meet all three criteria before you can continue",
+              href: "#confirm-agreement"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% call govukFieldset({
+          legend: {
+            text: "Confirm agreement to set up the partnership",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+      <p>
+        Before you can start a new application, make sure you have been in 
+        contact with the organisation for the partnership and that a written summary
+        document has been created detailing the partnership.
+      </p>
+      
+      <p>
+        You will not be able to start a new application before the below criteria have been met.
+      </p>
+
+        {% set confirmAgreementCheckboxes = ({
             name: "confirm-agreement",
-            fieldset: {
-              legend: {
-                text: "Confirm agreement to set up the partnership",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-              }
-            },
-            hint: {
-              text: "Select all that apply."
-            },
             items: [
               {
                 value: "eligable",
@@ -45,7 +65,19 @@
                 text: "A written summary of partnership arrangements has been agreed with the organisation"
               }
             ]
-          }) }}
+          }) %}
+
+        {% if data['confirm-agreement-invalid'] %}
+          {% set confirmAgreementCheckboxes = confirmAgreementCheckboxes | merge({
+            errorMessage: {
+              text: "You must meet all three criteria before you can continue"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukCheckboxes(confirmAgreementCheckboxes) }}
+
+        {% endcall %}
 
         {{ govukButton({
           text: "Continue"

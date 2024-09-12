@@ -7,6 +7,43 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 const fs = require('fs');
 
+router.post('/partnership-application/confirm-agreement-answer', function (req, res) {
+    let answer = req.session.data['confirm-agreement'] ?? '';
+    if (answer && answer.length == 3) {
+        req.session.data['confirm-agreement-invalid'] = undefined;
+        res.redirect('/partnership-application/task-list');
+    } else {
+        req.session.data['confirm-agreement-invalid'] = true;
+        res.redirect('/partnership-application/confirm-agreement');
+    }
+})
+
+router.post('/partnership-application/partnership-type-answer', function (req, res) {
+    let answer = req.session.data['partnership-type'];
+    if (answer) {
+        req.session.data['partnership-type-invalid'] = undefined;
+        if (req.session.data['redirected']) {
+            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/review-details');
+        } else {
+            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/task-list');
+        }
+    } else {
+        req.session.data['partnership-type-invalid'] = true;
+        res.redirect('/partnership-application/partnership-type');
+    }
+})
+
+router.post('/partnership-application/legal-entities/create-organisation/legal-entity-type-answer', function (req, res) {
+    let answer = req.session.data['legal-entity-type'];
+    if (answer) {
+        req.session.data['legal-entity-type-invalid'] = undefined;
+        res.redirect('/partnership-application/legal-entities/create-organisation/have-companies-house-number');
+    } else {
+        req.session.data['legal-entity-type-invalid'] = true;
+        res.redirect('/partnership-application/legal-entities/create-organisation/legal-entity-type');
+    }
+})
+
 // Route for Create Organisation "Do you have access to the companies house number?"
 // If the user has said they know the companies house number:
 //  This looks in the organisations.json file for the companies house number.
@@ -18,10 +55,11 @@ router.post('/partnership-application/legal-entities/create-organisation/compani
     req.session.data['companies-house-number-error'] = false;
 
     if (hasCompaniesHouseNumber == "yes") {
+        req.session.data['have-companies-house-number-invalid'] = undefined;
         const fileContent = fs.readFileSync("./app/data/organisations.json", 'utf8');
         let organisations = JSON.parse(fileContent);
         const companiesHouseNumber = req.session.data['companies-house-number'];
-        const organisation = organisations.find(org => org.companiesHouseNumber === companiesHouseNumber);
+        const organisation = organisations.find(org => org.companiesHouseNumber == companiesHouseNumber);
 
         if (organisation) {
             req.session.data['new-organisation'] = organisation;
@@ -34,9 +72,13 @@ router.post('/partnership-application/legal-entities/create-organisation/compani
             req.session.data['companies-house-number-error'] = true;
             res.redirect('/partnership-application/legal-entities/create-organisation/have-companies-house-number');
         }
-    } else {
+    } else if (hasCompaniesHouseNumber == "no") {
         req.session.data['new-organisation'] = undefined;
+        req.session.data['have-companies-house-number-invalid'] = undefined;
         res.redirect('/partnership-application/legal-entities/create-organisation/organisation-name');
+    } else {
+        req.session.data['have-companies-house-number-invalid'] = true;
+        res.redirect('/partnership-application/legal-entities/create-organisation/have-companies-house-number');
     }
 })
 
@@ -44,41 +86,79 @@ router.post('/partnership-application/legal-entities/create-organisation/compani
 router.post('/partnership-application/legal-entities/create-organisation/confirm-organisation-answer', function (req, res) {
     let isOrganisationCorrect = req.session.data['is-organisation-correct']
     if (isOrganisationCorrect == "yes-add") {
+        req.session.data['is-organisation-correct-invalid'] = undefined;
         req.session.data['legal-entites'].push(req.session.data['new-organisation']);
         req.session.data['new-organisation'] = undefined;
         res.redirect('/partnership-application/legal-entities/list');
     } else if (isOrganisationCorrect == "no-search") {
+        req.session.data['is-organisation-correct-invalid'] = undefined;
         res.redirect('/partnership-application/legal-entities/create-organisation/have-companies-house-number');
+    } else if (isOrganisationCorrect == "no-enter-manually") {
+        req.session.data['is-organisation-correct-invalid'] = undefined;
+        res.redirect('/partnership-application/legal-entities/create-organisation/organisation-name');
     } else {
+        req.session.data['is-organisation-correct-invalid'] = true;
+        res.redirect('/partnership-application/legal-entities/create-organisation/organisation-confirmation');
+    }
+})
+
+router.post('/partnership-application/legal-entities/create-organisation/organisation-name-answer', function (req, res) {
+    let answer = req.session.data['organisation-name'];
+    if (answer) {
+        req.session.data['organisation-name-invalid'] = undefined;
+        res.redirect('/partnership-application/legal-entities/create-organisation/organisation-address');
+    } else {
+        req.session.data['organisation-name-invalid'] = true;
         res.redirect('/partnership-application/legal-entities/create-organisation/organisation-name');
     }
 })
 
 router.post('/partnership-application/legal-entities/create-organisation/new-organisation-answer', function (req, res) {
-    let org = {
-        "tradingName": req.session.data['organisation-name'],
-        "legalEntityType": req.session.data['legal-entity-type'],
-        "address": {
-            "line1": req.session.data['address-line-1'],
-            "line2": req.session.data['address-line-2'],
-            "town": req.session.data['address-town'],
-            "county": req.session.data['address-county'],
-            "postcode": req.session.data['address-postcode'],
+    let line1 = req.session.data['address-line-1'];
+    let town = req.session.data['address-town'];
+    let postcode = req.session.data['address-postcode'];
+
+    req.session.data['address-line-1-invalid'] = undefined;
+    req.session.data['address-town-invalid'] = undefined;
+    req.session.data['address-postcode-invalid'] = undefined;
+
+    if (line1 && town && postcode) {
+        let org = {
+            "tradingName": req.session.data['organisation-name'],
+            "legalEntityType": req.session.data['legal-entity-type'],
+            "address": {
+                "line1": req.session.data['address-line-1'],
+                "line2": req.session.data['address-line-2'],
+                "town": req.session.data['address-town'],
+                "county": req.session.data['address-county'],
+                "postcode": req.session.data['address-postcode'],
+            }
+        };
+
+        req.session.data['legal-entites'].push(org);
+
+        req.session.data['organisation-name'] = undefined;
+        req.session.data['address-line-1'] = undefined;
+        req.session.data['address-line-2'] = undefined;
+        req.session.data['address-town'] = undefined;
+        req.session.data['address-county'] = undefined;
+        req.session.data['address-postcode'] = undefined;
+
+        req.session.data['legal-entity-success-message'] = org.tradingName + " has been added as a legal entity to your application";
+
+        res.redirect('/partnership-application/legal-entities/list');
+    } else {
+        if (!line1) {
+            req.session.data['address-line-1-invalid'] = true;
         }
-    };
-
-    req.session.data['legal-entites'].push(org);
-
-    req.session.data['organisation-name'] = undefined;
-    req.session.data['address-line-1'] = undefined;
-    req.session.data['address-line-2'] = undefined;
-    req.session.data['address-town'] = undefined;
-    req.session.data['address-county'] = undefined;
-    req.session.data['address-postcode'] = undefined;
-
-    req.session.data['legal-entity-success-message'] = org.tradingName + " has been added as a legal entity to your application";
-
-    res.redirect('/partnership-application/legal-entities/list');
+        if (!town) {
+            req.session.data['address-town-invalid'] = true;
+        }
+        if (!postcode) {
+            req.session.data['address-postcode-invalid'] = true;
+        }
+        res.redirect('/partnership-application/legal-entities/create-organisation/organisation-address');
+    }
 })
 
 // Route for Select the organisation for your partnership
@@ -115,6 +195,35 @@ router.get('/partnership-application/legal-entities/remove-partnership', functio
 
     req.session.data['legal-entity-success-message'] = item.tradingName + " has been removed from your application";
     res.redirect('/partnership-application/legal-entities/list');
+})
+
+// Route to go to the regulatory-function-contacts list
+router.get('/partnership-application/regulatory-function-contacts/show-list', function (req, res) {
+    req.session.data['new-contact-regulatory-function'] = undefined;
+    req.session.data['regulatory-function-contacts-success-message'] = undefined;
+    res.redirect('/partnership-application/regulatory-function-contacts/list');
+})
+
+router.post('/partnership-application/regulatory-function-contacts/details-answer', function (req, res) {
+    let contacts = req.session.data['local-authority-contacts'];
+    let index = req.session.data['new-regulatory-function-contact'];
+    let functions = req.session.data['new-contact-regulatory-function'];
+
+    let selectedContact = contacts[index];
+
+    if (!req.session.data['regulatory-function-contacts'])
+        req.session.data['regulatory-function-contacts'] = [];
+
+    functions.forEach(regulatoryFunction => {
+        req.session.data['regulatory-function-contacts'].push({
+            "firstName": selectedContact.firstName,
+            "lastName": selectedContact.lastName,
+            "emailAddress": selectedContact.emailAddress,
+            "regulatoryFunction": regulatoryFunction
+        });
+    });
+
+    res.redirect('/partnership-application/regulatory-function-contacts/show-list');
 })
 
 // Route to go to the legal-entity list

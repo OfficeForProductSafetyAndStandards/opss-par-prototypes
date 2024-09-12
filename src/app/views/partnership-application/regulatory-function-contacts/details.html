@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – New contact details
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Regulatory function contacts",
+        href: "/partnership-application/regulatory-function-contacts/show-list"
+      },
+      {
+        text: "Select regulatory function for the contact",
+        href: "/partnership-application/regulatory-function-contacts/contact-functions"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Select contact for the selected regulatory function(s)
+      </h1>
+
+      {{ govukDetails({
+        summaryText: "Are you missing a contact from the drop down list?",
+        text: "The drop down list will display all people with an account from your
+        local authority. If you are missing a person, you need to set up a 
+        Primary Authority account for them for your local authority."
+      }) }}
+
+      <form class="form" action="/partnership-application/regulatory-function-contacts/details-answer" method="post">
+
+        {% set contactOptions = [] %}
+        {% for contact in data['local-authority-contacts'] %}
+
+          {% set contactOptions = contactOptions | push(
+            {
+                value: loop.index0,
+                text: contact.firstName + " " + contact.lastName + " - " + contact.emailAddress
+            }) %}
+
+        {% endfor %}
+        
+        {{ govukSelect({
+          id: "new-regulatory-function-contact",
+          name: "new-regulatory-function-contact",
+          label: {
+            text: "Select contact"
+          },
+          items: contactOptions
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save contact"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/regulatory-function-contacts/contact-functions">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

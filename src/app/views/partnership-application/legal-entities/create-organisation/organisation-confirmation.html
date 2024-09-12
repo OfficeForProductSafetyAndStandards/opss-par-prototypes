@@ -37,6 +37,18 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        {% if data['is-organisation-correct-invalid'] %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+              {
+                text: "Select an option",
+                href: "#is-organisation-correct"
+              }
+            ]
+          }) }}
+        {% endif %}
+        
       <h1 class="govuk-heading-l">
         Is this the organisation you want to form a partnership with?
       </h1>
@@ -75,8 +87,8 @@
       }) }}
 
       <form class="form" action="/partnership-application/legal-entities/create-organisation/confirm-organisation-answer" method="post">
-
-          {{ govukRadios({
+      
+        {% set isOrganisationCorrectRadios = {
             name: "is-organisation-correct",
             items: [
               {
@@ -92,7 +104,17 @@
                 text: "No, enter details manually"
               }
             ]
-          }) }}
+          } %}
+
+        {% if data['is-organisation-correct-invalid'] %}
+          {% set isOrganisationCorrectRadios = isOrganisationCorrectRadios | merge({
+            errorMessage: {
+              text: "Select an option"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(isOrganisationCorrectRadios) }}
 
         <div class="govuk-button-group">
           {{ govukButton({

@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Regulatory function contacts
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Regulatory function contacts
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Contacts added
+      </h2>   
+      {% for sessionRegulatoryFunction in data['session-regulatory-functions'] %}
+        {% set entityContacts = (data['regulatory-function-contacts'] or []) | searchArray('regulatoryFunction', sessionRegulatoryFunction)  %}
+
+        {% set contactRows = [] %}
+        {% for entityContact in entityContacts %}
+        {% set contactRows = contactRows | push({
+                  key: {
+                    text: entityContact.firstName + " " + entityContact.lastName
+                  },
+                  value: {
+                    text: entityContact.emailAddress
+                  },
+                  actions: [{
+                        href: "/partnership-application/additional-addresses/remove-address?function=" + sessionRegulatoryFunction + "&address=" + loop.index0,
+                        text: "Remove"
+                      }]
+          }) %}
+        {% else %}
+        {% set contactRows = [{
+                  key: {
+                    text: ""
+                  },
+                  value: {
+                    text: "No contact added"
+                  }
+          }] %}
+        {% endfor %}
+
+      {{ govukSummaryList({
+          card: {
+            title: {
+              text: data['regulatory-functions'] | find('value', sessionRegulatoryFunction) | value('text')
+            }
+          },
+          rows: contactRows
+        }) }} 
+      {% endfor %}
+
+{{ govukButton({
+  text: "Add contact",
+  classes: "govuk-button--secondary",
+  href: "/partnership-application/regulatory-function-contacts/contact-functions"
+}) }}
+
+      <form class="form" action="/partnership-application/redirect-done?redirect=/partnership-application/task-list" method="post">
+        {{ govukInput({
+          id: "regulatory-function-contacts-completed",
+          name: "regulatory-function-contacts-completed",
+          value: "true",
+          classes: "govuk-totally-hidden"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}">Back</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

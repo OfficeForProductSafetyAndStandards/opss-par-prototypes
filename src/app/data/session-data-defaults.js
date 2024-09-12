@@ -88,6 +88,16 @@ module.exports = {
     }
   ],
 
+  "local-authority-contacts": [{
+    firstName: "Emma",
+    lastName: "Smith",
+    emailAddress: "emma.smith@wakefield.gov.uk"
+  }, {
+    firstName: "John",
+    lastName: "Siemens",
+    emailAddress: "john.siemens@wakefield.gov.uk"
+  }],
+
   // Insert values here
   "session-regulatory-functions": [
     "environmental-health",

@@ -36,6 +36,35 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% set errorList = [] %}
+      {% if data['address-line-1-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter address line 1",
+              href: "#address-line-1"
+            }) 
+        %}
+      {% endif %}
+      {% if data['address-town-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter town or city",
+              href: "#address-town"
+            }) 
+        %}
+      {% endif %}
+      {% if data['address-postcode-invalid'] %}
+        {% set errorList = errorList | push({
+              text: "Enter postcode",
+              href: "#address-postcode"
+            }) 
+        %}
+      {% endif %}
+
+      {% if errorList | length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+      {% endif %}
 
       <form class="form" action="/partnership-application/legal-entities/create-organisation/new-organisation-answer" method="post">
 
@@ -52,7 +81,7 @@
           <p>You will be able to add additional addresses in the next step.</p>
         </div>
 
-          {{ govukInput({
+          {% set addressLine1Input = {
             label: {
               text: "Address line 1"
             },
@@ -60,7 +89,15 @@
             name: "address-line-1",
             value: data['address-line-1'],
             autocomplete: "address-line1"
-          }) }}
+          } %}
+          {% if data['address-line-1-invalid'] %}
+            {% set addressLine1Input = addressLine1Input | merge({
+              errorMessage: {
+                text: "Enter address line 1"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(addressLine1Input) }}
 
           {{ govukInput({
             label: {
@@ -72,7 +109,7 @@
             autocomplete: "address-line2"
           }) }}
 
-          {{ govukInput({
+          {% set addressTownInput = {
             label: {
               text: "Town or city"
             },
@@ -81,7 +118,15 @@
             name: "address-town",
             value: data['address-town'],
             autocomplete: "address-level2"
-          }) }}
+          } %}
+          {% if data['address-town-invalid'] %}
+            {% set addressTownInput = addressTownInput | merge({
+              errorMessage: {
+                text: "Enter address town or city"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(addressTownInput) }}
 
           {{ govukInput({
             label: {
@@ -93,7 +138,7 @@
             value: data['address-county']
           }) }}
 
-          {{ govukInput({
+          {% set addressPostcodeInput = {
             label: {
               text: "Postcode"
             },
@@ -102,7 +147,15 @@
             name: "address-postcode",
             value: data['address-postcode'],
             autocomplete: "postal-code"
-          }) }}
+          } %}
+          {% if data['address-postcode-invalid'] %}
+            {% set addressPostcodeInput = addressPostcodeInput | merge({
+              errorMessage: {
+                text: "Enter address postcode"
+              }
+            }) %}
+          {% endif %}
+          {{ govukInput(addressPostcodeInput) }}
 
         {% endcall %}
 
@@ -110,7 +163,7 @@
           {{ govukButton({
             text: "Continue"
           }) }}
-          <a class="govuk-link" href="/partnership-application/create-organisation/organisation-name">Back</a>
+          <a class="govuk-link" href="/partnership-application/legal-entities/create-organisation/organisation-name">Back</a>
         </div>
 
       </form>
