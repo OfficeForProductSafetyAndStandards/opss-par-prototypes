@@ -106,10 +106,10 @@
     {% for item in organisations %}
         {% set newItem =           
           [{
-            html: "<span class='govuk-!-font-weight-bold'>"+ item.tradingName + "</span>"
+            html: "<span class='govuk-!-font-weight-bold'>"+ item.legalName + "</span>"
           },
           {
-            text: item.tradingName
+            text: item.legalName
           },
           {
             text: item.companiesHouseNumber

@@ -1,6 +1,6 @@
 [
     {
-    "tradingName": "Navir",
+    "legalName": "Navir",
     "companiesHouseNumber": 74502598,
     "businessArea": "Public administration and defence; compulsory social security",
     "legalEntityType": "Limited Liability Partnership (LLP)",
@@ -11,7 +11,7 @@
     }
 },
 {
-    "tradingName": "Cujo",
+    "legalName": "Cujo",
     "companiesHouseNumber": 66823957,
     "businessArea": "Construction",
     "legalEntityType": "Co-operative society",
@@ -22,7 +22,7 @@
     }
 },
 {
-    "tradingName": "Boilicon",
+    "legalName": "Boilicon",
     "companiesHouseNumber": 92205867,
     "businessArea": "Human health and social work activities",
     "legalEntityType": "Community Interest Company (CIC)",
@@ -33,7 +33,7 @@
     }
 },
 {
-    "tradingName": "Bostonic",
+    "legalName": "Bostonic",
     "companiesHouseNumber": 76139246,
     "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
     "legalEntityType": "Limited Liability Partnership (LLP)",
@@ -44,7 +44,7 @@
     }
 },
 {
-    "tradingName": "Wrapture",
+    "legalName": "Wrapture",
     "companiesHouseNumber": 77133706,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Co-operative society",
@@ -55,7 +55,7 @@
     }
 },
 {
-    "tradingName": "Globoil",
+    "legalName": "Globoil",
     "companiesHouseNumber": 54429780,
     "businessArea": "Transportation and storage",
     "legalEntityType": "Friendly society",
@@ -66,7 +66,7 @@
     }
 },
 {
-    "tradingName": "Senmao",
+    "legalName": "Senmao",
     "companiesHouseNumber": 43832635,
     "businessArea": "Manufacturing",
     "legalEntityType": "Partnership",
@@ -77,7 +77,7 @@
     }
 },
 {
-    "tradingName": "Omatom",
+    "legalName": "Omatom",
     "companiesHouseNumber": 56079616,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Partnership",
@@ -88,7 +88,7 @@
     }
 },
 {
-    "tradingName": "Zogak",
+    "legalName": "Zogak",
     "companiesHouseNumber": 18543504,
     "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
     "legalEntityType": "Partnership",
@@ -99,7 +99,7 @@
     }
 },
 {
-    "tradingName": "Gallaxia",
+    "legalName": "Gallaxia",
     "companiesHouseNumber": 11041757,
     "businessArea": "Manufacturing",
     "legalEntityType": "Limited company",
@@ -110,7 +110,7 @@
     }
 },
 {
-    "tradingName": "Animalia",
+    "legalName": "Animalia",
     "companiesHouseNumber": 71458608,
     "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
     "legalEntityType": "Unincorporated association",
@@ -121,7 +121,7 @@
     }
 },
 {
-    "tradingName": "Extragene",
+    "legalName": "Extragene",
     "companiesHouseNumber": 68364630,
     "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
     "legalEntityType": "Co-operative society",
@@ -132,7 +132,7 @@
     }
 },
 {
-    "tradingName": "Extro",
+    "legalName": "Extro",
     "companiesHouseNumber": 12797199,
     "businessArea": "Information and communication",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -143,7 +143,7 @@
     }
 },
 {
-    "tradingName": "Glasstep",
+    "legalName": "Glasstep",
     "companiesHouseNumber": 95775593,
     "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
     "legalEntityType": "Limited company",
@@ -154,7 +154,7 @@
     }
 },
 {
-    "tradingName": "Elemantra",
+    "legalName": "Elemantra",
     "companiesHouseNumber": 53612859,
     "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
     "legalEntityType": "Charitable Incorporated Organisation (CIO)",
@@ -165,7 +165,7 @@
     }
 },
 {
-    "tradingName": "Fortean",
+    "legalName": "Fortean",
     "companiesHouseNumber": 12499312,
     "businessArea": "Human health and social work activities",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -176,7 +176,7 @@
     }
 },
 {
-    "tradingName": "Centuria",
+    "legalName": "Centuria",
     "companiesHouseNumber": 40040828,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Partnership",
@@ -187,7 +187,7 @@
     }
 },
 {
-    "tradingName": "Tripsch",
+    "legalName": "Tripsch",
     "companiesHouseNumber": 57545405,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Credit union",
@@ -198,7 +198,7 @@
     }
 },
 {
-    "tradingName": "Zilencio",
+    "legalName": "Zilencio",
     "companiesHouseNumber": 46772839,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Partnership",
@@ -209,7 +209,7 @@
     }
 },
 {
-    "tradingName": "Valpreal",
+    "legalName": "Valpreal",
     "companiesHouseNumber": 35724949,
     "businessArea": "Information and communication",
     "legalEntityType": "Unincorporated association",
@@ -220,7 +220,7 @@
     }
 },
 {
-    "tradingName": "Ontagene",
+    "legalName": "Ontagene",
     "companiesHouseNumber": 31920480,
     "businessArea": "Electricity, gas, steam and air conditioning supply",
     "legalEntityType": "Limited Liability Partnership (LLP)",
@@ -231,7 +231,7 @@
     }
 },
 {
-    "tradingName": "Prismatic",
+    "legalName": "Prismatic",
     "companiesHouseNumber": 91945270,
     "businessArea": "Accommodation and food service activities",
     "legalEntityType": "Limited company",
@@ -242,7 +242,7 @@
     }
 },
 {
-    "tradingName": "Cablam",
+    "legalName": "Cablam",
     "companiesHouseNumber": 17945557,
     "businessArea": "Mining and Quarrying",
     "legalEntityType": "Limited partnership",
@@ -253,7 +253,7 @@
     }
 },
 {
-    "tradingName": "Bolax",
+    "legalName": "Bolax",
     "companiesHouseNumber": 83770055,
     "businessArea": "Activities of extraterritorial organisations and bodies",
     "legalEntityType": "Charitable Incorporated Organisation (CIO)",
@@ -264,7 +264,7 @@
     }
 },
 {
-    "tradingName": "Uneeq",
+    "legalName": "Uneeq",
     "companiesHouseNumber": 33903297,
     "businessArea": "Arts, entertainment and recreation",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -275,7 +275,7 @@
     }
 },
 {
-    "tradingName": "Neurocell",
+    "legalName": "Neurocell",
     "companiesHouseNumber": 24889561,
     "businessArea": "Manufacturing",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -286,7 +286,7 @@
     }
 },
 {
-    "tradingName": "Freakin",
+    "legalName": "Freakin",
     "companiesHouseNumber": 27042807,
     "businessArea": "Accommodation and food service activities",
     "legalEntityType": "Building society",
@@ -297,7 +297,7 @@
     }
 },
 {
-    "tradingName": "Sensate",
+    "legalName": "Sensate",
     "companiesHouseNumber": 60772348,
     "businessArea": "Real estate activities",
     "legalEntityType": "Co-operative society",
@@ -308,7 +308,7 @@
     }
 },
 {
-    "tradingName": "Senmei",
+    "legalName": "Senmei",
     "companiesHouseNumber": 35856081,
     "businessArea": "Water supply, sewerage, waste management and remediation activities",
     "legalEntityType": "Trust",
@@ -319,7 +319,7 @@
     }
 },
 {
-    "tradingName": "Comtract",
+    "legalName": "Comtract",
     "companiesHouseNumber": 69605254,
     "businessArea": "Accommodation and food service activities",
     "legalEntityType": "Building society",
@@ -330,7 +330,7 @@
     }
 },
 {
-    "tradingName": "Quilch",
+    "legalName": "Quilch",
     "companiesHouseNumber": 25371634,
     "businessArea": "Other service activities",
     "legalEntityType": "Building society",
@@ -341,7 +341,7 @@
     }
 },
 {
-    "tradingName": "Quonata",
+    "legalName": "Quonata",
     "companiesHouseNumber": 77151538,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Trust",
@@ -352,7 +352,7 @@
     }
 },
 {
-    "tradingName": "Furnafix",
+    "legalName": "Furnafix",
     "companiesHouseNumber": 99473874,
     "businessArea": "Human health and social work activities",
     "legalEntityType": "Credit union",
@@ -363,7 +363,7 @@
     }
 },
 {
-    "tradingName": "Geekology",
+    "legalName": "Geekology",
     "companiesHouseNumber": 93395857,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Limited company",
@@ -374,7 +374,7 @@
     }
 },
 {
-    "tradingName": "Marketoid",
+    "legalName": "Marketoid",
     "companiesHouseNumber": 33787434,
     "businessArea": "Arts, entertainment and recreation",
     "legalEntityType": "Trust",
@@ -385,7 +385,7 @@
     }
 },
 {
-    "tradingName": "Exiand",
+    "legalName": "Exiand",
     "companiesHouseNumber": 88282567,
     "businessArea": "Other service activities",
     "legalEntityType": "Limited company",
@@ -396,7 +396,7 @@
     }
 },
 {
-    "tradingName": "Zenthall",
+    "legalName": "Zenthall",
     "companiesHouseNumber": 92382922,
     "businessArea": "Information and communication",
     "legalEntityType": "Limited partnership",
@@ -407,7 +407,7 @@
     }
 },
 {
-    "tradingName": "Fuelton",
+    "legalName": "Fuelton",
     "companiesHouseNumber": 73056375,
     "businessArea": "Education",
     "legalEntityType": "Limited partnership",
@@ -418,7 +418,7 @@
     }
 },
 {
-    "tradingName": "Zizzle",
+    "legalName": "Zizzle",
     "companiesHouseNumber": 71571906,
     "businessArea": "Transportation and storage",
     "legalEntityType": "Limited partnership",
@@ -429,7 +429,7 @@
     }
 },
 {
-    "tradingName": "Apex",
+    "legalName": "Apex",
     "companiesHouseNumber": 18616228,
     "businessArea": "Water supply, sewerage, waste management and remediation activities",
     "legalEntityType": "Building society",
@@ -440,7 +440,7 @@
     }
 },
 {
-    "tradingName": "Portica",
+    "legalName": "Portica",
     "companiesHouseNumber": 97172290,
     "businessArea": "Transportation and storage",
     "legalEntityType": "Community Interest Company (CIC)",
@@ -451,7 +451,7 @@
     }
 },
 {
-    "tradingName": "Acruex",
+    "legalName": "Acruex",
     "companiesHouseNumber": 18374724,
     "businessArea": "Arts, entertainment and recreation",
     "legalEntityType": "Credit union",
@@ -462,7 +462,7 @@
     }
 },
 {
-    "tradingName": "Proxsoft",
+    "legalName": "Proxsoft",
     "companiesHouseNumber": 35215344,
     "businessArea": "Mining and Quarrying",
     "legalEntityType": "Friendly society",
@@ -473,7 +473,7 @@
     }
 },
 {
-    "tradingName": "Ovolo",
+    "legalName": "Ovolo",
     "companiesHouseNumber": 36467509,
     "businessArea": "Activities of extraterritorial organisations and bodies",
     "legalEntityType": "Limited partnership",
@@ -484,7 +484,7 @@
     }
 },
 {
-    "tradingName": "Viasia",
+    "legalName": "Viasia",
     "companiesHouseNumber": 55767911,
     "businessArea": "Information and communication",
     "legalEntityType": "Partnership",
@@ -495,7 +495,7 @@
     }
 },
 {
-    "tradingName": "Imageflow",
+    "legalName": "Imageflow",
     "companiesHouseNumber": 56343352,
     "businessArea": "Manufacturing",
     "legalEntityType": "Sole trader",
@@ -506,7 +506,7 @@
     }
 },
 {
-    "tradingName": "Zanilla",
+    "legalName": "Zanilla",
     "companiesHouseNumber": 27492305,
     "businessArea": "Other service activities",
     "legalEntityType": "Friendly society",
@@ -517,7 +517,7 @@
     }
 },
 {
-    "tradingName": "Vortexaco",
+    "legalName": "Vortexaco",
     "companiesHouseNumber": 75042343,
     "businessArea": "Information and communication",
     "legalEntityType": "Building society",
@@ -528,7 +528,7 @@
     }
 },
 {
-    "tradingName": "Portaline",
+    "legalName": "Portaline",
     "companiesHouseNumber": 47567189,
     "businessArea": "Construction",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -539,7 +539,7 @@
     }
 },
 {
-    "tradingName": "Obones",
+    "legalName": "Obones",
     "companiesHouseNumber": 11068707,
     "businessArea": "Construction",
     "legalEntityType": "Charitable Incorporated Organisation (CIO)",
@@ -550,7 +550,7 @@
     }
 },
 {
-    "tradingName": "Slax",
+    "legalName": "Slax",
     "companiesHouseNumber": 76074736,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Partnership",
@@ -561,7 +561,7 @@
     }
 },
 {
-    "tradingName": "Printspan",
+    "legalName": "Printspan",
     "companiesHouseNumber": 43506767,
     "businessArea": "Electricity, gas, steam and air conditioning supply",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -572,7 +572,7 @@
     }
 },
 {
-    "tradingName": "Isoswitch",
+    "legalName": "Isoswitch",
     "companiesHouseNumber": 63336570,
     "businessArea": "Real estate activities",
     "legalEntityType": "Limited Liability Partnership (LLP)",
@@ -583,7 +583,7 @@
     }
 },
 {
-    "tradingName": "Puria",
+    "legalName": "Puria",
     "companiesHouseNumber": 12439508,
     "businessArea": "Real estate activities",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -594,7 +594,7 @@
     }
 },
 {
-    "tradingName": "Utara",
+    "legalName": "Utara",
     "companiesHouseNumber": 79114891,
     "businessArea": "Electricity, gas, steam and air conditioning supply",
     "legalEntityType": "Credit union",
@@ -605,7 +605,7 @@
     }
 },
 {
-    "tradingName": "Codax",
+    "legalName": "Codax",
     "companiesHouseNumber": 50193930,
     "businessArea": "Human health and social work activities",
     "legalEntityType": "Limited Liability Partnership (LLP)",
@@ -616,7 +616,7 @@
     }
 },
 {
-    "tradingName": "Comtrek",
+    "legalName": "Comtrek",
     "companiesHouseNumber": 29849923,
     "businessArea": "Electricity, gas, steam and air conditioning supply",
     "legalEntityType": "Credit union",
@@ -627,7 +627,7 @@
     }
 },
 {
-    "tradingName": "Quordate",
+    "legalName": "Quordate",
     "companiesHouseNumber": 15358852,
     "businessArea": "Activities of extraterritorial organisations and bodies",
     "legalEntityType": "Trust",
@@ -638,7 +638,7 @@
     }
 },
 {
-    "tradingName": "Mondicil",
+    "legalName": "Mondicil",
     "companiesHouseNumber": 80653659,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Community Interest Company (CIC)",
@@ -649,7 +649,7 @@
     }
 },
 {
-    "tradingName": "Slumberia",
+    "legalName": "Slumberia",
     "companiesHouseNumber": 66726165,
     "businessArea": "Construction",
     "legalEntityType": "Limited partnership",
@@ -660,7 +660,7 @@
     }
 },
 {
-    "tradingName": "Bittor",
+    "legalName": "Bittor",
     "companiesHouseNumber": 59313827,
     "businessArea": "Arts, entertainment and recreation",
     "legalEntityType": "Friendly society",
@@ -671,7 +671,7 @@
     }
 },
 {
-    "tradingName": "Thredz",
+    "legalName": "Thredz",
     "companiesHouseNumber": 62523668,
     "businessArea": "Water supply, sewerage, waste management and remediation activities",
     "legalEntityType": "Limited Liability Partnership (LLP)",
@@ -682,7 +682,7 @@
     }
 },
 {
-    "tradingName": "Idetica",
+    "legalName": "Idetica",
     "companiesHouseNumber": 69255679,
     "businessArea": "Education",
     "legalEntityType": "Limited partnership",
@@ -693,7 +693,7 @@
     }
 },
 {
-    "tradingName": "Roboid",
+    "legalName": "Roboid",
     "companiesHouseNumber": 82639278,
     "businessArea": "Human health and social work activities",
     "legalEntityType": "Charitable Incorporated Organisation (CIO)",
@@ -704,7 +704,7 @@
     }
 },
 {
-    "tradingName": "Orbean",
+    "legalName": "Orbean",
     "companiesHouseNumber": 26810316,
     "businessArea": "Education",
     "legalEntityType": "Sole trader",
@@ -715,7 +715,7 @@
     }
 },
 {
-    "tradingName": "Tourmania",
+    "legalName": "Tourmania",
     "companiesHouseNumber": 13076790,
     "businessArea": "Public administration and defence; compulsory social security",
     "legalEntityType": "Friendly society",
@@ -726,7 +726,7 @@
     }
 },
 {
-    "tradingName": "Zanity",
+    "legalName": "Zanity",
     "companiesHouseNumber": 76857167,
     "businessArea": "Human health and social work activities",
     "legalEntityType": "Limited company",
@@ -737,7 +737,7 @@
     }
 },
 {
-    "tradingName": "Tetratrex",
+    "legalName": "Tetratrex",
     "companiesHouseNumber": 64039568,
     "businessArea": "Mining and Quarrying",
     "legalEntityType": "Unincorporated association",
@@ -748,7 +748,7 @@
     }
 },
 {
-    "tradingName": "Sequitur",
+    "legalName": "Sequitur",
     "companiesHouseNumber": 37646354,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Charitable Incorporated Organisation (CIO)",
@@ -759,7 +759,7 @@
     }
 },
 {
-    "tradingName": "Accusage",
+    "legalName": "Accusage",
     "companiesHouseNumber": 88591915,
     "businessArea": "Accommodation and food service activities",
     "legalEntityType": "Co-operative society",
@@ -770,7 +770,7 @@
     }
 },
 {
-    "tradingName": "Bleeko",
+    "legalName": "Bleeko",
     "companiesHouseNumber": 83020169,
     "businessArea": "Water supply, sewerage, waste management and remediation activities",
     "legalEntityType": "Sole trader",
@@ -781,7 +781,7 @@
     }
 },
 {
-    "tradingName": "Voipa",
+    "legalName": "Voipa",
     "companiesHouseNumber": 11783637,
     "businessArea": "Arts, entertainment and recreation",
     "legalEntityType": "Limited company",
@@ -792,7 +792,7 @@
     }
 },
 {
-    "tradingName": "Rockyard",
+    "legalName": "Rockyard",
     "companiesHouseNumber": 41848226,
     "businessArea": "Education",
     "legalEntityType": "Building society",
@@ -803,7 +803,7 @@
     }
 },
 {
-    "tradingName": "Vinch",
+    "legalName": "Vinch",
     "companiesHouseNumber": 80472373,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Co-operative society",
@@ -814,7 +814,7 @@
     }
 },
 {
-    "tradingName": "Kenegy",
+    "legalName": "Kenegy",
     "companiesHouseNumber": 34029444,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Building society",
@@ -825,7 +825,7 @@
     }
 },
 {
-    "tradingName": "Ceprene",
+    "legalName": "Ceprene",
     "companiesHouseNumber": 97547562,
     "businessArea": "Public administration and defence; compulsory social security",
     "legalEntityType": "Co-operative society",
@@ -836,7 +836,7 @@
     }
 },
 {
-    "tradingName": "Capscreen",
+    "legalName": "Capscreen",
     "companiesHouseNumber": 37475074,
     "businessArea": "Water supply, sewerage, waste management and remediation activities",
     "legalEntityType": "Limited partnership",
@@ -847,7 +847,7 @@
     }
 },
 {
-    "tradingName": "Idealis",
+    "legalName": "Idealis",
     "companiesHouseNumber": 19114324,
     "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -858,7 +858,7 @@
     }
 },
 {
-    "tradingName": "Zensus",
+    "legalName": "Zensus",
     "companiesHouseNumber": 12452948,
     "businessArea": "Other service activities",
     "legalEntityType": "Co-operative society",
@@ -869,7 +869,7 @@
     }
 },
 {
-    "tradingName": "Comcur",
+    "legalName": "Comcur",
     "companiesHouseNumber": 19666199,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Charitable Incorporated Organisation (CIO)",
@@ -880,7 +880,7 @@
     }
 },
 {
-    "tradingName": "Insectus",
+    "legalName": "Insectus",
     "companiesHouseNumber": 10573270,
     "businessArea": "Public administration and defence; compulsory social security",
     "legalEntityType": "Credit union",
@@ -891,7 +891,7 @@
     }
 },
 {
-    "tradingName": "Zilla",
+    "legalName": "Zilla",
     "companiesHouseNumber": 17434118,
     "businessArea": "Other service activities",
     "legalEntityType": "Trust",
@@ -902,7 +902,7 @@
     }
 },
 {
-    "tradingName": "Cytrek",
+    "legalName": "Cytrek",
     "companiesHouseNumber": 72348387,
     "businessArea": "Education",
     "legalEntityType": "Community Interest Company (CIC)",
@@ -913,7 +913,7 @@
     }
 },
 {
-    "tradingName": "Lexicondo",
+    "legalName": "Lexicondo",
     "companiesHouseNumber": 81730006,
     "businessArea": "Accommodation and food service activities",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -924,7 +924,7 @@
     }
 },
 {
-    "tradingName": "Xplor",
+    "legalName": "Xplor",
     "companiesHouseNumber": 31192482,
     "businessArea": "Information and communication",
     "legalEntityType": "Limited partnership",
@@ -935,7 +935,7 @@
     }
     },
     {
-    "tradingName": "Manufact",
+    "legalName": "Manufact",
     "companiesHouseNumber": 35678347,
     "businessArea": "Manufacturing",
     "legalEntityType": "Sole trader",
@@ -946,7 +946,7 @@
     }
 },
 {
-    "tradingName": "Terrasys",
+    "legalName": "Terrasys",
     "companiesHouseNumber": 45228510,
     "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
     "legalEntityType": "Limited company",
@@ -957,7 +957,7 @@
     }
 },
 {
-    "tradingName": "Octocore",
+    "legalName": "Octocore",
     "companiesHouseNumber": 26757039,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Unincorporated association",
@@ -968,7 +968,7 @@
     }
 },
 {
-    "tradingName": "Farmex",
+    "legalName": "Farmex",
     "companiesHouseNumber": 69344134,
     "businessArea": "Other service activities",
     "legalEntityType": "Partnership",
@@ -979,7 +979,7 @@
     }
 },
 {
-    "tradingName": "Applica",
+    "legalName": "Applica",
     "companiesHouseNumber": 52845867,
     "businessArea": "Mining and Quarrying",
     "legalEntityType": "Unincorporated association",
@@ -990,7 +990,7 @@
     }
 },
 {
-    "tradingName": "Tropoli",
+    "legalName": "Tropoli",
     "companiesHouseNumber": 62233384,
     "businessArea": "Transportation and storage",
     "legalEntityType": "Community Interest Company (CIC)",
@@ -1001,7 +1001,7 @@
     }
 },
 {
-    "tradingName": "Centrexin",
+    "legalName": "Centrexin",
     "companiesHouseNumber": 98760606,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Credit union",
@@ -1012,7 +1012,7 @@
     }
 },
 {
-    "tradingName": "Kengen",
+    "legalName": "Kengen",
     "companiesHouseNumber": 56542092,
     "businessArea": "Other service activities",
     "legalEntityType": "Building society",
@@ -1023,7 +1023,7 @@
     }
 },
 {
-    "tradingName": "Bezal",
+    "legalName": "Bezal",
     "companiesHouseNumber": 44652029,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Trust",
@@ -1034,7 +1034,7 @@
     }
 },
 {
-    "tradingName": "Fangold",
+    "legalName": "Fangold",
     "companiesHouseNumber": 86744877,
     "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
     "legalEntityType": "Trust",
@@ -1045,7 +1045,7 @@
     }
 },
 {
-    "tradingName": "Protodyne",
+    "legalName": "Protodyne",
     "companiesHouseNumber": 75840200,
     "businessArea": "Information and communication",
     "legalEntityType": "Community Benefit Society (BenCom)",
@@ -1056,7 +1056,7 @@
     }
 },
 {
-    "tradingName": "Veraq",
+    "legalName": "Veraq",
     "companiesHouseNumber": 14928953,
     "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
     "legalEntityType": "Credit union",
@@ -1067,7 +1067,7 @@
     }
 },
 {
-    "tradingName": "Eventex",
+    "legalName": "Eventex",
     "companiesHouseNumber": 31622077,
     "businessArea": "Professional, scientific and technical activities",
     "legalEntityType": "Sole trader",
@@ -1078,7 +1078,7 @@
     }
 },
 {
-    "tradingName": "Combogen",
+    "legalName": "Combogen",
     "companiesHouseNumber": 76368825,
     "businessArea": "Financial and insurance activities",
     "legalEntityType": "Sole trader",
@@ -1089,7 +1089,7 @@
     }
 },
 {
-    "tradingName": "Cinaster",
+    "legalName": "Cinaster",
     "companiesHouseNumber": 28983562,
     "businessArea": "Transportation and storage",
     "legalEntityType": "Co-operative society",

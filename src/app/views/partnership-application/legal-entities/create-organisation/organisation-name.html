@@ -38,38 +38,53 @@
 
       <form class="form" action="/partnership-application/legal-entities/create-organisation/organisation-name-answer" method="post">
 
-        {% if data['organisation-name-invalid'] %}
+        {% if data['legal-name-invalid'] %}
           {{ govukErrorSummary({
             titleText: "There is a problem",
             errorList: [
               {
-                text: "Enter the organisation name",
-                href: "#organisation-name"
+                text: "Enter the registered legal name",
+                href: "#legal-name"
               }
             ]
           }) }}
         {% endif %}
 
+        {% call govukFieldset({
+          legend: {
+            text: "What is the name of the legal entity?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
         {% set organisationInput = {
           label: {
-            text: "What is the name of the organisation you are partnering with?",
-            classes: "govuk-label--l",
-            isPageHeading: true
+            text: "Registered legal name"
           },
-          id: "organisation-name",
-          name: "organisation-name",
-          value: data['organisation-name']
+          id: "legal-name",
+          name: "legal-name",
+          value: data['legal-name']
         } %}
-
-        {% if data['organisation-name-invalid'] %}
+        {% if data['legal-name-invalid'] %}
           {% set organisationInput = organisationInput | merge({
             errorMessage: {
-              text: "Enter the organisation name"
+              text: "Enter the registered legal name"
             }
           }) %}
         {% endif %}
-
         {{ govukInput(organisationInput) }}
+
+        {{ govukInput({
+          label: {
+            text: "Trading name (optional)"
+          },
+          id: "trading-name",
+          name: "trading-name",
+          value: data['trading-name']
+        })}}
+
+        {% endcall %}
 
         <div class="govuk-button-group">
           {{ govukButton({

@@ -57,7 +57,7 @@
         {{ govukSummaryList({
             card: {
               title: {
-                text: item.tradingName
+                text: item.legalName
               },
               actions: {
                 items: [
@@ -69,6 +69,14 @@
               }
             },
             rows: [
+              {
+                key: {
+                  text: "Trading name"
+                },
+                value: {
+                  html: item.tradingName
+                }
+              },
               {
                 key: {
                   text: "Companies house number"
@@ -90,7 +98,7 @@
                   text: "Legal entity type"
                 },
                 value: {
-                  html: item.legalEntityType
+                  html: data['legal-entity-types'] | find('value', item.legalEntityType) | value('text')
                 }
               },
               {
@@ -98,7 +106,15 @@
                   text: "Registed office address"
                 },
                 value: {
-                  html: item.address | values | join ("<br />")
+                  html: item.address | values | select() | join ("<br />")
+                }
+              },
+              {
+                key: {
+                  text: "Group name"
+                },
+                value: {
+                  html: item.businessArea
                 }
               }
             ]

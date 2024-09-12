@@ -115,13 +115,6 @@
           },
           {
             title: {
-              text: "Additional addresses (optional)"
-            },
-            href: ("/partnership-application/additional-addresses/show-list" if data['legal-entites-completed']),
-            status: (additionalAddressesCountStatus if data['legal-entites-completed'] else cannotStartYetStatus)
-          },
-          {
-            title: {
               text: "Add primary organisation contact for application"
             },
             href: ("/partnership-application/contact-details/primary-contact" if data['legal-entites-completed']),

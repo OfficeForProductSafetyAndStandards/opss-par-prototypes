@@ -48,7 +48,7 @@
             ]
           }) }}
         {% endif %}
-        
+
       <h1 class="govuk-heading-l">
         Is this the organisation you want to form a partnership with?
       </h1>
@@ -65,6 +65,14 @@
             },
             value: {
               text: data['new-organisation'].companiesHouseNumber
+            }
+          },
+          {
+            key: {
+              text: "Legal name"
+            },
+            value: {
+              text: data['new-organisation'].legalName
             }
           },
           {
