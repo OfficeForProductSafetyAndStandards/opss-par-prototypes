@@ -53,9 +53,7 @@
 
       {% macro contactDetails(arr) %}
         {% for contact in arr %}
-          {{ contact.firstName }} {{ contact.lastName }}<br />
-          {{ contact.phoneNumber }}<br />
-          {{ contact.emailAddress }}<br />
+          {{ [contact.firstName + " " + contact.lastName, contact.phoneNumber, contact.emailAddress] | select | join("\n") | escape | nl2br  }}
           {% if loop.last == false %}
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           {% endif %}
@@ -99,7 +97,13 @@
         <p>No legal entities have been added</p>
       {% endfor %}
 
-      <form class="form" action="/partnership-application/task-list" method="post">
+      <form class="form" action="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}" method="post">
         {{ govukInput({
           id: "contacts-completed",
           name: "contacts-completed",
@@ -111,7 +115,15 @@
           {{ govukButton({
             text: "Save and continue"
           }) }}
-          <a class="govuk-link" href="/partnership-application/task-list">Back</a>
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}">Back</a>
         </div>
       </form>
     </div>

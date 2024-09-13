@@ -543,7 +543,7 @@ router.post('/partnership-application/try-submit', function (req, res) {
         // Reset session data
         for (let property in req.session.data) {
             if (req.session.data.hasOwnProperty(property)) {
-                if (!['legal-entity-types', 'regulatory-functions', 'session-regulatory-functions'].includes(property)) {
+                if (!['legal-entity-types', 'regulatory-functions', 'session-regulatory-functions', 'primary-email-address'].includes(property)) {
                     req.session.data[property] = undefined;
                 }
             }

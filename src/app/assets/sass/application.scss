@@ -21,3 +21,7 @@
 .govuk-totally-hidden {
     display: none;
 }
+
+.govuk-summary-list--no-border .govuk-summary-list__row_border {
+    border-bottom: 1px solid #b1b4b6;
+}
