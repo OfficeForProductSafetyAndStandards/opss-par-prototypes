@@ -79,7 +79,13 @@
   href: "/partnership-application/regulatory-function-contacts/contact-functions"
 }) }}
 
-      <form class="form" action="/partnership-application/redirect-done?redirect=/partnership-application/task-list" method="post">
+      <form class="form" action="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/partnership-application/review-details', 
+                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+              ) }}" method="post">
         {{ govukInput({
           id: "regulatory-function-contacts-completed",
           name: "regulatory-function-contacts-completed",

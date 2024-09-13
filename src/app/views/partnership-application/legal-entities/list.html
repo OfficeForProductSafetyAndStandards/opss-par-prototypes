@@ -90,7 +90,7 @@
                   text: "Business area"
                 },
                 value: {
-                  html: item.businessArea
+                  html: data['regulatory-functions'] | find('value', item.businessArea) | value('text')
                 }
               },
               {
@@ -114,7 +114,7 @@
                   text: "Group name"
                 },
                 value: {
-                  html: item.businessArea
+                  html: item.groupName
                 }
               }
             ]

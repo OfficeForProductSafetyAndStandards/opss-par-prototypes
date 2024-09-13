@@ -69,95 +69,65 @@
       }) }}
 
       <h2 class="govuk-heading-m">
-        Organisation details
+        Primary Authority details
       </h2>
+
+      {% set contactRows = [] %}
+      {% for sessionRegulatoryFunction in data['session-regulatory-functions'] %}
+        {% set entityContacts = (data['regulatory-function-contacts'] or []) | searchArray('regulatoryFunction', sessionRegulatoryFunction)  %}
+       {% for entityContact in entityContacts %}
+        {% set contactRows = contactRows | push({
+                  key: {
+                    text: "Contact " + data['regulatory-functions'] | find('value', sessionRegulatoryFunction) | value('text')
+                  },
+                  value: {
+                    html: [entityContact.firstName + " " + entityContact.lastName, entityContact.phoneNumber, entityContact.emailAddress] | select | join('<br />')
+                  }
+          }) %}
+      {% endfor %}
+      {% endfor %}
 
       {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Primary contact for your organisation"
-            },
-            value: {
-              html: [data['primary-first-name'] + " " +  data['primary-last-name'], data['primary-phone-number'], data['primary-email-address']] | select | join('<br />')
-            },
-            actions: {
-              items: [
-                {
-                  href: "/partnership-application/redirect?redirect=/partnership-application/contact-details/primary-contact",
-                  text: "Change",
-                  visuallyHiddenText: "partnership type"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-m">
-        Legal entities
-      </h2>
-
-      {% for legalEntity in data['legal-entites'] | select() %}
-
-        {% set entityLoop = loop %}
-        {% set additionalAddresses = [] %}
-        {% for additionalAddress in legalEntity.additionalAddress or [] | select() %}
-          {% set additionalAddresses = additionalAddresses | push({
-                key: {
-                  text: "Additional office address"
-                },
-                value: {
-                  html: additionalAddress | values | select() | join ("<br />")
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "/partnership-application/additional-addresses/show-edit-address?entity=" + entityLoop.index0 + "&address=" + loop.index0,
-                      text: "Change",
-                      visuallyHiddenText: "address"
-                    }
-                  ]
-                }
-              }) %}
-        {% endfor %}
-        
-        {% set additionalContacts = [] %}
-        {% for additionalContact in legalEntity.legalEntityContacts or [] | select() %}
-          {% set additionalContacts = additionalContacts | push({
-            key: {
-              text: "Contact " + data['regulatory-functions'] | find('value', additionalContact.legalEntity) | value('text')
-            },
-            value: {
-              html: [additionalContact.firstName + " " + additionalContact.lastName, additionalContact.phoneNumber, additionalContact.emailAddress] | select() | join ("<br />")
-            },
-            actions: {
-              items: [
-                {
-                  href: "/partnership-application/contact-details/show-edit-contact?entity=" + entityLoop.index0 + "&contact=" + loop.index0,
-                  text: "Change",
-                  visuallyHiddenText: "address"
-                }
-              ]
-            }
-          }) %}
-        {% endfor %}
-
-        {{ govukSummaryList({
           card: {
             title: {
-              text: legalEntity.legalName
+              text: "Regulatory function contacts"
             },
             actions: {
               items: [
                 {
-                  href: "/partnership-application/redirect?redirect=/partnership-application/legal-entities/show-list",
+                  href: "/partnership-application/redirect?redirect=/partnership-application/regulatory-function-contacts/show-list",
                   text: "Change"
                 }
               ]
             }
           },
-          rows: [{
+          classes: "govuk-summary-list--no-border",
+          rows: contactRows
+        }) }}
+
+      <h2 class="govuk-heading-m">
+        Organisation Details
+      </h2>
+
+      {% set organisationDetails = [] %}
+      {% for legalEntity in data['legal-entites'] | select() %}
+        {% set organisationDetails = organisationDetails | merge([{
+                  key: {
+                    text: "Registered legal name"
+                  },
+                  value: {
+                    text: legalEntity.legalName
+                  }
+                },
+                {
+                  key: {
+                    text: "Trading name"
+                  },
+                  value: {
+                    text: legalEntity.tradingName
+                  }
+                },
+                {
                   key: {
                     text: "Companies house number"
                   },
@@ -178,7 +148,7 @@
                     text: "Business area"
                   },
                   value: {
-                    text: legalEntity.businessArea
+                    text: data['regulatory-functions'] | find('value', legalEntity.businessArea) | value('text')
                   }
                 },
                 {
@@ -188,11 +158,111 @@
                   value: {
                     html: legalEntity.address | values | select() | join('<br />')
                   }
-                }] | merge(additionalAddresses) | merge(additionalContacts)
+                },
+                {
+                  key: {
+                    text: "Group name"
+                  },
+                  value: {
+                    text: legalEntity.groupName
+                  },
+                  classes: "govuk-summary-list__row_border"
+                }] ) %}
+      {% endfor %}
+      {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Legal entities"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/partnership-application/redirect?redirect=/partnership-application/legal-entities/show-list",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          classes: "govuk-summary-list--no-border",
+          rows: organisationDetails
+        }) }}
+        
+      {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Primary organisation contact"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/partnership-application/redirect?redirect=/partnership-application/contact-details/primary-contact",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          classes: "govuk-summary-list--no-border",
+          rows: [{
+                  key: {
+                    text: "Contact"
+                  },
+                  value: {
+                    html: [data['primary-first-name'] + " " + data['primary-last-name'], data['primary-phone-number'], data['primary-email-address']] | select | join('<br />')
+                  }
+          }]
         }) }}
 
-      {% endfor %}
+      {% macro contactDetails(arr) %}
+        {% for contact in arr %}
+          {{ [contact.firstName + " " + contact.lastName, contact.phoneNumber, contact.emailAddress] | select | join("\n") | escape | nl2br  }}
+        {% else %}
+          No contact added
+        {% endfor %}
+      {% endmacro %}
 
+      {% set regulatoryFunctionContacts = [] %}
+      {% for legalEntity in data['legal-entites'] | select() %}
+        {% set regulatoryFunctionContacts = regulatoryFunctionContacts | merge([{
+                  key: {
+                    text: "Legal entity name"
+                  },
+                  value: {
+                    text: legalEntity.legalName
+                  }
+                }] ) %}
+        {% for sessionRegulatoryFunction in data['session-regulatory-functions'] %}
+          {% set entityContacts = legalEntity | search('legalEntityContacts', 'legalEntity', sessionRegulatoryFunction)  %}
+          {% set contactRow = {
+                  key: {
+                    text: "Contact " + data['regulatory-functions'] | find('value', sessionRegulatoryFunction) | value('text')
+                  },
+                  value: {
+                    html: contactDetails(entityContacts)
+                  }
+          } %}
+          {% if loop.last == true %}
+            {% set contactRow = contactRow | merge({classes: "govuk-summary-list__row_border"}) %}
+          {% endif %}
+          {% set regulatoryFunctionContacts = regulatoryFunctionContacts | push(contactRow) %}
+        {% endfor %}
+      {% endfor %}
+      {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Regulatory function legal entity contacts"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/partnership-application/redirect?redirect=/partnership-application/contact-details/show-list",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          classes: "govuk-summary-list--no-border",
+          rows: regulatoryFunctionContacts
+        }) }}
 
       <h2 class="govuk-heading-m">
         Additional details
