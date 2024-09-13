@@ -1,1102 +1,1952 @@
 [
     {
-    "legalName": "Navir",
-    "companiesHouseNumber": 74502598,
-    "businessArea": "Public administration and defence; compulsory social security",
-    "legalEntityType": "Limited Liability Partnership (LLP)",
+    "legalName": "Darwinium",
+    "tradingName": "Darwinium",
+    "groupName": "",
+    "companiesHouseNumber": 18548474,
+    "businessArea": "fire-safety",
+    "legalEntityType": "cio",
     "address": {
-        "line1": "12 Woodruff Avenue",
-        "town": "Farmington",
-        "postcode": "AY34 2FM"
+        "line1": "55 Bragg Street",
+        "town": "Neahkahnie",
+        "postcode": "BB3 2IE"
     }
 },
 {
-    "legalName": "Cujo",
-    "companiesHouseNumber": 66823957,
-    "businessArea": "Construction",
-    "legalEntityType": "Co-operative society",
+    "legalName": "Candecor",
+    "tradingName": "Candecor",
+    "groupName": "",
+    "companiesHouseNumber": 43482407,
+    "businessArea": "fire-safety",
+    "legalEntityType": "sole-trader",
     "address": {
-        "line1": "68 Troy Avenue",
-        "town": "Mappsville",
-        "postcode": "MR9 3FR"
+        "line1": "1 Cass Place",
+        "town": "Hardyville",
+        "postcode": "IC9 4CM"
     }
 },
 {
-    "legalName": "Boilicon",
-    "companiesHouseNumber": 92205867,
-    "businessArea": "Human health and social work activities",
-    "legalEntityType": "Community Interest Company (CIC)",
+    "legalName": "Daycore",
+    "tradingName": "Daycore",
+    "groupName": "",
+    "companiesHouseNumber": 71439105,
+    "businessArea": "environmental-health",
+    "legalEntityType": "cio",
     "address": {
-        "line1": "4 Butler Place",
-        "town": "Dola",
-        "postcode": "EU71 5KP"
+        "line1": "86 Ridgewood Place",
+        "town": "Mathews",
+        "postcode": "NV6 6EP"
     }
 },
 {
-    "legalName": "Bostonic",
-    "companiesHouseNumber": 76139246,
-    "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
-    "legalEntityType": "Limited Liability Partnership (LLP)",
+    "legalName": "Cosmosis",
+    "tradingName": "Cosmosis",
+    "groupName": "",
+    "companiesHouseNumber": 93590587,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "cic",
     "address": {
-        "line1": "45 Ide Court",
-        "town": "Lindisfarne",
-        "postcode": "KY42 4FZ"
+        "line1": "94 Humboldt Street",
+        "town": "Rowe",
+        "postcode": "TL1 7ZC"
     }
 },
 {
-    "legalName": "Wrapture",
-    "companiesHouseNumber": 77133706,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Co-operative society",
+    "legalName": "Keeg",
+    "tradingName": "Keeg",
+    "groupName": "",
+    "companiesHouseNumber": 70597819,
+    "businessArea": "fire-safety",
+    "legalEntityType": "cic",
     "address": {
-        "line1": "89 Glendale Court",
-        "town": "Dargan",
-        "postcode": "BA85 4BE"
-    }
-},
-{
-    "legalName": "Globoil",
-    "companiesHouseNumber": 54429780,
-    "businessArea": "Transportation and storage",
-    "legalEntityType": "Friendly society",
-    "address": {
-        "line1": "2 Temple Court",
-        "town": "Eggertsville",
-        "postcode": "OI51 4DF"
-    }
-},
-{
-    "legalName": "Senmao",
-    "companiesHouseNumber": 43832635,
-    "businessArea": "Manufacturing",
-    "legalEntityType": "Partnership",
-    "address": {
-        "line1": "65 Hunts Lane",
-        "town": "Dupuyer",
-        "postcode": "UO21 6MN"
-    }
-},
-{
-    "legalName": "Omatom",
-    "companiesHouseNumber": 56079616,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Partnership",
-    "address": {
-        "line1": "2 Atlantic Avenue",
-        "town": "Rose",
-        "postcode": "HR57 5SQ"
-    }
-},
-{
-    "legalName": "Zogak",
-    "companiesHouseNumber": 18543504,
-    "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
-    "legalEntityType": "Partnership",
-    "address": {
-        "line1": "86 Cornelia Street",
-        "town": "Bawcomville",
-        "postcode": "DT30 3GJ"
-    }
-},
-{
-    "legalName": "Gallaxia",
-    "companiesHouseNumber": 11041757,
-    "businessArea": "Manufacturing",
-    "legalEntityType": "Limited company",
-    "address": {
-        "line1": "42 Kenilworth Place",
-        "town": "Moraida",
-        "postcode": "VT1 8TX"
-    }
-},
-{
-    "legalName": "Animalia",
-    "companiesHouseNumber": 71458608,
-    "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
-    "legalEntityType": "Unincorporated association",
-    "address": {
-        "line1": "76 Coffey Street",
-        "town": "Bellfountain",
-        "postcode": "RL96 9BW"
-    }
-},
-{
-    "legalName": "Extragene",
-    "companiesHouseNumber": 68364630,
-    "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
-    "legalEntityType": "Co-operative society",
-    "address": {
-        "line1": "33 Crosby Avenue",
-        "town": "Logan",
-        "postcode": "KA20 4UF"
-    }
-},
-{
-    "legalName": "Extro",
-    "companiesHouseNumber": 12797199,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Community Benefit Society (BenCom)",
-    "address": {
-        "line1": "13 Lake Place",
-        "town": "Movico",
-        "postcode": "QN88 1CJ"
-    }
-},
-{
-    "legalName": "Glasstep",
-    "companiesHouseNumber": 95775593,
-    "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
-    "legalEntityType": "Limited company",
-    "address": {
-        "line1": "14 Sullivan Place",
-        "town": "Cartwright",
-        "postcode": "TC4 2HD"
-    }
-},
-{
-    "legalName": "Elemantra",
-    "companiesHouseNumber": 53612859,
-    "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
-    "legalEntityType": "Charitable Incorporated Organisation (CIO)",
-    "address": {
-        "line1": "50 Navy Street",
-        "town": "Davenport",
-        "postcode": "JM10 9IK"
+        "line1": "81 Erasmus Street",
+        "town": "Sandston",
+        "postcode": "VS9 4BW"
     }
 },
 {
     "legalName": "Fortean",
-    "companiesHouseNumber": 12499312,
-    "businessArea": "Human health and social work activities",
-    "legalEntityType": "Community Benefit Society (BenCom)",
+    "tradingName": "Fortean",
+    "groupName": "",
+    "companiesHouseNumber": 40725771,
+    "businessArea": "environmental-health",
+    "legalEntityType": "partnership",
     "address": {
-        "line1": "86 Belvidere Street",
-        "town": "Crawfordsville",
-        "postcode": "OV37 6FF"
+        "line1": "22 Ebony Court",
+        "town": "Efland",
+        "postcode": "RV5 3PR"
     }
 },
 {
-    "legalName": "Centuria",
-    "companiesHouseNumber": 40040828,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Partnership",
+    "legalName": "Imperium",
+    "tradingName": "Imperium",
+    "groupName": "",
+    "companiesHouseNumber": 23646547,
+    "businessArea": "environmental-health",
+    "legalEntityType": "cio",
     "address": {
-        "line1": "84 Glenwood Road",
-        "town": "Layhill",
-        "postcode": "GB27 3DQ"
+        "line1": "62 Garden Street",
+        "town": "Belfair",
+        "postcode": "VU9 7ZC"
     }
 },
 {
-    "legalName": "Tripsch",
-    "companiesHouseNumber": 57545405,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Credit union",
+    "legalName": "Danja",
+    "tradingName": "Danja",
+    "groupName": "",
+    "companiesHouseNumber": 21858819,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "bencom",
     "address": {
-        "line1": "61 Seigel Court",
-        "town": "Dowling",
-        "postcode": "LX11 1YH"
+        "line1": "27 Indiana Place",
+        "town": "Morningside",
+        "postcode": "AO6 2OL"
     }
 },
 {
-    "legalName": "Zilencio",
-    "companiesHouseNumber": 46772839,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Partnership",
+    "legalName": "Cormoran",
+    "tradingName": "Cormoran",
+    "groupName": "",
+    "companiesHouseNumber": 67291429,
+    "businessArea": "fire-safety",
+    "legalEntityType": "friendly-society",
     "address": {
-        "line1": "83 Losee Terrace",
-        "town": "Wikieup",
-        "postcode": "GV92 2VU"
+        "line1": "23 Kent Street",
+        "town": "Guilford",
+        "postcode": "XN4 6UM"
     }
 },
 {
-    "legalName": "Valpreal",
-    "companiesHouseNumber": 35724949,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Unincorporated association",
+    "legalName": "Diginetic",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 30436022,
+    "businessArea": "licensing",
+    "legalEntityType": "unincorporated-association",
     "address": {
-        "line1": "10 Sullivan Street",
+        "line1": "13 Vanderbilt Street",
+        "town": "Harrison",
+        "postcode": "ML8 4OH"
+    }
+},
+{
+    "legalName": "Virxo",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 25662207,
+    "businessArea": "licensing",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "4 Chester Avenue",
+        "town": "Lydia",
+        "postcode": "KO9 4SX"
+    }
+},
+{
+    "legalName": "Sureplex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 35081820,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "93 Melba Court",
+        "town": "Collins",
+        "postcode": "SD9 5VX"
+    }
+},
+{
+    "legalName": "Sultraxin",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 73642802,
+    "businessArea": "fire-safety",
+    "legalEntityType": "llp",
+    "address": {
+        "line1": "37 Seigel Court",
         "town": "Magnolia",
-        "postcode": "HG13 6EV"
+        "postcode": "SN1 5ZV"
     }
 },
 {
-    "legalName": "Ontagene",
-    "companiesHouseNumber": 31920480,
-    "businessArea": "Electricity, gas, steam and air conditioning supply",
-    "legalEntityType": "Limited Liability Partnership (LLP)",
+    "legalName": "Aquazure",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 72539976,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "limited-company",
     "address": {
-        "line1": "2 Langham Street",
-        "town": "Woodruff",
-        "postcode": "MG9 5GZ"
+        "line1": "89 Croton Loop",
+        "town": "Innsbrook",
+        "postcode": "KW8 0GU"
     }
 },
 {
-    "legalName": "Prismatic",
-    "companiesHouseNumber": 91945270,
-    "businessArea": "Accommodation and food service activities",
-    "legalEntityType": "Limited company",
+    "legalName": "Recritube",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 70321806,
+    "businessArea": "licensing",
+    "legalEntityType": "bencom",
     "address": {
-        "line1": "94 Colonial Court",
-        "town": "Cornfields",
-        "postcode": "DA80 2HZ"
+        "line1": "25 Crown Street",
+        "town": "Cochranville",
+        "postcode": "QE7 7GE"
     }
 },
 {
-    "legalName": "Cablam",
-    "companiesHouseNumber": 17945557,
-    "businessArea": "Mining and Quarrying",
-    "legalEntityType": "Limited partnership",
+    "legalName": "Venoflex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 16959164,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "llp",
     "address": {
-        "line1": "40 Empire Boulevard",
-        "town": "Dixie",
-        "postcode": "WY44 1ZI"
+        "line1": "71 Metrotech Courtr",
+        "town": "Tioga",
+        "postcode": "OD1 7SA"
     }
 },
 {
-    "legalName": "Bolax",
-    "companiesHouseNumber": 83770055,
-    "businessArea": "Activities of extraterritorial organisations and bodies",
-    "legalEntityType": "Charitable Incorporated Organisation (CIO)",
+    "legalName": "Orbin",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 15015722,
+    "businessArea": "fire-safety",
+    "legalEntityType": "partnership",
     "address": {
-        "line1": "97 Dahlgreen Place",
-        "town": "Westerville",
-        "postcode": "KT58 1QP"
+        "line1": "38 Grand Avenue",
+        "town": "Advance",
+        "postcode": "VJ7 1MQ"
     }
 },
 {
-    "legalName": "Uneeq",
-    "companiesHouseNumber": 33903297,
-    "businessArea": "Arts, entertainment and recreation",
-    "legalEntityType": "Community Benefit Society (BenCom)",
+    "legalName": "Daisu",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 56013053,
+    "businessArea": "fire-safety",
+    "legalEntityType": "limited-company",
     "address": {
-        "line1": "91 Ocean Court",
-        "town": "Vienna",
-        "postcode": "YS21 7HI"
+        "line1": "22 Landis Court",
+        "town": "Waumandee",
+        "postcode": "SG8 4QM"
     }
 },
 {
-    "legalName": "Neurocell",
-    "companiesHouseNumber": 24889561,
-    "businessArea": "Manufacturing",
-    "legalEntityType": "Community Benefit Society (BenCom)",
+    "legalName": "Medmex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 29768863,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "bencom",
     "address": {
-        "line1": "57 Noll Street",
-        "town": "Day",
-        "postcode": "ID99 8IF"
+        "line1": "65 Varick Avenue",
+        "town": "Dola",
+        "postcode": "OV0 4BR"
     }
 },
 {
-    "legalName": "Freakin",
-    "companiesHouseNumber": 27042807,
-    "businessArea": "Accommodation and food service activities",
-    "legalEntityType": "Building society",
+    "legalName": "Zoid",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 85526266,
+    "businessArea": "fire-safety",
+    "legalEntityType": "cic",
     "address": {
-        "line1": "100 Will Place",
-        "town": "Duryea",
-        "postcode": "CQ80 1HS"
+        "line1": "87 Maple Avenue",
+        "town": "Muir",
+        "postcode": "XB3 8YF"
     }
 },
 {
-    "legalName": "Sensate",
-    "companiesHouseNumber": 60772348,
-    "businessArea": "Real estate activities",
-    "legalEntityType": "Co-operative society",
+    "legalName": "Orboid",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 39216341,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "friendly-society",
     "address": {
-        "line1": "59 River Street",
-        "town": "Bartley",
-        "postcode": "EN86 9VD"
-    }
-},
-{
-    "legalName": "Senmei",
-    "companiesHouseNumber": 35856081,
-    "businessArea": "Water supply, sewerage, waste management and remediation activities",
-    "legalEntityType": "Trust",
-    "address": {
-        "line1": "94 Douglass Street",
-        "town": "Bellamy",
-        "postcode": "VI2 8IP"
-    }
-},
-{
-    "legalName": "Comtract",
-    "companiesHouseNumber": 69605254,
-    "businessArea": "Accommodation and food service activities",
-    "legalEntityType": "Building society",
-    "address": {
-        "line1": "83 Bills Place",
-        "town": "Ola",
-        "postcode": "AQ68 8JG"
-    }
-},
-{
-    "legalName": "Quilch",
-    "companiesHouseNumber": 25371634,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Building society",
-    "address": {
-        "line1": "65 Pershing Loop",
-        "town": "Hachita",
-        "postcode": "FV38 1HA"
-    }
-},
-{
-    "legalName": "Quonata",
-    "companiesHouseNumber": 77151538,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Trust",
-    "address": {
-        "line1": "98 Tudor Terrace",
-        "town": "Westmoreland",
-        "postcode": "MZ50 4AK"
-    }
-},
-{
-    "legalName": "Furnafix",
-    "companiesHouseNumber": 99473874,
-    "businessArea": "Human health and social work activities",
-    "legalEntityType": "Credit union",
-    "address": {
-        "line1": "56 Manhattan Court",
-        "town": "Fillmore",
-        "postcode": "EB38 3UX"
-    }
-},
-{
-    "legalName": "Geekology",
-    "companiesHouseNumber": 93395857,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Limited company",
-    "address": {
-        "line1": "52 Ditmas Avenue",
-        "town": "Lowgap",
-        "postcode": "QK54 8NS"
-    }
-},
-{
-    "legalName": "Marketoid",
-    "companiesHouseNumber": 33787434,
-    "businessArea": "Arts, entertainment and recreation",
-    "legalEntityType": "Trust",
-    "address": {
-        "line1": "19 Bartlett Place",
-        "town": "Tilden",
-        "postcode": "LU89 4UK"
-    }
-},
-{
-    "legalName": "Exiand",
-    "companiesHouseNumber": 88282567,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Limited company",
-    "address": {
-        "line1": "31 Flatbush Avenue",
-        "town": "Reno",
-        "postcode": "HA13 4CQ"
-    }
-},
-{
-    "legalName": "Zenthall",
-    "companiesHouseNumber": 92382922,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Limited partnership",
-    "address": {
-        "line1": "50 Eagle Street",
-        "town": "Morgandale",
-        "postcode": "WT93 4KU"
-    }
-},
-{
-    "legalName": "Fuelton",
-    "companiesHouseNumber": 73056375,
-    "businessArea": "Education",
-    "legalEntityType": "Limited partnership",
-    "address": {
-        "line1": "19 Etna Street",
-        "town": "Thermal",
-        "postcode": "XM98 7ZV"
-    }
-},
-{
-    "legalName": "Zizzle",
-    "companiesHouseNumber": 71571906,
-    "businessArea": "Transportation and storage",
-    "legalEntityType": "Limited partnership",
-    "address": {
-        "line1": "90 Tapscott Street",
-        "town": "Chestnut",
-        "postcode": "VF98 5WE"
-    }
-},
-{
-    "legalName": "Apex",
-    "companiesHouseNumber": 18616228,
-    "businessArea": "Water supply, sewerage, waste management and remediation activities",
-    "legalEntityType": "Building society",
-    "address": {
-        "line1": "56 Gain Court",
-        "town": "Verdi",
-        "postcode": "CM20 5EN"
-    }
-},
-{
-    "legalName": "Portica",
-    "companiesHouseNumber": 97172290,
-    "businessArea": "Transportation and storage",
-    "legalEntityType": "Community Interest Company (CIC)",
-    "address": {
-        "line1": "54 Miller Avenue",
-        "town": "Gwynn",
-        "postcode": "ZX51 3FJ"
-    }
-},
-{
-    "legalName": "Acruex",
-    "companiesHouseNumber": 18374724,
-    "businessArea": "Arts, entertainment and recreation",
-    "legalEntityType": "Credit union",
-    "address": {
-        "line1": "76 Boardwalk ",
-        "town": "Ezel",
-        "postcode": "VX85 8LG"
-    }
-},
-{
-    "legalName": "Proxsoft",
-    "companiesHouseNumber": 35215344,
-    "businessArea": "Mining and Quarrying",
-    "legalEntityType": "Friendly society",
-    "address": {
-        "line1": "43 Coleman Street",
-        "town": "Ironton",
-        "postcode": "FQ42 1PU"
-    }
-},
-{
-    "legalName": "Ovolo",
-    "companiesHouseNumber": 36467509,
-    "businessArea": "Activities of extraterritorial organisations and bodies",
-    "legalEntityType": "Limited partnership",
-    "address": {
-        "line1": "17 Meserole Street",
-        "town": "Troy",
-        "postcode": "TR97 8GG"
+        "line1": "15 Conklin Avenue",
+        "town": "Manila",
+        "postcode": "GX4 2HM"
     }
 },
 {
     "legalName": "Viasia",
-    "companiesHouseNumber": 55767911,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Partnership",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 11861079,
+    "businessArea": "trading-standards",
+    "legalEntityType": "llp",
     "address": {
-        "line1": "39 Elton Street",
-        "town": "Fresno",
-        "postcode": "XE86 6XY"
+        "line1": "27 Harwood Place",
+        "town": "Caron",
+        "postcode": "OR4 3VM"
     }
 },
 {
-    "legalName": "Imageflow",
-    "companiesHouseNumber": 56343352,
-    "businessArea": "Manufacturing",
-    "legalEntityType": "Sole trader",
+    "legalName": "Iplax",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 36734524,
+    "businessArea": "fire-safety",
+    "legalEntityType": "unincorporated-association",
     "address": {
-        "line1": "3 Noel Avenue",
-        "town": "Tibbie",
-        "postcode": "DI22 7DJ"
+        "line1": "24 Brigham Street",
+        "town": "Fillmore",
+        "postcode": "JQ2 7TN"
+    }
+},
+{
+    "legalName": "Pearlesex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 34555585,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "51 Lamont Court",
+        "town": "Gorst",
+        "postcode": "XC2 3YT"
+    }
+},
+{
+    "legalName": "Billmed",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 71905176,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "100 Havemeyer Street",
+        "town": "Greer",
+        "postcode": "AB5 0CP"
+    }
+},
+{
+    "legalName": "Bulljuice",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 93656195,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "62 Legion Street",
+        "town": "Staples",
+        "postcode": "YD3 2AF"
+    }
+},
+{
+    "legalName": "Solgan",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 19378151,
+    "businessArea": "environmental-health",
+    "legalEntityType": "limited-partner",
+    "address": {
+        "line1": "51 Decatur Street",
+        "town": "Rivereno",
+        "postcode": "DA8 0EC"
+    }
+},
+{
+    "legalName": "Assistix",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 62811154,
+    "businessArea": "licensing",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "4 Winthrop Street",
+        "town": "Gila",
+        "postcode": "RY1 3EJ"
+    }
+},
+{
+    "legalName": "Corepan",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 97078985,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "59 Oxford Street",
+        "town": "Yonah",
+        "postcode": "RX9 0GL"
+    }
+},
+{
+    "legalName": "Futurity",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 42478953,
+    "businessArea": "licensing",
+    "legalEntityType": "building-society",
+    "address": {
+        "line1": "64 Jardine Place",
+        "town": "Grimsley",
+        "postcode": "CK1 6SZ"
+    }
+},
+{
+    "legalName": "Digigene",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 69267760,
+    "businessArea": "licensing",
+    "legalEntityType": "building-society",
+    "address": {
+        "line1": "32 Church Lane",
+        "town": "Takilma",
+        "postcode": "XE3 5PM"
+    }
+},
+{
+    "legalName": "Bunga",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 86581251,
+    "businessArea": "trading-standards",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "73 Balfour Place",
+        "town": "Grenelefe",
+        "postcode": "OK8 4TJ"
+    }
+},
+{
+    "legalName": "Kog",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 66968327,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "19 Evans Street",
+        "town": "Calpine",
+        "postcode": "OC5 6VM"
+    }
+},
+{
+    "legalName": "Extremo",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 42190534,
+    "businessArea": "trading-standards",
+    "legalEntityType": "unincorporated-association",
+    "address": {
+        "line1": "61 Minna Street",
+        "town": "Remington",
+        "postcode": "XI0 8ZO"
     }
 },
 {
     "legalName": "Zanilla",
-    "companiesHouseNumber": 27492305,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Friendly society",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 26802302,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "building-society",
     "address": {
-        "line1": "84 Allen Avenue",
-        "town": "Grantville",
-        "postcode": "AG47 2KZ"
+        "line1": "75 Eldert Lane",
+        "town": "Bancroft",
+        "postcode": "BZ1 8GP"
     }
 },
 {
-    "legalName": "Vortexaco",
-    "companiesHouseNumber": 75042343,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Building society",
+    "legalName": "Geekfarm",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 42617903,
+    "businessArea": "trading-standards",
+    "legalEntityType": "unincorporated-association",
     "address": {
-        "line1": "99 Milton Street",
-        "town": "Florence",
-        "postcode": "SX35 5PC"
+        "line1": "35 Belmont Avenue",
+        "town": "Murillo",
+        "postcode": "DD3 3RJ"
     }
 },
 {
-    "legalName": "Portaline",
-    "companiesHouseNumber": 47567189,
-    "businessArea": "Construction",
-    "legalEntityType": "Community Benefit Society (BenCom)",
+    "legalName": "Kiosk",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 31073885,
+    "businessArea": "trading-standards",
+    "legalEntityType": "sole-trader",
     "address": {
-        "line1": "16 Kensington Street",
+        "line1": "20 Sunnyside Avenue",
+        "town": "Corinne",
+        "postcode": "VI3 6LY"
+    }
+},
+{
+    "legalName": "Ozean",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 63644895,
+    "businessArea": "trading-standards",
+    "legalEntityType": "friendly-society",
+    "address": {
+        "line1": "62 Canton Court",
+        "town": "Carlton",
+        "postcode": "GL5 5BD"
+    }
+},
+{
+    "legalName": "Quarx",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 53729647,
+    "businessArea": "fire-safety",
+    "legalEntityType": "unincorporated-association",
+    "address": {
+        "line1": "95 Fairview Place",
         "town": "Tyro",
-        "postcode": "UX21 8GY"
+        "postcode": "JU8 8WL"
     }
 },
 {
-    "legalName": "Obones",
-    "companiesHouseNumber": 11068707,
-    "businessArea": "Construction",
-    "legalEntityType": "Charitable Incorporated Organisation (CIO)",
+    "legalName": "Supportal",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 81073631,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "building-society",
     "address": {
-        "line1": "16 Nassau Street",
-        "town": "Sabillasville",
-        "postcode": "XA60 3IE"
+        "line1": "71 Middleton Street",
+        "town": "Vaughn",
+        "postcode": "VU2 0UN"
     }
 },
 {
-    "legalName": "Slax",
-    "companiesHouseNumber": 76074736,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Partnership",
+    "legalName": "Apexia",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 39042257,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cio",
     "address": {
-        "line1": "10 Underhill Avenue",
-        "town": "Camino",
-        "postcode": "AP71 3VB"
+        "line1": "59 George Street",
+        "town": "Vernon",
+        "postcode": "DG7 5FH"
     }
 },
 {
-    "legalName": "Printspan",
-    "companiesHouseNumber": 43506767,
-    "businessArea": "Electricity, gas, steam and air conditioning supply",
-    "legalEntityType": "Community Benefit Society (BenCom)",
+    "legalName": "Emtrak",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 83711435,
+    "businessArea": "licensing",
+    "legalEntityType": "bencom",
     "address": {
-        "line1": "29 Lott Street",
-        "town": "Hiseville",
-        "postcode": "AH42 1OH"
+        "line1": "64 Cyrus Avenue",
+        "town": "Linganore",
+        "postcode": "YE4 0SH"
     }
 },
 {
-    "legalName": "Isoswitch",
-    "companiesHouseNumber": 63336570,
-    "businessArea": "Real estate activities",
-    "legalEntityType": "Limited Liability Partnership (LLP)",
+    "legalName": "Pawnagra",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 67770683,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "bencom",
     "address": {
-        "line1": "93 Gallatin Place",
+        "line1": "44 Dahl Court",
+        "town": "Barronett",
+        "postcode": "PG4 9PA"
+    }
+},
+{
+    "legalName": "Zuvy",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 34380208,
+    "businessArea": "trading-standards",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "81 Berry Street",
+        "town": "Mammoth",
+        "postcode": "EJ1 5JL"
+    }
+},
+{
+    "legalName": "Sulfax",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 62237593,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "llp",
+    "address": {
+        "line1": "10 Dewey Place",
+        "town": "Calverton",
+        "postcode": "PE4 9MV"
+    }
+},
+{
+    "legalName": "Glasstep",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 75121866,
+    "businessArea": "fire-safety",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "34 Bryant Street",
         "town": "Ona",
-        "postcode": "VS61 3EU"
+        "postcode": "AF8 2MF"
     }
 },
 {
-    "legalName": "Puria",
-    "companiesHouseNumber": 12439508,
-    "businessArea": "Real estate activities",
-    "legalEntityType": "Community Benefit Society (BenCom)",
+    "legalName": "Cedward",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 38216341,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "sole-trader",
     "address": {
-        "line1": "77 Love Lane",
-        "town": "Datil",
-        "postcode": "GH88 9PD"
+        "line1": "86 Willmohr Street",
+        "town": "Delshire",
+        "postcode": "GT6 1TS"
     }
 },
 {
-    "legalName": "Utara",
-    "companiesHouseNumber": 79114891,
-    "businessArea": "Electricity, gas, steam and air conditioning supply",
-    "legalEntityType": "Credit union",
+    "legalName": "Pathways",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 95335788,
+    "businessArea": "trading-standards",
+    "legalEntityType": "partnership",
     "address": {
-        "line1": "2 Hudson Avenue",
-        "town": "Sussex",
-        "postcode": "SL57 5EM"
+        "line1": "15 Granite Street",
+        "town": "Emison",
+        "postcode": "ST0 4SK"
     }
 },
 {
-    "legalName": "Codax",
-    "companiesHouseNumber": 50193930,
-    "businessArea": "Human health and social work activities",
-    "legalEntityType": "Limited Liability Partnership (LLP)",
+    "legalName": "Isopop",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 33755621,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "cic",
     "address": {
-        "line1": "90 Homecrest Court",
-        "town": "Salunga",
-        "postcode": "OK9 5HO"
+        "line1": "25 Huron Street",
+        "town": "Dixonville",
+        "postcode": "XE0 6IZ"
     }
 },
 {
-    "legalName": "Comtrek",
-    "companiesHouseNumber": 29849923,
-    "businessArea": "Electricity, gas, steam and air conditioning supply",
-    "legalEntityType": "Credit union",
+    "legalName": "Conferia",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 92598001,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "bencom",
     "address": {
-        "line1": "8 Hazel Court",
-        "town": "Avoca",
-        "postcode": "GJ30 7IQ"
+        "line1": "24 Butler Street",
+        "town": "Brandermill",
+        "postcode": "DD5 9VX"
     }
 },
 {
-    "legalName": "Quordate",
-    "companiesHouseNumber": 15358852,
-    "businessArea": "Activities of extraterritorial organisations and bodies",
-    "legalEntityType": "Trust",
+    "legalName": "Newcube",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 65892498,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "credit-union",
     "address": {
-        "line1": "16 Townsend Street",
-        "town": "Lacomb",
-        "postcode": "NK96 2QU"
+        "line1": "56 Emerald Street",
+        "town": "Stagecoach",
+        "postcode": "II1 5WE"
     }
 },
 {
-    "legalName": "Mondicil",
-    "companiesHouseNumber": 80653659,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Community Interest Company (CIC)",
+    "legalName": "Joviold",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 35367052,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "llp",
     "address": {
-        "line1": "26 Brooklyn Road",
-        "town": "Trexlertown",
-        "postcode": "MO7 9FA"
+        "line1": "13 Kenmore Terrace",
+        "town": "Ezel",
+        "postcode": "PU2 7XC"
     }
 },
 {
-    "legalName": "Slumberia",
-    "companiesHouseNumber": 66726165,
-    "businessArea": "Construction",
-    "legalEntityType": "Limited partnership",
+    "legalName": "Caxt",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 51222421,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cio",
     "address": {
-        "line1": "46 Bridge Street",
-        "town": "Ruckersville",
-        "postcode": "KF77 7BS"
+        "line1": "41 Glenmore Avenue",
+        "town": "Haring",
+        "postcode": "OW0 5LP"
     }
 },
 {
-    "legalName": "Bittor",
-    "companiesHouseNumber": 59313827,
-    "businessArea": "Arts, entertainment and recreation",
-    "legalEntityType": "Friendly society",
+    "legalName": "Pyramax",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 54436837,
+    "businessArea": "licensing",
+    "legalEntityType": "friendly-society",
     "address": {
-        "line1": "39 Village Court",
-        "town": "Edgewater",
-        "postcode": "BK61 2GL"
+        "line1": "88 Newton Street",
+        "town": "Brownsville",
+        "postcode": "RT9 8PV"
     }
 },
 {
-    "legalName": "Thredz",
-    "companiesHouseNumber": 62523668,
-    "businessArea": "Water supply, sewerage, waste management and remediation activities",
-    "legalEntityType": "Limited Liability Partnership (LLP)",
+    "legalName": "Liquidoc",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 25643942,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "sole-trader",
     "address": {
-        "line1": "41 Noble Street",
-        "town": "Sehili",
-        "postcode": "PP25 5TZ"
+        "line1": "66 Olive Street",
+        "town": "Boykin",
+        "postcode": "LG5 9VH"
+    }
+},
+{
+    "legalName": "Verbus",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 27348449,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "1 Norfolk Street",
+        "town": "Sidman",
+        "postcode": "IL1 0JL"
+    }
+},
+{
+    "legalName": "Orbalix",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 60109989,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "25 College Place",
+        "town": "Coaldale",
+        "postcode": "PT4 4FF"
+    }
+},
+{
+    "legalName": "Zerology",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 67287740,
+    "businessArea": "fire-safety",
+    "legalEntityType": "building-society",
+    "address": {
+        "line1": "73 Turnbull Avenue",
+        "town": "Corriganville",
+        "postcode": "NP3 2HW"
+    }
+},
+{
+    "legalName": "Geekola",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 50427722,
+    "businessArea": "fire-safety",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "4 Everett Avenue",
+        "town": "Conestoga",
+        "postcode": "KT9 0VX"
+    }
+},
+{
+    "legalName": "Quiltigen",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 63018232,
+    "businessArea": "fire-safety",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "36 Bokee Court",
+        "town": "Groveville",
+        "postcode": "BG5 3FF"
+    }
+},
+{
+    "legalName": "Katakana",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 74657655,
+    "businessArea": "fire-safety",
+    "legalEntityType": "co-op",
+    "address": {
+        "line1": "3 Malta Street",
+        "town": "Durham",
+        "postcode": "PE7 6GU"
+    }
+},
+{
+    "legalName": "Sloganaut",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 20119937,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "57 Lawn Court",
+        "town": "Chical",
+        "postcode": "NB6 5HP"
+    }
+},
+{
+    "legalName": "Aquasure",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 49654477,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "6 Amboy Street",
+        "town": "Campo",
+        "postcode": "VZ4 0EP"
+    }
+},
+{
+    "legalName": "Telequiet",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 35863392,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "95 Hendrix Street",
+        "town": "Tilden",
+        "postcode": "MI0 6BV"
+    }
+},
+{
+    "legalName": "Zolarex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 61433330,
+    "businessArea": "environmental-health",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "5 Woods Place",
+        "town": "Marysville",
+        "postcode": "UW6 6FP"
+    }
+},
+{
+    "legalName": "Quonata",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 50520270,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "64 Seaview Court",
+        "town": "Chicopee",
+        "postcode": "SB9 2LW"
+    }
+},
+{
+    "legalName": "Geeky",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 61730597,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "25 Bennet Court",
+        "town": "Welch",
+        "postcode": "TX1 0VV"
+    }
+},
+{
+    "legalName": "Lunchpod",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 72028569,
+    "businessArea": "fire-safety",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "13 Flatbush Avenue",
+        "town": "Hannasville",
+        "postcode": "JW9 4XC"
+    }
+},
+{
+    "legalName": "Genesynk",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 25835042,
+    "businessArea": "trading-standards",
+    "legalEntityType": "co-op",
+    "address": {
+        "line1": "47 Story Street",
+        "town": "Evergreen",
+        "postcode": "GW2 0WB"
+    }
+},
+{
+    "legalName": "Arctiq",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 86427618,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "95 Gaylord Drive",
+        "town": "Cherokee",
+        "postcode": "UP2 0MV"
+    }
+},
+{
+    "legalName": "Bleendot",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 77469920,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "48 Freeman Street",
+        "town": "Mayfair",
+        "postcode": "WK7 8DO"
+    }
+},
+{
+    "legalName": "Netplax",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 57397260,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "18 Stillwell Avenue",
+        "town": "Aberdeen",
+        "postcode": "IK3 9UJ"
+    }
+},
+{
+    "legalName": "Grainspot",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 87357405,
+    "businessArea": "licensing",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "82 Gallatin Place",
+        "town": "Marenisco",
+        "postcode": "SI7 7DB"
+    }
+},
+{
+    "legalName": "Oatfarm",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 35225150,
+    "businessArea": "licensing",
+    "legalEntityType": "limited-partner",
+    "address": {
+        "line1": "58 Stratford Road",
+        "town": "Ruffin",
+        "postcode": "JE7 6KP"
+    }
+},
+{
+    "legalName": "Ovium",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 68169372,
+    "businessArea": "fire-safety",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "82 Georgia Avenue",
+        "town": "Edenburg",
+        "postcode": "GR9 1BF"
+    }
+},
+{
+    "legalName": "Kangle",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 20812639,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "friendly-society",
+    "address": {
+        "line1": "6 Hunterfly Place",
+        "town": "Machias",
+        "postcode": "NX8 0ZI"
+    }
+},
+{
+    "legalName": "Uberlux",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 57278602,
+    "businessArea": "fire-safety",
+    "legalEntityType": "building-society",
+    "address": {
+        "line1": "38 Java Street",
+        "town": "Belleview",
+        "postcode": "BB4 5IL"
+    }
+},
+{
+    "legalName": "Skyplex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 64042418,
+    "businessArea": "fire-safety",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "8 Lott Street",
+        "town": "Duryea",
+        "postcode": "OI4 1NY"
+    }
+},
+{
+    "legalName": "Exospeed",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 25549057,
+    "businessArea": "environmental-health",
+    "legalEntityType": "co-op",
+    "address": {
+        "line1": "96 Imlay Street",
+        "town": "Hoehne",
+        "postcode": "NL4 1TE"
+    }
+},
+{
+    "legalName": "Memora",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 87510890,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "llp",
+    "address": {
+        "line1": "22 Varanda Place",
+        "town": "Shrewsbury",
+        "postcode": "NR3 7GL"
+    }
+},
+{
+    "legalName": "Webiotic",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 58012869,
+    "businessArea": "environmental-health",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "39 Congress Street",
+        "town": "Germanton",
+        "postcode": "XO8 3JW"
+    }
+},
+{
+    "legalName": "Zentry",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 27859309,
+    "businessArea": "trading-standards",
+    "legalEntityType": "friendly-society",
+    "address": {
+        "line1": "37 Underhill Avenue",
+        "town": "Cliffside",
+        "postcode": "VA6 1LN"
     }
 },
 {
     "legalName": "Idetica",
-    "companiesHouseNumber": 69255679,
-    "businessArea": "Education",
-    "legalEntityType": "Limited partnership",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 28574692,
+    "businessArea": "licensing",
+    "legalEntityType": "llp",
     "address": {
-        "line1": "25 Amersfort Place",
-        "town": "Eastvale",
-        "postcode": "VF42 6CC"
+        "line1": "47 Conselyea Street",
+        "town": "Movico",
+        "postcode": "EH8 3ZU"
+    }
+},
+{
+    "legalName": "Automon",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 21685712,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "limited-partner",
+    "address": {
+        "line1": "72 Gerry Street",
+        "town": "Walker",
+        "postcode": "CM0 5FD"
+    }
+},
+{
+    "legalName": "Qnekt",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 55542080,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "99 Beverly Road",
+        "town": "Snowville",
+        "postcode": "UK1 0GQ"
+    }
+},
+{
+    "legalName": "Extragene",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 56554872,
+    "businessArea": "environmental-health",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "69 Debevoise Avenue",
+        "town": "Orason",
+        "postcode": "DL4 8VX"
+    }
+},
+{
+    "legalName": "Cablam",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 57044481,
+    "businessArea": "licensing",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "37 Verona Place",
+        "town": "Glasgow",
+        "postcode": "ES5 1WH"
+    }
+},
+{
+    "legalName": "Callflex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 10969493,
+    "businessArea": "licensing",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "99 Pitkin Avenue",
+        "town": "Mansfield",
+        "postcode": "NS9 9YF"
+    }
+},
+{
+    "legalName": "Artworlds",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 42021996,
+    "businessArea": "fire-safety",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "3 Blake Avenue",
+        "town": "Buxton",
+        "postcode": "RY4 5UI"
+    }
+},
+{
+    "legalName": "Barkarama",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 19341592,
+    "businessArea": "trading-standards",
+    "legalEntityType": "unincorporated-association",
+    "address": {
+        "line1": "49 Keap Street",
+        "town": "Trinway",
+        "postcode": "CT0 1CW"
+    }
+},
+{
+    "legalName": "Digifad",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 46679835,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "9 Downing Street",
+        "town": "Leyner",
+        "postcode": "RK5 0MW"
+    }
+},
+{
+    "legalName": "Spherix",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 93711428,
+    "businessArea": "licensing",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "61 Vine Street",
+        "town": "Sunnyside",
+        "postcode": "DU9 5PF"
+    }
+},
+{
+    "legalName": "Nipaz",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 27218381,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "29 Homecrest Avenue",
+        "town": "Levant",
+        "postcode": "AP1 4VD"
     }
 },
 {
     "legalName": "Roboid",
-    "companiesHouseNumber": 82639278,
-    "businessArea": "Human health and social work activities",
-    "legalEntityType": "Charitable Incorporated Organisation (CIO)",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 58633793,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "unincorporated-association",
     "address": {
-        "line1": "7 Rogers Avenue",
-        "town": "Jacksonburg",
-        "postcode": "UZ37 6ZG"
+        "line1": "53 Clinton Street",
+        "town": "Woodruff",
+        "postcode": "IA3 5OO"
     }
 },
 {
-    "legalName": "Orbean",
-    "companiesHouseNumber": 26810316,
-    "businessArea": "Education",
-    "legalEntityType": "Sole trader",
+    "legalName": "Rubadub",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 71347595,
+    "businessArea": "trading-standards",
+    "legalEntityType": "unincorporated-association",
     "address": {
-        "line1": "99 Haring Street",
-        "town": "Knowlton",
-        "postcode": "ZA69 1KW"
+        "line1": "34 Kensington Street",
+        "town": "Grazierville",
+        "postcode": "EY8 7QL"
     }
 },
 {
-    "legalName": "Tourmania",
-    "companiesHouseNumber": 13076790,
-    "businessArea": "Public administration and defence; compulsory social security",
-    "legalEntityType": "Friendly society",
+    "legalName": "Interfind",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 67754668,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "sole-trader",
     "address": {
-        "line1": "71 Jewel Street",
-        "town": "Jeff",
-        "postcode": "SV64 3TX"
+        "line1": "97 Adler Place",
+        "town": "Jacksonwald",
+        "postcode": "VF0 5RB"
     }
 },
 {
-    "legalName": "Zanity",
-    "companiesHouseNumber": 76857167,
-    "businessArea": "Human health and social work activities",
-    "legalEntityType": "Limited company",
+    "legalName": "Zentury",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 77109488,
+    "businessArea": "licensing",
+    "legalEntityType": "cio",
     "address": {
-        "line1": "54 Autumn Avenue",
-        "town": "Leroy",
-        "postcode": "OB51 2VH"
+        "line1": "6 Duryea Court",
+        "town": "Albany",
+        "postcode": "YX6 8JF"
+    }
+},
+{
+    "legalName": "Magnafone",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 98825478,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "99 Bridge Street",
+        "town": "Tuttle",
+        "postcode": "HA8 9EB"
+    }
+},
+{
+    "legalName": "Softmicro",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 57187990,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "100 Bushwick Court",
+        "town": "Disautel",
+        "postcode": "ZM6 5HR"
+    }
+},
+{
+    "legalName": "Irack",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 44137010,
+    "businessArea": "fire-safety",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "55 Bond Street",
+        "town": "Goochland",
+        "postcode": "VS0 1BM"
+    }
+},
+{
+    "legalName": "Visalia",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 68081195,
+    "businessArea": "licensing",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "67 Quay Street",
+        "town": "Chesterfield",
+        "postcode": "IG4 5AH"
+    }
+},
+{
+    "legalName": "Amril",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 56816496,
+    "businessArea": "licensing",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "22 Albemarle Terrace",
+        "town": "Savannah",
+        "postcode": "RN0 6SW"
+    }
+},
+{
+    "legalName": "Typhonica",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 77940393,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "81 Boulevard Court",
+        "town": "Independence",
+        "postcode": "NP0 8CC"
+    }
+},
+{
+    "legalName": "Grok",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 32430108,
+    "businessArea": "trading-standards",
+    "legalEntityType": "co-op",
+    "address": {
+        "line1": "75 Everit Street",
+        "town": "Hollymead",
+        "postcode": "TL7 3ZL"
+    }
+},
+{
+    "legalName": "Nixelt",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 54747304,
+    "businessArea": "fire-safety",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "71 Elton Street",
+        "town": "Matheny",
+        "postcode": "XT2 1WI"
+    }
+},
+{
+    "legalName": "Paprikut",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 43868960,
+    "businessArea": "trading-standards",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "94 Cook Street",
+        "town": "Emory",
+        "postcode": "QK6 2JG"
+    }
+},
+{
+    "legalName": "Progenex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 81336219,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "76 Baltic Street",
+        "town": "Westphalia",
+        "postcode": "VY6 6LY"
+    }
+},
+{
+    "legalName": "Cosmetex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 74630977,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "34 Conduit Boulevard",
+        "town": "Eden",
+        "postcode": "ZR4 9WZ"
+    }
+},
+{
+    "legalName": "Biotica",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 63688066,
+    "businessArea": "fire-safety",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "92 Classon Avenue",
+        "town": "Joes",
+        "postcode": "HB3 0VQ"
+    }
+},
+{
+    "legalName": "Phormula",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 66960000,
+    "businessArea": "fire-safety",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "87 Pioneer Street",
+        "town": "Beason",
+        "postcode": "EG3 3YI"
+    }
+},
+{
+    "legalName": "Hometown",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 64473419,
+    "businessArea": "fire-safety",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "71 Estate Road",
+        "town": "Jenkinsville",
+        "postcode": "NI1 1GP"
+    }
+},
+{
+    "legalName": "Musaphics",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 81571532,
+    "businessArea": "licensing",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "55 Holmes Lane",
+        "town": "Garnet",
+        "postcode": "IN6 0XV"
+    }
+},
+{
+    "legalName": "Kegular",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 14947866,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "co-op",
+    "address": {
+        "line1": "73 Hemlock Street",
+        "town": "Vale",
+        "postcode": "WM1 3HS"
+    }
+},
+{
+    "legalName": "Injoy",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 76082636,
+    "businessArea": "licensing",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "3 Rockwell Place",
+        "town": "Floriston",
+        "postcode": "MQ1 8HO"
+    }
+},
+{
+    "legalName": "Harmoney",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 91812089,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "17 Lyme Avenue",
+        "town": "Oley",
+        "postcode": "MY0 6ND"
+    }
+},
+{
+    "legalName": "Letpro",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 26537003,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "62 Rutland Road",
+        "town": "Baden",
+        "postcode": "UI6 1JA"
+    }
+},
+{
+    "legalName": "Realysis",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 51876558,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "4 Strong Place",
+        "town": "Trexlertown",
+        "postcode": "HD6 8YV"
+    }
+},
+{
+    "legalName": "Valreda",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 32049864,
+    "businessArea": "licensing",
+    "legalEntityType": "unincorporated-association",
+    "address": {
+        "line1": "32 Degraw Street",
+        "town": "Gadsden",
+        "postcode": "DO8 8KF"
+    }
+},
+{
+    "legalName": "Opticall",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 53915614,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cio",
+    "address": {
+        "line1": "58 Veterans Avenue",
+        "town": "Beaulieu",
+        "postcode": "FV0 8KG"
+    }
+},
+{
+    "legalName": "Rockabye",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 71727136,
+    "businessArea": "licensing",
+    "legalEntityType": "co-op",
+    "address": {
+        "line1": "69 Beekman Place",
+        "town": "Diaperville",
+        "postcode": "SS0 5OR"
+    }
+},
+{
+    "legalName": "Geekwagon",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 15650618,
+    "businessArea": "fire-safety",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "6 Bartlett Place",
+        "town": "Indio",
+        "postcode": "DH2 8FL"
+    }
+},
+{
+    "legalName": "Hawkster",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 67071110,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "24 Pierrepont Place",
+        "town": "Siglerville",
+        "postcode": "QZ9 0TJ"
+    }
+},
+{
+    "legalName": "Sunclipse",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 57277237,
+    "businessArea": "fire-safety",
+    "legalEntityType": "friendly-society",
+    "address": {
+        "line1": "83 Lincoln Terrace",
+        "town": "Herlong",
+        "postcode": "CW3 2HI"
+    }
+},
+{
+    "legalName": "Geoform",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 39296764,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "63 Milton Street",
+        "town": "Darlington",
+        "postcode": "OC5 7IH"
+    }
+},
+{
+    "legalName": "Xanide",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 64983341,
+    "businessArea": "licensing",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "20 Mayfair Drive",
+        "town": "Jessie",
+        "postcode": "ZX3 5FE"
+    }
+},
+{
+    "legalName": "Zolar",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 86765974,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "50 Carlton Avenue",
+        "town": "Esmont",
+        "postcode": "SH5 9IV"
+    }
+},
+{
+    "legalName": "Earthplex",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 90523971,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "10 Banker Street",
+        "town": "Zortman",
+        "postcode": "PO7 6BG"
+    }
+},
+{
+    "legalName": "Kneedles",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 14858677,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "34 Seagate Terrace",
+        "town": "Wescosville",
+        "postcode": "KP7 8SG"
+    }
+},
+{
+    "legalName": "Solaren",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 48591139,
+    "businessArea": "environmental-health",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "48 Chapel Street",
+        "town": "Cowiche",
+        "postcode": "DP8 2AZ"
+    }
+},
+{
+    "legalName": "Atgen",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 32502121,
+    "businessArea": "environmental-health",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "94 Dakota Place",
+        "town": "Lindcove",
+        "postcode": "BA8 6OT"
+    }
+},
+{
+    "legalName": "Fibrodyne",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 88874054,
+    "businessArea": "fire-safety",
+    "legalEntityType": "limited-company",
+    "address": {
+        "line1": "15 Provost Street",
+        "town": "Elizaville",
+        "postcode": "GC8 7LX"
+    }
+},
+{
+    "legalName": "Idego",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 53903684,
+    "businessArea": "environmental-health",
+    "legalEntityType": "partnership",
+    "address": {
+        "line1": "99 Tampa Court",
+        "town": "Dennard",
+        "postcode": "YP2 8MO"
+    }
+},
+{
+    "legalName": "Zappix",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 74642440,
+    "businessArea": "trading-standards",
+    "legalEntityType": "bencom",
+    "address": {
+        "line1": "83 Blake Court",
+        "town": "Ribera",
+        "postcode": "VO8 1DI"
+    }
+},
+{
+    "legalName": "Remotion",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 38409050,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "89 Kenilworth Place",
+        "town": "Hobucken",
+        "postcode": "WI3 2OV"
+    }
+},
+{
+    "legalName": "Zytrax",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 53064815,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "cic",
+    "address": {
+        "line1": "67 Colonial Road",
+        "town": "Sharon",
+        "postcode": "VK9 5IS"
+    }
+    },
+    {
+    "legalName": "Blurrybus",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 60075750,
+    "businessArea": "licensing",
+    "legalEntityType": "sole-trader",
+    "address": {
+        "line1": "89 Manhattan Avenue",
+        "town": "Macdona",
+        "postcode": "WN3 2UA"
+    }
+},
+{
+    "legalName": "Uxmox",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 97787599,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "friendly-society",
+    "address": {
+        "line1": "56 Morton Street",
+        "town": "Wattsville",
+        "postcode": "DE8 9ZT"
+    }
+},
+{
+    "legalName": "Quility",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 63654274,
+    "businessArea": "fire-safety",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "48 Coffey Street",
+        "town": "Alleghenyville",
+        "postcode": "RS0 1AU"
+    }
+},
+{
+    "legalName": "Tasmania",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 15363627,
+    "businessArea": "fire-safety",
+    "legalEntityType": "credit-union",
+    "address": {
+        "line1": "81 Applegate Court",
+        "town": "Newkirk",
+        "postcode": "MQ5 6WH"
+    }
+},
+{
+    "legalName": "Deviltoe",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 98862462,
+    "businessArea": "licensing",
+    "legalEntityType": "friendly-society",
+    "address": {
+        "line1": "99 Preston Court",
+        "town": "Grandview",
+        "postcode": "ST4 2NP"
     }
 },
 {
     "legalName": "Tetratrex",
-    "companiesHouseNumber": 64039568,
-    "businessArea": "Mining and Quarrying",
-    "legalEntityType": "Unincorporated association",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 56072501,
+    "businessArea": "licensing",
+    "legalEntityType": "llp",
     "address": {
-        "line1": "3 Lamont Court",
-        "town": "Convent",
-        "postcode": "EA72 7EM"
+        "line1": "50 Bayview Avenue",
+        "town": "Ypsilanti",
+        "postcode": "MG6 0XS"
     }
 },
 {
-    "legalName": "Sequitur",
-    "companiesHouseNumber": 37646354,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Charitable Incorporated Organisation (CIO)",
+    "legalName": "Intrawear",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 83993143,
+    "businessArea": "fire-safety",
+    "legalEntityType": "sole-trader",
     "address": {
-        "line1": "8 Hinckley Place",
-        "town": "Brenton",
-        "postcode": "GS85 5PX"
+        "line1": "84 Williams Place",
+        "town": "Jugtown",
+        "postcode": "PR4 0FW"
     }
 },
 {
-    "legalName": "Accusage",
-    "companiesHouseNumber": 88591915,
-    "businessArea": "Accommodation and food service activities",
-    "legalEntityType": "Co-operative society",
+    "legalName": "Comfirm",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 10776106,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "trust",
     "address": {
-        "line1": "52 Louisa Street",
-        "town": "Bloomington",
-        "postcode": "ON87 2CR"
+        "line1": "82 Channel Avenue",
+        "town": "Retsof",
+        "postcode": "SO4 7TT"
     }
 },
 {
-    "legalName": "Bleeko",
-    "companiesHouseNumber": 83020169,
-    "businessArea": "Water supply, sewerage, waste management and remediation activities",
-    "legalEntityType": "Sole trader",
+    "legalName": "Mazuda",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 31753018,
+    "businessArea": "environmental-health",
+    "legalEntityType": "partnership",
     "address": {
-        "line1": "92 McKinley Avenue",
-        "town": "Berlin",
-        "postcode": "HB26 2AS"
+        "line1": "20 Hanover Place",
+        "town": "Oberlin",
+        "postcode": "JB6 5UG"
     }
 },
 {
-    "legalName": "Voipa",
-    "companiesHouseNumber": 11783637,
-    "businessArea": "Arts, entertainment and recreation",
-    "legalEntityType": "Limited company",
+    "legalName": "Halap",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 12797178,
+    "businessArea": "licensing",
+    "legalEntityType": "partnership",
     "address": {
-        "line1": "82 Maple Street",
-        "town": "Sardis",
-        "postcode": "WI71 8HM"
+        "line1": "41 Laurel Avenue",
+        "town": "Dahlen",
+        "postcode": "AW7 4GS"
     }
 },
 {
-    "legalName": "Rockyard",
-    "companiesHouseNumber": 41848226,
-    "businessArea": "Education",
-    "legalEntityType": "Building society",
+    "legalName": "Pearlessa",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 90752527,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "building-society",
     "address": {
-        "line1": "67 Hyman Court",
-        "town": "Shawmut",
-        "postcode": "LE1 3HS"
+        "line1": "32 Dwight Street",
+        "town": "Rodman",
+        "postcode": "PZ6 1ZE"
     }
 },
 {
-    "legalName": "Vinch",
-    "companiesHouseNumber": 80472373,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Co-operative society",
+    "legalName": "Repetwire",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 79592418,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "limited-partner",
     "address": {
-        "line1": "18 Prince Street",
-        "town": "Collins",
-        "postcode": "PE99 5MP"
+        "line1": "95 Madeline Court",
+        "town": "Bodega",
+        "postcode": "ES2 5TJ"
     }
 },
 {
-    "legalName": "Kenegy",
-    "companiesHouseNumber": 34029444,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Building society",
+    "legalName": "Rodeology",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 43191861,
+    "businessArea": "health-and-safety",
+    "legalEntityType": "building-society",
     "address": {
-        "line1": "13 Clay Street",
-        "town": "Bayview",
-        "postcode": "BH51 5MF"
+        "line1": "67 Highland Avenue",
+        "town": "Hall",
+        "postcode": "DU9 0GZ"
     }
 },
 {
-    "legalName": "Ceprene",
-    "companiesHouseNumber": 97547562,
-    "businessArea": "Public administration and defence; compulsory social security",
-    "legalEntityType": "Co-operative society",
+    "legalName": "Omnigog",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 96590212,
+    "businessArea": "petrol-storage",
+    "legalEntityType": "trust",
     "address": {
-        "line1": "73 Cox Place",
-        "town": "Graniteville",
-        "postcode": "GS67 8VP"
+        "line1": "16 Ross Street",
+        "town": "Healy",
+        "postcode": "XJ7 2LP"
     }
 },
 {
-    "legalName": "Capscreen",
-    "companiesHouseNumber": 37475074,
-    "businessArea": "Water supply, sewerage, waste management and remediation activities",
-    "legalEntityType": "Limited partnership",
+    "legalName": "Splinx",
+    "tradingName": "",
+    "groupName": "",
+    "companiesHouseNumber": 81823920,
+    "businessArea": "environmental-health",
+    "legalEntityType": "partnership",
     "address": {
-        "line1": "72 Tech Place",
-        "town": "Coventry",
-        "postcode": "YS77 4LY"
-    }
-},
-{
-    "legalName": "Idealis",
-    "companiesHouseNumber": 19114324,
-    "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
-    "legalEntityType": "Community Benefit Society (BenCom)",
-    "address": {
-        "line1": "41 Kaufman Place",
-        "town": "Golconda",
-        "postcode": "EI90 9PD"
-    }
-},
-{
-    "legalName": "Zensus",
-    "companiesHouseNumber": 12452948,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Co-operative society",
-    "address": {
-        "line1": "11 Kane Place",
-        "town": "Joppa",
-        "postcode": "SF59 7MS"
-    }
-},
-{
-    "legalName": "Comcur",
-    "companiesHouseNumber": 19666199,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Charitable Incorporated Organisation (CIO)",
-    "address": {
-        "line1": "33 Hamilton Avenue",
-        "town": "Coultervillle",
-        "postcode": "QB61 1SN"
-    }
-},
-{
-    "legalName": "Insectus",
-    "companiesHouseNumber": 10573270,
-    "businessArea": "Public administration and defence; compulsory social security",
-    "legalEntityType": "Credit union",
-    "address": {
-        "line1": "38 Howard Alley",
-        "town": "Camptown",
-        "postcode": "DN96 4CS"
-    }
-},
-{
-    "legalName": "Zilla",
-    "companiesHouseNumber": 17434118,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Trust",
-    "address": {
-        "line1": "15 Chester Avenue",
-        "town": "Lavalette",
-        "postcode": "EZ16 5VV"
-    }
-},
-{
-    "legalName": "Cytrek",
-    "companiesHouseNumber": 72348387,
-    "businessArea": "Education",
-    "legalEntityType": "Community Interest Company (CIC)",
-    "address": {
-        "line1": "97 Morton Street",
-        "town": "Wadsworth",
-        "postcode": "SN67 5FX"
-    }
-},
-{
-    "legalName": "Lexicondo",
-    "companiesHouseNumber": 81730006,
-    "businessArea": "Accommodation and food service activities",
-    "legalEntityType": "Community Benefit Society (BenCom)",
-    "address": {
-        "line1": "55 Mermaid Avenue",
-        "town": "Chapin",
-        "postcode": "LL7 1XO"
-    }
-},
-{
-    "legalName": "Xplor",
-    "companiesHouseNumber": 31192482,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Limited partnership",
-    "address": {
-        "line1": "84 Montauk Court",
-        "town": "Foxworth",
-        "postcode": "NG83 6JE"
-    }
-    },
-    {
-    "legalName": "Manufact",
-    "companiesHouseNumber": 35678347,
-    "businessArea": "Manufacturing",
-    "legalEntityType": "Sole trader",
-    "address": {
-        "line1": "44 Louise Terrace",
-        "town": "Greenfields",
-        "postcode": "PV35 6VC"
-    }
-},
-{
-    "legalName": "Terrasys",
-    "companiesHouseNumber": 45228510,
-    "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
-    "legalEntityType": "Limited company",
-    "address": {
-        "line1": "34 Forrest Street",
-        "town": "Richville",
-        "postcode": "AK6 2GS"
-    }
-},
-{
-    "legalName": "Octocore",
-    "companiesHouseNumber": 26757039,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Unincorporated association",
-    "address": {
-        "line1": "69 Lawton Street",
-        "town": "Somerset",
-        "postcode": "CU41 8ZC"
-    }
-},
-{
-    "legalName": "Farmex",
-    "companiesHouseNumber": 69344134,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Partnership",
-    "address": {
-        "line1": "33 Anchorage Place",
-        "town": "Enetai",
-        "postcode": "JW28 6BC"
-    }
-},
-{
-    "legalName": "Applica",
-    "companiesHouseNumber": 52845867,
-    "businessArea": "Mining and Quarrying",
-    "legalEntityType": "Unincorporated association",
-    "address": {
-        "line1": "15 Landis Court",
-        "town": "Stonybrook",
-        "postcode": "EU23 8FR"
-    }
-},
-{
-    "legalName": "Tropoli",
-    "companiesHouseNumber": 62233384,
-    "businessArea": "Transportation and storage",
-    "legalEntityType": "Community Interest Company (CIC)",
-    "address": {
-        "line1": "29 Thornton Street",
-        "town": "Shasta",
-        "postcode": "IQ83 4PH"
-    }
-},
-{
-    "legalName": "Centrexin",
-    "companiesHouseNumber": 98760606,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Credit union",
-    "address": {
-        "line1": "38 Bogart Street",
-        "town": "Castleton",
-        "postcode": "KS94 7OP"
-    }
-},
-{
-    "legalName": "Kengen",
-    "companiesHouseNumber": 56542092,
-    "businessArea": "Other service activities",
-    "legalEntityType": "Building society",
-    "address": {
-        "line1": "5 Logan Street",
-        "town": "Soham",
-        "postcode": "QF98 1WM"
-    }
-},
-{
-    "legalName": "Bezal",
-    "companiesHouseNumber": 44652029,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Trust",
-    "address": {
-        "line1": "55 Seton Place",
-        "town": "Heil",
-        "postcode": "MY46 6IE"
-    }
-},
-{
-    "legalName": "Fangold",
-    "companiesHouseNumber": 86744877,
-    "businessArea": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
-    "legalEntityType": "Trust",
-    "address": {
-        "line1": "59 Miller Place",
-        "town": "Courtland",
-        "postcode": "YA92 6WC"
-    }
-},
-{
-    "legalName": "Protodyne",
-    "companiesHouseNumber": 75840200,
-    "businessArea": "Information and communication",
-    "legalEntityType": "Community Benefit Society (BenCom)",
-    "address": {
-        "line1": "88 Catherine Street",
-        "town": "Stevens",
-        "postcode": "IO32 9CK"
-    }
-},
-{
-    "legalName": "Veraq",
-    "companiesHouseNumber": 14928953,
-    "businessArea": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
-    "legalEntityType": "Credit union",
-    "address": {
-        "line1": "65 Loring Avenue",
-        "town": "Beason",
-        "postcode": "RS96 2ES"
-    }
-},
-{
-    "legalName": "Eventex",
-    "companiesHouseNumber": 31622077,
-    "businessArea": "Professional, scientific and technical activities",
-    "legalEntityType": "Sole trader",
-    "address": {
-        "line1": "19 Gaylord Drive",
-        "town": "Sterling",
-        "postcode": "CA58 6KE"
-    }
-},
-{
-    "legalName": "Combogen",
-    "companiesHouseNumber": 76368825,
-    "businessArea": "Financial and insurance activities",
-    "legalEntityType": "Sole trader",
-    "address": {
-        "line1": "44 Utica Avenue",
-        "town": "Yorklyn",
-        "postcode": "GI16 2KJ"
-    }
-},
-{
-    "legalName": "Cinaster",
-    "companiesHouseNumber": 28983562,
-    "businessArea": "Transportation and storage",
-    "legalEntityType": "Co-operative society",
-    "address": {
-        "line1": "78 Arkansas Drive",
-        "town": "Oasis",
-        "postcode": "ZT61 6NW"
+        "line1": "68 Hastings Street",
+        "town": "Bowie",
+        "postcode": "CY7 7TJ"
     }
     }
 ]
