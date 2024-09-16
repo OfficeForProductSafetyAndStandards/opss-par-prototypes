@@ -124,3 +124,63 @@ addFilter('skip', function (arr, num) {
 addFilter('take', function (arr, num) {
     return arr.slice(0, num);
 })
+
+addFilter('createPager', function (arr, pageIndex, pageLink) {
+    const pageSize = 10;
+    const totalItems = arr.length;
+    const totalPages = Math.ceil(totalItems / pageSize); // Calculate total pages based on items and page size
+    const pagination = [];
+    const range = 1; // Range of pages to show around the current page
+    const currentPage = pageIndex + 1; // Convert 0-based index to 1-based page number
+
+    // Add the first page
+    pagination.push({
+        number: 1,
+        href: pageLink + "?index=" + 0,
+        current: 1 === currentPage
+    });
+
+    // Add ellipsis if there’s a gap between the first page and the first page in the range
+    if (currentPage - range > 2) {
+        pagination.push({
+            ellipsis: true
+        });
+    }
+
+    // Generate pages around the current page
+    for (let i = Math.max(2, currentPage - range); i <= Math.min(totalPages - 1, currentPage + range); i++) {
+        pagination.push({
+            number: i,
+            href: pageLink + "?index=" + (i - 1),
+            current: i === currentPage
+        });
+    }
+
+    // Add ellipsis if there’s a gap between the current page range and the last page
+    if (currentPage + range < totalPages - 1) {
+        pagination.push({
+            ellipsis: true
+        });
+    }
+
+    // Add the last page
+    if (totalPages > 1) {
+        pagination.push({
+            number: totalPages,
+            href: pageLink + "?index=" + (totalPages - 1),
+            current: totalPages === currentPage
+        });
+    }
+
+    let pager = {
+        items: pagination
+    };
+
+    if (pageIndex != 0)
+        pager['previous'] = { href: pageLink + "?index=" + (pageIndex - 1) }
+
+    if (pageIndex != totalPages - 1)
+        pager['next'] = { href: pageLink + "?index=" + (pageIndex + 1) }
+
+    return pager;
+})

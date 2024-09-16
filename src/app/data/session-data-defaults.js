@@ -104,5 +104,7 @@ module.exports = {
     "trading-standards"
   ],
 
-  "legal-entites": []
+  "legal-entites": [],
+
+  "legal-entity-list-page-index": 0
 }
