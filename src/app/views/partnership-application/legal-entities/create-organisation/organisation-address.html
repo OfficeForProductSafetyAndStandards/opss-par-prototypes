@@ -25,7 +25,7 @@
       },
       {
         text: "Select organisation",
-        href: "/partnership-application/legal-entities/select-organisation/set-page?index=0"
+        href: "/set-page?redirect=/partnership-application/legal-entities/select-organisation&indexKey=legal-entity-list-page-index&index=0"
       }
     ]
   }) }}
@@ -66,7 +66,7 @@
         }) }}
       {% endif %}
 
-      <form class="form" action="/partnership-application/legal-entities/create-organisation/new-organisation-answer" method="post">
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/organisation-address-answer" method="post">
 
         {% call govukFieldset({
           legend: {

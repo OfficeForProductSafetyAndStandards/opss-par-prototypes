@@ -136,7 +136,7 @@ addFilter('createPager', function (arr, pageIndex, pageLink) {
     // Add the first page
     pagination.push({
         number: 1,
-        href: pageLink + "?index=" + 0,
+        href: pageLink + 0,
         current: 1 === currentPage
     });
 
@@ -151,7 +151,7 @@ addFilter('createPager', function (arr, pageIndex, pageLink) {
     for (let i = Math.max(2, currentPage - range); i <= Math.min(totalPages - 1, currentPage + range); i++) {
         pagination.push({
             number: i,
-            href: pageLink + "?index=" + (i - 1),
+            href: pageLink + (i - 1),
             current: i === currentPage
         });
     }
@@ -167,7 +167,7 @@ addFilter('createPager', function (arr, pageIndex, pageLink) {
     if (totalPages > 1) {
         pagination.push({
             number: totalPages,
-            href: pageLink + "?index=" + (totalPages - 1),
+            href: pageLink + (totalPages - 1),
             current: totalPages === currentPage
         });
     }
@@ -177,10 +177,10 @@ addFilter('createPager', function (arr, pageIndex, pageLink) {
     };
 
     if (pageIndex != 0)
-        pager['previous'] = { href: pageLink + "?index=" + (pageIndex - 1) }
+        pager['previous'] = { href: pageLink + (pageIndex - 1) }
 
     if (pageIndex != totalPages - 1)
-        pager['next'] = { href: pageLink + "?index=" + (pageIndex + 1) }
+        pager['next'] = { href: pageLink + (pageIndex + 1) }
 
     return pager;
 })

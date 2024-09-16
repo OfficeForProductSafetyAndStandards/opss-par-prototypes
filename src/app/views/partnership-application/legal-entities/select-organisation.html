@@ -152,7 +152,7 @@
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full govuk-grid-column-three-quarters-from-desktop">
-          {% set pagerObject = organisations | createPager(data['legal-entity-list-page-index'], "/partnership-application/legal-entities/select-organisation/set-page") %}
+          {% set pagerObject = organisations | createPager(data['legal-entity-list-page-index'], "/set-page?redirect=/partnership-application/legal-entities/select-organisation&indexKey=legal-entity-list-page-index&index=") %}
           {{ govukPagination(pagerObject) }}
         </div>
 
