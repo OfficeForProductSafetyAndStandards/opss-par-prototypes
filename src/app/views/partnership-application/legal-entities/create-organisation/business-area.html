@@ -1,10 +1,9 @@
 {% extends "layouts/main.html" %}
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {% block pageTitle %}
-  Partnership Application – {{ serviceName }} – Select legal entity type
+  Partnership Application – {{ serviceName }} – Select business area
 {% endblock %}
 
 {% block beforeContent %}
@@ -37,48 +36,54 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/partnership-application/legal-entities/create-organisation/legal-entity-type-answer" method="post">
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/belongs-to-group" method="post">
 
-      {% if data['legal-entity-type-invalid'] %}
+      {% if data['business-area-invalid'] %}
         {{ govukErrorSummary({
           titleText: "There is a problem",
           errorList: [
             {
-              text: "Select a legal entity type",
-              href: "#legal-entity-type"
+              text: "Select a business area",
+              href: "#business-area"
             }
           ]
         }) }}
       {% endif %}
 
-        {% set legalEntityRadios = {
-          name: "legal-entity-type",
-          value: data['legal-entity-type'],
-          fieldset: {
-            legend: {
-              text: "Select legal entity type",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
+        {% set businessAreaSelect = {
+          name: "business-area",
+          value: data['business-area'],
+          label: {
+            text: "Business area"
           },
-          items: data['legal-entity-types']
+          items: data['business-areas']
         } %}
 
-        {% if data['legal-entity-type-invalid'] %}
-          {% set legalEntityRadios = legalEntityRadios | merge({
+        {% if data['business-area-invalid'] %}
+          {% set businessAreaSelect = businessAreaSelect | merge({
             errorMessage: {
-              text: "Select legal entity type"
+              text: "Select business area"
             }
           }) %}
         {% endif %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Select the legal entities' business area",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
 
-        {{ govukRadios(legalEntityRadios) }}
+        {{ govukSelect(businessAreaSelect) }}
+
+        {% endcall %}
 
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Continue"
           }) }}
-          <a class="govuk-link" href="/set-page?redirect=/partnership-application/legal-entities/select-organisation&amp;indexKey=legal-entity-list-page-index&amp;index=0">Back</a>
+          <a class="govuk-link" href="/partnership-application/legal-entities/create-organisation/organisation-address">Back</a>
         </div>
 
       </form>

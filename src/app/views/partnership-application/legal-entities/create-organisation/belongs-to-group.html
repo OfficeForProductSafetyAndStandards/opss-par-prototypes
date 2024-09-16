@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Does the legal entity belong to a group
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+      href: "/partnership-table/active-partnerships"
+      },
+      {
+        text: "Apply for partnership",
+        href: "/partnership-application/task-list"
+      },
+      {
+        text: "Legal entities",
+        href: "/partnership-application/legal-entities/show-list"
+      },
+      {
+        text: "Select organisation",
+        href: "/set-page?redirect=/partnership-application/legal-entities/select-organisation&indexKey=legal-entity-list-page-index&index=0"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application/legal-entities/create-organisation/belongs-to-group-answer" method="post">
+
+        {% if data['belongs-to-group-invalid'] %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+              {
+                text: "Select an option",
+                href: "#belongs-to-group"
+              }
+            ]
+          }) }}
+        {% endif %}
+
+          {% set belongsToGroupRadios = {
+            name: "belongs-to-group",
+            value: data['belongs-to-group'],
+            fieldset: {
+              legend: {
+                text: "Does the legal entity belong to a group of legal entities?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            formGroup: {
+              beforeInputs: {
+                html: "<details class='govuk-details'>
+                        <summary class='govuk-details__summary'>
+                          <span class='govuk-details__summary-text'>
+                            What is a group of legal entities?
+                          </span>
+                        </summary>
+                        <div class='govuk-details__text'>
+                          <p>Organisations can be set up with multiple legal entities. To allow organisations to manage all their legal entities’ partnerships in one place, they need to belong to the same group.</p>
+                          <p>When a new legal entity is created, it can be linked to a group.</p>
+                        </div>
+                      </details>"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No",
+                hint: {
+                  text: "You can add the legal entity to a group later"
+                }
+              }
+            ]
+          } %}
+          {% if data['belongs-to-group-invalid'] %}
+            {% set belongsToGroupRadios = belongsToGroupRadios | merge({
+              errorMessage: {
+                text: "Select an option"
+              }
+            }) %}
+          {% endif %}
+          {{ govukRadios(belongsToGroupRadios) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="/partnership-application/legal-entities/create-organisation/business-area">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

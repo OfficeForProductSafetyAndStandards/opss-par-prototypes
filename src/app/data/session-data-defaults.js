@@ -57,6 +57,7 @@ module.exports = {
       text: "Unincorporated association"
     }
   ],
+
   "regulatory-functions": [
     {
       value: "environmental-health",
@@ -88,6 +89,53 @@ module.exports = {
     }
   ],
 
+  "business-areas": [
+    {
+      "text": "Human Resources",
+      "value": "human-resources"
+    },
+    {
+      "text": "Marketing and Sales",
+      "value": "marketing-and-sales"
+    },
+    {
+      "text": "Information Technology",
+      "value": "information-technology"
+    },
+    {
+      "text": "Finance and Accounting",
+      "value": "finance-and-accounting"
+    },
+    {
+      "text": "Operations and Logistics",
+      "value": "operations-and-logistics"
+    },
+    {
+      "text": "Research and Development",
+      "value": "research-and-development"
+    },
+    {
+      "text": "Customer Service",
+      "value": "customer-service"
+    },
+    {
+      "text": "Legal and Compliance",
+      "value": "legal-and-compliance"
+    },
+    {
+      "text": "Administration",
+      "value": "administration"
+    },
+    {
+      "text": "Procurement",
+      "value": "procurement"
+    },
+    {
+      "text": "Public Relations",
+      "value": "public-relations"
+    }
+  ],
+
   "local-authority-contacts": [{
     firstName: "Emma",
     lastName: "Smith",
@@ -106,5 +154,6 @@ module.exports = {
 
   "legal-entites": [],
 
-  "legal-entity-list-page-index": 0
+  "legal-entity-list-page-index": 0,
+  "group-list-page-index": 0
 }
