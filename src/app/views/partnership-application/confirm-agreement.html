@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Confirm agreement to setup the partnership
@@ -37,16 +38,16 @@
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
-        }) %}
+        }) %} 
 
-      <p>
-        Before you can start a new application, make sure you have been in 
+        {{ govukInsetText({
+          text: "Before you can start a new application, make sure you have been in 
         contact with the organisation for the partnership and that a written summary
-        document has been created detailing the partnership.
-      </p>
+        document has been created detailing the partnership."
+        }) }}
       
       <p>
-        You will not be able to start a new application before the below criteria have been met.
+        You must meet the below criteria before you can start.
       </p>
 
         {% set confirmAgreementCheckboxes = ({
@@ -58,11 +59,11 @@
               },
               {
                 value: "suitable",
-                text: "My local authority is suitable for nomination as the Primary Authority for the organisation"
+                text: "My local authority is suitable for nomination as the Primary authority"
               },
               {
                 value: "summary",
-                text: "A written summary of partnership arrangements has been agreed with the organisation"
+                text: "A written summary detailing the partnership has been created"
               }
             ]
           }) %}

@@ -14,7 +14,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">Partnership Application</h1>      
+      <h1 class="govuk-heading-l">Partnership application</h1>      
     </div>
   </div>
   <div class="govuk-grid-row">
@@ -130,13 +130,13 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">4. Additional details (optional)</h2>
+      <h2 class="govuk-heading-m">4. Additional information (optional)</h2>
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
           {
             title: {
-              text: "Add any other information"
+              text: "Add additional information"
             },
             href: ("/partnership-application/additional-information" if data['contacts-completed']),
             status: (completedStatus if data['additional-information'] else (notYetStartedStatus if data['contacts-completed'] else cannotStartYetStatus))

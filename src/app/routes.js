@@ -33,6 +33,14 @@ router.post('/partnership-application/partnership-type-answer', function (req, r
     }
 })
 
+router.get('/partnership-application/legal-entities/select-organisation/set-page', function (req, res) {
+    let index = parseInt(req.query.index);
+
+    req.session.data['legal-entity-list-page-index'] = index;
+
+    res.redirect('/partnership-application/legal-entities/select-organisation');
+})
+
 router.post('/partnership-application/legal-entities/create-organisation/legal-entity-type-answer', function (req, res) {
     let answer = req.session.data['legal-entity-type'];
     if (answer) {
@@ -123,9 +131,16 @@ router.post('/partnership-application/legal-entities/create-organisation/new-org
     req.session.data['address-postcode-invalid'] = undefined;
 
     if (line1 && town && postcode) {
+        let legalEntities = req.session.data['legal-entites'];
+        let groupName = null;
+        if (legalEntities && legalEntities[0]) {
+            groupName = legalEntities[0].groupName;
+        }
+
         let org = {
             "legalName": req.session.data['legal-name'],
             "tradingName": req.session.data['trading-name'],
+            "groupName": groupName,
             "legalEntityType": req.session.data['legal-entity-type'],
             "address": {
                 "line1": req.session.data['address-line-1'],
@@ -386,6 +401,7 @@ router.post('/partnership-application/contact-details/add/save-contact', functio
     req.session.data['new-contact-last-name-invalid'] = undefined;
     req.session.data['new-contact-phone-number-invalid'] = undefined;
     req.session.data['new-contact-email-address-invalid'] = undefined;
+    req.session.data['new-contact-regulatory-function'] = undefined;
 
     let firstName = req.session.data['new-contact-first-name']
     let lastName = req.session.data['new-contact-last-name']
