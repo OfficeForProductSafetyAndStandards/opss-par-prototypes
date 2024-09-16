@@ -1,8 +1,8 @@
 [
     {
-    "legalName": "Darwinium",
-    "tradingName": "Darwinium",
-    "groupName": "",
+    "legalName": "Ableworld (UK) Limited",
+    "tradingName": "Ableworld UK",
+    "groupName": "Ableworld",
     "companiesHouseNumber": 18548474,
     "businessArea": "fire-safety",
     "legalEntityType": "cio",
@@ -13,8 +13,8 @@
     }
 },
 {
-    "legalName": "Candecor",
-    "tradingName": "Candecor",
+    "legalName": "Accent Group Limited",
+    "tradingName": "Accent Group",
     "groupName": "",
     "companiesHouseNumber": 43482407,
     "businessArea": "fire-safety",
@@ -26,8 +26,8 @@
     }
 },
 {
-    "legalName": "Daycore",
-    "tradingName": "Daycore",
+    "legalName": "AKS Holding Ltd",
+    "tradingName": "AKS",
     "groupName": "",
     "companiesHouseNumber": 71439105,
     "businessArea": "environmental-health",
@@ -39,9 +39,9 @@
     }
 },
 {
-    "legalName": "Cosmosis",
-    "tradingName": "Cosmosis",
-    "groupName": "",
+    "legalName": "Allsop Letting and Management Limited",
+    "tradingName": "Allsop Lettings and Management",
+    "groupName": "Allsop Lettings and Management",
     "companiesHouseNumber": 93590587,
     "businessArea": "health-and-safety",
     "legalEntityType": "cic",
@@ -52,8 +52,8 @@
     }
 },
 {
-    "legalName": "Keeg",
-    "tradingName": "Keeg",
+    "legalName": "Association of Convenience Stores Limited",
+    "tradingName": "Association of Convenience Stores",
     "groupName": "",
     "companiesHouseNumber": 70597819,
     "businessArea": "fire-safety",
@@ -65,8 +65,8 @@
     }
 },
 {
-    "legalName": "Fortean",
-    "tradingName": "Fortean",
+    "legalName": "Beverage Services Limited",
+    "tradingName": "Beverage Services",
     "groupName": "",
     "companiesHouseNumber": 40725771,
     "businessArea": "environmental-health",
@@ -78,9 +78,9 @@
     }
 },
 {
-    "legalName": "Imperium",
-    "tradingName": "Imperium",
-    "groupName": "",
+    "legalName": "Birchgrove (Surrey) LLP",
+    "tradingName": "Birchgrove Surrey",
+    "groupName": "Birchgrove",
     "companiesHouseNumber": 23646547,
     "businessArea": "environmental-health",
     "legalEntityType": "cio",
@@ -91,9 +91,9 @@
     }
 },
 {
-    "legalName": "Danja",
-    "tradingName": "Danja",
-    "groupName": "",
+    "legalName": "Birchgrove (Berkshire) LLP",
+    "tradingName": "Birchgrove Berkshire",
+    "groupName": "Birchgrove",
     "companiesHouseNumber": 21858819,
     "businessArea": "explosives-licensing",
     "legalEntityType": "bencom",
@@ -104,9 +104,9 @@
     }
 },
 {
-    "legalName": "Cormoran",
-    "tradingName": "Cormoran",
-    "groupName": "",
+    "legalName": "Birchgrove (Hampshire) LLP",
+    "tradingName": "Birchgrove Hampshire",
+    "groupName": "Birchgrove",
     "companiesHouseNumber": 67291429,
     "businessArea": "fire-safety",
     "legalEntityType": "friendly-society",
@@ -117,8 +117,8 @@
     }
 },
 {
-    "legalName": "Diginetic",
-    "tradingName": "",
+    "legalName": "British Soft Drink Association Limited",
+    "tradingName": "Soft Drink Association",
     "groupName": "",
     "companiesHouseNumber": 30436022,
     "businessArea": "licensing",
@@ -130,8 +130,8 @@
     }
 },
 {
-    "legalName": "Virxo",
-    "tradingName": "",
+    "legalName": "Career Advisor Help",
+    "tradingName": "Career Advisor",
     "groupName": "",
     "companiesHouseNumber": 25662207,
     "businessArea": "licensing",
@@ -143,9 +143,9 @@
     }
 },
 {
-    "legalName": "Sureplex",
-    "tradingName": "",
-    "groupName": "",
+    "legalName": "Car Planet Trading",
+    "tradingName": "Car Planet",
+    "groupName": "Car Planet",
     "companiesHouseNumber": 35081820,
     "businessArea": "explosives-licensing",
     "legalEntityType": "trust",
