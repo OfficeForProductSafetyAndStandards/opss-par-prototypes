@@ -124,7 +124,8 @@
             id: "primary-phone-number",
             name: "primary-phone-number",
             value: data['primary-phone-number'],
-            autocomplete: "tel-national"
+            autocomplete: "tel-national",
+            type: "tel"
           } %}
           {% if data['primary-phone-number-invalid'] %}
             {% set phoneNumberInput = phoneNumberInput | merge({
@@ -142,7 +143,8 @@
             id: "primary-email-address",
             name: "primary-email-address",
             value: data['primary-email-address'],
-            autocomplete: "email"
+            autocomplete: "email",
+            type: "email"
           } %}
           {% if data['primary-email-address-invalid'] %}
             {% set emailAddressInput = emailAddressInput | merge({
