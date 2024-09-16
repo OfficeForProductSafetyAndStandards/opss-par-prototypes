@@ -81,7 +81,8 @@
             id: "new-contact-phone-number",
             name: "new-contact-phone-number",
             value: data['new-contact-phone-number'],
-            autocomplete: "tel-national"
+            autocomplete: "tel-national",
+            type: "tel"
           }) }}
 
           {{ govukInput({
@@ -91,7 +92,8 @@
             id: "new-contact-email-address",
             name: "new-contact-email-address",
             value: data['new-contact-email-address'],
-            autocomplete: "email"
+            autocomplete: "email",
+            type: "email"
           }) }}
 
         {% endcall %}

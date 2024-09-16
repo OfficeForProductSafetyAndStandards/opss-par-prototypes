@@ -39,7 +39,7 @@
       {% set errorList = [] %}
       {% if data['address-line-1-invalid'] %}
         {% set errorList = errorList | push({
-              text: "Enter address line 1",
+              text: "Enter address line 1, typically the building and street",
               href: "#address-line-1"
             }) 
         %}
@@ -92,7 +92,7 @@
           {% if data['address-line-1-invalid'] %}
             {% set addressLine1Input = addressLine1Input | merge({
               errorMessage: {
-                text: "Enter address line 1"
+                text: "Enter address line 1, typically the building and street"
               }
             }) %}
           {% endif %}
