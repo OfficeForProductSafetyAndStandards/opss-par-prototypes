@@ -155,5 +155,9 @@ module.exports = {
   "legal-entites": [],
 
   "legal-entity-list-page-index": 0,
-  "group-list-page-index": 0
+  "group-list-page-index": 0,
+  "active-partnerships-page-index": 0,
+  "draft-partnerships-page-index": 0,
+  "pending-partnerships-page-index": 0,
+  "revocations-partnerships-page-index": 0
 }
