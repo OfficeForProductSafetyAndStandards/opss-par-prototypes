@@ -159,7 +159,7 @@
         <div class="govuk-grid-column-full govuk-grid-column-one-quarter-from-desktop">
           <div class="govuk-pagination-description">
             <p class="govuk-body govuk-pagination-description__text">
-              Showing items<br /><span class="govuk-!-font-weight-bold">{{ (data['legal-entity-list-page-index'] * 10) + 1 }}</span> to <span class="govuk-!-font-weight-bold">{{ (data['legal-entity-list-page-index'] * 10) + 10 }}</span> of <span class="govuk-!-font-weight-bold">{{ organisations | length }}</span></p>
+              Showing items<br /><span class="govuk-!-font-weight-bold">{{ (data['legal-entity-list-page-index'] * 10) + 1 }}</span> to <span class="govuk-!-font-weight-bold">{{ organisations | length | min((data['legal-entity-list-page-index'] * 10) + 10) }}</span> of <span class="govuk-!-font-weight-bold">{{ organisations | length }}</span></p>
           </div>
         </div>
       </div>

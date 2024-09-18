@@ -125,6 +125,14 @@ addFilter('take', function (arr, num) {
     return arr.slice(0, num);
 })
 
+addFilter('min', function (num1, num2) {
+    return Math.min(num1, num2);
+})
+
+addFilter('max', function (num1, num2) {
+    return Math.max(num1, num2);
+})
+
 addFilter('createPager', function (arr, pageIndex, pageLink) {
     const pageSize = 10;
     const totalItems = arr.length;
