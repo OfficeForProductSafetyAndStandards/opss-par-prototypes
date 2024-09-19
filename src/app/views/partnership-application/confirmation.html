@@ -1,5 +1,8 @@
 {% extends "layouts/main.html" %}
 
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Application complete
 {% endblock %}
@@ -41,12 +44,57 @@
       <p>
         <a class="govuk-link" href="/partnership-table/draft-applications">View all draft applications</a>
       </p>
-      <p>
-        <a href="#">
-          What did you think of this service?
-        </a> (takes 30 seconds)
-      </p>
 
+    </div>
+  </div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">      
+
+      <form class="form" action="/partnership-application/rate" method="post">
+          {% call govukFieldset({
+                    legend: {
+                      text: "Overall, how would you rate your experience with the Primary Authority Register today?",
+                      classes: "govuk-fieldset__legend--m govuk-!-text-align-centre",
+                      isPageHeading: false
+                    }
+                  }) %}
+
+            {{ govukRadios({
+              name: "star-rating",
+              classes: "star-rating",
+              items: [
+                {
+                  value: "1",
+                  text: "1"
+                },
+                {
+                  value: "2",
+                  text: "2"
+                },
+                {
+                  value: "3",
+                  text: "3"
+                },
+                {
+                  value: "4",
+                  text: "4"
+                },
+                {
+                  value: "5",
+                  text: "5"
+                }
+              ]
+            }) }}
+
+            {{ govukButton({
+              text: "Continue",
+              classes: "govuk-button--secondary govuk-button--align-centre"
+            }) }}
+
+          {% endcall %}
+        </form>
 
     </div>
   </div>
