@@ -25,3 +25,51 @@
 .govuk-summary-list--no-border .govuk-summary-list__row_border {
     border-bottom: 1px solid #b1b4b6;
 }
+.govuk-button--align-centre {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.star-rating {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+
+    .govuk-radios__item {
+        display: table-cell;
+        padding: 10px;
+
+        .govuk-radios__label {
+            margin-left: -5px;
+        }
+
+        .govuk-radios__label::before {
+            border: none;
+            content: url('/public/star/unselected.png');
+            width: 48px;
+            height: 48px;
+            top: 0;
+            left: 0;
+        }
+
+        .govuk-radios__input:focus+.govuk-radios__label:before {
+            content: url('/public/star/active-unselected.png');
+            box-shadow: none;
+        }
+
+        .govuk-radios__label_before_selected:before,
+        .govuk-radios__input:checked+.govuk-radios__label:before {
+            content: url('/public/star/selected.png');
+        }
+
+        .govuk-radios__input:checked:focus+.govuk-radios__label:before {
+            content: url('/public/star/active-selected.png');
+            box-shadow: none;
+        }
+
+        .govuk-radios__input:checked+.govuk-radios__label::after {
+            display: none;
+        }
+    }
+}
