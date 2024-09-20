@@ -1,0 +1,380 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Check answers
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "/partnership-application-review/task-list"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% if data['confirm-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "You must confirm all the provided details are correct",
+              href: "#confirm"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-xl">
+        Review your information before submitting your application
+      </h1>
+      
+      <h2 class="govuk-heading-m">
+        Partnership details
+      </h2>
+
+      {{ govukSummaryList({
+          classes: "govuk-summary-list__heading-row",
+          rows: [
+            {
+              key: {
+              text: "Is this the partnership type for this partnership?"
+              },
+              value: {
+                html: data['partnership-type-review'] | capitalize 
+              },
+            actions: {
+              items: [
+                {
+                  href: "/redirect?redirect=/partnership-application-review/partnership-type",
+                  text: "Change"    
+                }
+              ]
+            }
+            },
+            {
+              key: {
+                text: "Parthership type"
+              },
+              value: {
+                text: "Direct"
+              }
+            }
+          ]
+        }) }}
+      
+      <h2 class="govuk-heading-m">
+        Primary authority details
+      </h2>
+
+      {{ govukSummaryList({
+          classes: "govuk-summary-list__heading-row",
+          rows: [
+            {
+              key: {
+              text: "Is this the primary authority you agreed to partner with?"
+              },
+              value: {
+                html: data['primary-authority-name-review'] | capitalize 
+              },
+            actions: {
+              items: [
+                {
+                  href: "/redirect?redirect=/partnership-application-review/primary-authority-name",
+                  text: "Change"    
+                }
+              ]
+            }
+            },
+            {
+              key: {
+                text: "Primary authority name"
+              },
+              value: {
+                text: "Milton Keynes Council"
+              }
+            }
+          ]
+        }) }}
+      
+      <h2 class="govuk-heading-m">
+        Your organisation's details
+      </h2>
+
+      {{ govukSummaryList({
+          classes: "govuk-summary-list__heading-row govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+              text: "Are these the legal entities for this application?"
+              },
+              value: {
+                html: data['legal-entities-review'] | capitalize 
+              },
+            actions: {
+              items: [
+                {
+                  href: "/redirect?redirect=/partnership-application-review/legal-entities",
+                  text: "Change"    
+                }
+              ]
+            }
+            },
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                html: "Wakefield Holdings"
+              }
+            },
+            {
+              key: {
+                text: "Trading name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Group name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Companies house number"
+              },
+              value: {
+                html: "12345678"
+              }
+            },
+            {
+              key: {
+                text: "Business area"
+              },
+              value: {
+                html: "Manufacturing"
+              }
+            },
+            {
+              key: {
+                text: "Legal entity type"
+              },
+              value: {
+                html: "Limited Company"
+              }
+            },
+            {
+              key: {
+                text: "Registered office address"
+              },
+              value: {
+                html: "1 Queens Way<br />London<br />HJ98 9JH"
+              },
+              classes: "govuk-summary-list__row_border"
+            },
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                html: "Wakefield Trading"
+              }
+            },
+            {
+              key: {
+                text: "Trading name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Group name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Companies house number"
+              },
+              value: {
+                html: "12345678"
+              }
+            },
+            {
+              key: {
+                text: "Business area"
+              },
+              value: {
+                html: "Manufacturing"
+              }
+            },
+            {
+              key: {
+                text: "Legal entity type"
+              },
+              value: {
+                html: "Limited Company"
+              }
+            },
+            {
+              key: {
+                text: "Registered office address"
+              },
+              value: {
+                html: "1 Kings Street<br />Birmingham<br />BM14 3SE"
+              }
+            }
+          ]
+        }) }}
+      
+      {{ govukSummaryList({
+          classes: "govuk-summary-list__heading-row govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+              text: "Are these teh contacts for the legal entities?"
+              },
+              value: {
+                html: data['contact-details-review'] | capitalize 
+              },
+            actions: {
+              items: [
+                {
+                  href: "/redirect?redirect=/partnership-application-review/contact-details",
+                  text: "Change"    
+                }
+              ]
+            }
+            },
+            {
+              key: {
+                text: "Trading name"
+              },
+              value: {
+                text: "Wakefield Holdings"
+              }
+            },
+            {
+              key: {
+                text: "Environmental Health"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            },
+            {
+              key: {
+                text: "Trading Standards"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              },
+              classes: "govuk-summary-list__row_border"
+            },
+            {
+              key: {
+                text: "Trading name"
+              },
+              value: {
+                text: "Wakefield Trading"
+              }
+            },
+            {
+              key: {
+                text: "Environmental Health"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            },
+            {
+              key: {
+                text: "Trading Standards"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            }
+          ]
+        }) }}
+      
+      {{ govukSummaryList({
+          classes: "govuk-summary-list__heading-row govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+              text: "Confirm contact preference"
+              },
+              value: {
+                html: data['contact-preference']  | select | join(', ')
+              },
+            actions: {
+              items: [
+                {
+                  href: "/redirect?redirect=/partnership-application-review/contact-preference",
+                  text: "Change"    
+                }
+              ]
+            }
+            }]
+          }) }}
+
+      <form action="/partnership-application-review/try-submit" method="post" novalidate>
+
+        {% set confirmationCheckboxes = {
+          name: "confirm",
+          items: [
+            {
+              value: "confirm",
+              text: "I confirm I have reviewed all details above to the best of my knowledge"
+            }
+          ]
+        } %}
+
+        {% if data['confirm-invalid'] %}
+          {% set confirmationCheckboxes = confirmationCheckboxes | merge({
+            errorMessage: {
+              text: "You must confirm the details before you can continue"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukCheckboxes(confirmationCheckboxes) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}
+          <a class="govuk-link" href="/partnership-application-review/task-list">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -129,7 +129,7 @@
         href: "/set-page?redirect=/partnership-application/legal-entities/select-organisation&indexKey=legal-entity-list-page-index&index=0"
       }) }}
       
-      <form class="form" action="/partnership-application/redirect-done?redirect=/partnership-application/task-list" method="post">
+      <form class="form" action="/redirect-done?redirect=/partnership-application/task-list" method="post">
         {{ govukInput({
           id: "legal-entites-completed",
           name: "legal-entites-completed",
@@ -148,7 +148,7 @@
               equals(
                 true, 
                 '/partnership-application/check-answers', 
-                '/partnership-application/redirect-done?redirect=/partnership-application/task-list'
+                '/redirect-done?redirect=/partnership-application/task-list'
               ) }}">Cancel</a>
         </div>
       </form>

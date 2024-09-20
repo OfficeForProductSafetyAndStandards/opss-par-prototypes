@@ -1,0 +1,133 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Parthership Type
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application-review/partnership-type-answer" method="post">
+
+      {% if data['partnership-type-review-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select an option",
+              href: "#partnership-type-review"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% call govukFieldset({
+          legend: {
+              text: "Is this the partnership type for this partnership?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukDetails({
+          summaryText: "What is the partnership type?",
+          html: "<p>Parthership type refers to the different types of partnership an organisation can have with a primary authority.</p>
+                      <p>There are two different partnership types.</p>
+                      <p><b>Direct partnership</b> refers to a partnership between a local authority
+                        and an organisation, such as a business looking to seek advice for
+                        their own benefit.</p>
+                      <p><b>Coordinated partnership</b> refers to a partnership between a local
+                        authority and an organisation with members, such as franchisees,
+                        looking to seek advice on behalf of their members.</p>"
+        }) }}
+        
+        {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Partnership type"
+                },
+                value: {
+                  text: "Direct"
+                }
+              }]
+        }) }}
+
+        {% set partnershipTypeRadios = {
+          name: "partnership-type-review",
+          value: data['partnership-type-review'],
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, query the details"
+            }
+          ]
+        } %}
+
+        {% if data['partnership-type-review-invalid'] %}
+          {% set partnershipTypeRadios = partnershipTypeRadios | merge({
+            errorMessage: {
+              text: "Select an option"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(partnershipTypeRadios) }}
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

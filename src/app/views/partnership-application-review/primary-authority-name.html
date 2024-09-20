@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Primary authority name
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application-review/primary-authority-name-answer" method="post">
+
+      {% if data['primary-authority-name-review-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select an option",
+              href: "#primary-authority-name-review"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% call govukFieldset({
+          legend: {
+              text: "Is this the primary authority you agreed to partner with?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        
+        {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Primary authority"
+                },
+                value: {
+                  text: "Milton Keynes Council"
+                }
+              }]
+        }) }}
+
+        {% set partnershipTypeRadios = {
+          name: "primary-authority-name-review",
+          value: data['primary-authority-name-review'],
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, query the details"
+            }
+          ]
+        } %}
+
+        {% if data['primary-authority-name-review-invalid'] %}
+          {% set partnershipTypeRadios = partnershipTypeRadios | merge({
+            errorMessage: {
+              text: "Select an option"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(partnershipTypeRadios) }}
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

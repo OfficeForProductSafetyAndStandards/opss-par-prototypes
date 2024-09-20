@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application reviewed",
+        html: "Your reference number<br><strong>432532</strong>"
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      {% if data['contact-details-review'] == "no" or data['legal-entities-review'] == "no" or data['partnership-type-review'] == "no" or data['primary-authority-name-review'] == "no" %}
+      <p>
+        Thank you for letting us know that some information in the application is incorrect.
+      </p>
+
+      <p>
+        Your application will be sent back to your primary authority for revision. They will work with you for any 
+        incorrect details and send you a new application for review when ready.
+      </p>
+      {% else %}
+      <p>
+        Thank you for letting us know all the information is correct.
+      </p>
+      {% endif %}
+      <p>
+        If you have any queries, contact your primary authority.
+      </p>
+
+      <p>
+        <a class="govuk-link" href="#">View all your partnerships</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">    
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <form class="form" action="/partnership-application/rate" method="post">
+          {% call govukFieldset({
+                    legend: {
+                      text: "Overall, how would you rate your experience with the Primary Authority Register today?",
+                      classes: "govuk-fieldset__legend--m govuk-!-text-align-centre",
+                      isPageHeading: false
+                    }
+                  }) %}
+
+            {{ govukRadios({
+              name: "star-rating",
+              classes: "star-rating",
+              items: [
+                {
+                  value: "1",
+                  text: "1"
+                },
+                {
+                  value: "2",
+                  text: "2"
+                },
+                {
+                  value: "3",
+                  text: "3"
+                },
+                {
+                  value: "4",
+                  text: "4"
+                },
+                {
+                  value: "5",
+                  text: "5"
+                }
+              ]
+            }) }}
+
+            {{ govukButton({
+              text: "Continue",
+              classes: "govuk-button--secondary govuk-button--align-centre"
+            }) }}
+
+          {% endcall %}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

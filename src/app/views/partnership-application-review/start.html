@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Start
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Home",
+  href: "/"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Partnership application
+      </h1>
+
+      <p>Milton Keynes has submitted an application to form a new partnership with your organisation. Click start to review the application.</p>
+
+      <p>You will need to have the following details:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Parthership details</li>
+        <li>Primary authority details</li>
+        <li>Your organisation details</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start",
+        href: "/partnership-application-review/task-list",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
