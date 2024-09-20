@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Legal entities query
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}"
+    },
+    {
+      text: "Legal entities",
+      href: "/partnership-application-review/legal-entities"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Enter query details for the legal entities
+      </h1>
+
+      {{ govukInsetText({
+        text: "The information you enter will be passed back to your primary 
+        authority when you submit your review. Your primary authority will 
+        update the application and send it back to you for a new review."
+      }) }}
+
+      <form class="form" action="/partnership-application-review/submit-query" method="post">
+
+        {{ govukTextarea({
+          name: "query-details",
+          label: {
+            text: "Enter reasons for your query"
+          }
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="/partnership-application-review/legal-entities">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

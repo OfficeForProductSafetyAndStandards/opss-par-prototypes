@@ -615,10 +615,14 @@ router.post('/partnership-application-review/partnership-type-answer', function 
     } else {
         req.session.data['partnership-type-confirmed'] = answer;
         req.session.data['partnership-type-review-invalid'] = undefined;
-        if (req.session.data['redirected']) {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        if (answer == "no") {
+            res.redirect('/partnership-application-review/partnership-type-query');
         } else {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            if (req.session.data['redirected']) {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+            } else {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            }
         }
     }
 })
@@ -632,10 +636,14 @@ router.post('/partnership-application-review/primary-authority-name-answer', fun
     } else {
         req.session.data['primary-authority-name-confirmed'] = answer;
         req.session.data['primary-authority-name-review-invalid'] = undefined;
-        if (req.session.data['redirected']) {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        if (answer == "no") {
+            res.redirect('/partnership-application-review/primary-authority-name-query');
         } else {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            if (req.session.data['redirected']) {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+            } else {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            }
         }
     }
 })
@@ -649,10 +657,14 @@ router.post('/partnership-application-review/legal-entities-answer', function (r
     } else {
         req.session.data['legal-entities-confirmed'] = answer;
         req.session.data['legal-entities-review-invalid'] = undefined;
-        if (req.session.data['redirected']) {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        if (answer == "no") {
+            res.redirect('/partnership-application-review/legal-entities-query');
         } else {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            if (req.session.data['redirected']) {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+            } else {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            }
         }
     }
 })
@@ -666,10 +678,14 @@ router.post('/partnership-application-review/contact-details-answer', function (
     } else {
         req.session.data['contact-details-confirmed'] = answer;
         req.session.data['contact-details-review-invalid'] = undefined;
-        if (req.session.data['redirected']) {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        if (answer == "no") {
+            res.redirect('/partnership-application-review/contact-details-query');
         } else {
-            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            if (req.session.data['redirected']) {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+            } else {
+                res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+            }
         }
     }
 })
@@ -700,6 +716,13 @@ router.post('/partnership-application-review/try-submit', function (req, res) {
     else {
         req.session.data['confirm-invalid'] = true;
         res.redirect('/partnership-application-review/check-answers');
+    }
+})
+router.post('/partnership-application-review/submit-query', function (req, res) {
+    if (req.session.data['redirected']) {
+        res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+    } else {
+        res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
     }
 })
 
