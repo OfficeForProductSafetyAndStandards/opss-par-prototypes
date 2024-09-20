@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Contact preferences
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application-review/contact-preference-answer" method="post">
+
+      {% if data['contact-preference-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select at least one contact method",
+              href: "#contact-preference"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% set partnershipTypeRadios = {
+          name: "contact-preference",
+          fieldset: {
+            legend: {
+              text: "Confirm your contact preference",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Email",
+              text: "Email",
+              checked: data['contact-preference'] and "Email" in data['contact-preference']
+            },
+            {
+              value: "Phone",
+              text: "Phone",
+              checked: data['contact-preference'] and "Phone" in data['contact-preference']
+            }
+          ]
+        } %}
+
+        {% if data['contact-preference-invalid'] %}
+          {% set partnershipTypeRadios = partnershipTypeRadios | merge({
+            errorMessage: {
+              text: "Select at least one contact method"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukCheckboxes(partnershipTypeRadios) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

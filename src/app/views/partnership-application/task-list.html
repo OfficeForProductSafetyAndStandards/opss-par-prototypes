@@ -152,7 +152,7 @@
             title: {
               text: "Review all details and submit"
             },
-            href: ("/partnership-application/review-details" if data['contacts-completed']),
+            href: ("/partnership-application/check-answers" if data['contacts-completed']),
             status: (notYetStartedStatus if data['contacts-completed'] else cannotStartYetStatus)
           }
         ]

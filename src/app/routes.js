@@ -7,6 +7,10 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 const fs = require('fs');
 
+
+//---------------------------------------------------------------------------------------------------
+// Partnership Application Process
+//---------------------------------------------------------------------------------------------------
 router.post('/partnership-application/confirm-agreement-answer', function (req, res) {
     let answer = req.session.data['confirm-agreement'] ?? '';
     if (answer && answer.length == 3) {
@@ -23,9 +27,9 @@ router.post('/partnership-application/partnership-type-answer', function (req, r
     if (answer) {
         req.session.data['partnership-type-invalid'] = undefined;
         if (req.session.data['redirected']) {
-            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/review-details');
+            res.redirect('/redirect-done?redirect=/partnership-application/check-answers');
         } else {
-            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/task-list');
+            res.redirect('/redirect-done?redirect=/partnership-application/task-list');
         }
     } else {
         req.session.data['partnership-type-invalid'] = true;
@@ -539,7 +543,7 @@ router.post('/partnership-application/contact-details/edit/save-contact', functi
     req.session.data['selected-legal-entity-contact-index'] = undefined;
 
     req.session.data['contact-details-success-message'] = "Contact updated for " + org.legalName;
-    res.redirect('/partnership-application/review-details');
+    res.redirect('/partnership-application/check-answers');
 })
 
 router.post('/partnership-application/contact-details/primary-contact-answer', function (req, res) {
@@ -555,9 +559,9 @@ router.post('/partnership-application/contact-details/primary-contact-answer', f
 
     if (firstName && lastName && phoneNumber && emailAddress) {
         if (req.session.data['redirected']) {
-            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/review-details');
+            res.redirect('/redirect-done?redirect=/partnership-application/check-answers');
         } else {
-            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/task-list');
+            res.redirect('/redirect-done?redirect=/partnership-application/task-list');
         }
     } else {
         if (!firstName) {
@@ -577,7 +581,6 @@ router.post('/partnership-application/contact-details/primary-contact-answer', f
 })
 
 router.post('/partnership-application/try-submit', function (req, res) {
-
     let confirm = req.session.data['confirm'];
 
     if (confirm == 'confirm') {
@@ -596,12 +599,114 @@ router.post('/partnership-application/try-submit', function (req, res) {
     }
     else {
         req.session.data['confirm-invalid'] = true;
-        res.redirect('/partnership-application/review-details');
+        res.redirect('/partnership-application/check-answers');
     }
 })
 
-// Redirect is used on the check answers page
-router.get('/partnership-application/redirect', function (req, res) {
+//---------------------------------------------------------------------------------------------------
+// Partnership Application Review Process
+//---------------------------------------------------------------------------------------------------
+router.post('/partnership-application-review/partnership-type-answer', function (req, res) {
+    let answer = req.session.data['partnership-type-review'];
+
+    if (!answer) {
+        req.session.data['partnership-type-review-invalid'] = true;
+        res.redirect('/partnership-application-review/partnership-type');
+    } else {
+        req.session.data['partnership-type-confirmed'] = answer;
+        req.session.data['partnership-type-review-invalid'] = undefined;
+        if (req.session.data['redirected']) {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        } else {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+        }
+    }
+})
+
+router.post('/partnership-application-review/primary-authority-name-answer', function (req, res) {
+    let answer = req.session.data['primary-authority-name-review'];
+
+    if (!answer) {
+        req.session.data['primary-authority-name-review-invalid'] = true;
+        res.redirect('/partnership-application-review/primary-authority-name');
+    } else {
+        req.session.data['primary-authority-name-confirmed'] = answer;
+        req.session.data['primary-authority-name-review-invalid'] = undefined;
+        if (req.session.data['redirected']) {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        } else {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+        }
+    }
+})
+
+router.post('/partnership-application-review/legal-entities-answer', function (req, res) {
+    let answer = req.session.data['legal-entities-review'];
+
+    if (!answer) {
+        req.session.data['legal-entities-review-invalid'] = true;
+        res.redirect('/partnership-application-review/legal-entities');
+    } else {
+        req.session.data['legal-entities-confirmed'] = answer;
+        req.session.data['legal-entities-review-invalid'] = undefined;
+        if (req.session.data['redirected']) {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        } else {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+        }
+    }
+})
+
+router.post('/partnership-application-review/contact-details-answer', function (req, res) {
+    let answer = req.session.data['contact-details-review'];
+
+    if (!answer) {
+        req.session.data['contact-details-review-invalid'] = true;
+        res.redirect('/partnership-application-review/contact-details');
+    } else {
+        req.session.data['contact-details-confirmed'] = answer;
+        req.session.data['contact-details-review-invalid'] = undefined;
+        if (req.session.data['redirected']) {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        } else {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+        }
+    }
+})
+
+router.post('/partnership-application-review/contact-preference-answer', function (req, res) {
+    let answer = req.session.data['contact-preference'];
+
+    if (!answer) {
+        req.session.data['contact-preference-invalid'] = true;
+        res.redirect('/partnership-application-review/contact-preference');
+    } else {
+        req.session.data['contact-preference-invalid'] = undefined;
+        if (req.session.data['redirected']) {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/check-answers');
+        } else {
+            res.redirect('/redirect-done?redirect=/partnership-application-review/task-list');
+        }
+    }
+})
+
+router.post('/partnership-application-review/try-submit', function (req, res) {
+    let confirm = req.session.data['confirm'];
+
+    if (confirm == 'confirm') {
+        req.session.data['confirm-invalid'] = undefined;
+        res.redirect('/partnership-application-review/confirmation');
+    }
+    else {
+        req.session.data['confirm-invalid'] = true;
+        res.redirect('/partnership-application-review/check-answers');
+    }
+})
+
+//---------------------------------------------------------------------------------------------------
+// Generic Items
+//---------------------------------------------------------------------------------------------------
+router.get('/redirect', function (req, res) {
     let redirect = req.query.redirect;
 
     // We want to remove the confirm checkbox validation if we're doing something else
@@ -611,7 +716,7 @@ router.get('/partnership-application/redirect', function (req, res) {
     res.redirect(redirect);
 })
 
-router.get('/partnership-application/redirect-done', function (req, res) {
+router.get('/redirect-done', function (req, res) {
     let redirect = req.query.redirect;
 
     req.session.data['redirected'] = undefined;

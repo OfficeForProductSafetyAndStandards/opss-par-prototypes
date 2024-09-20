@@ -1,0 +1,257 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Legal entities
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application-review/legal-entities-answer" method="post">
+
+      {% if data['legal-entities-review-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select an option",
+              href: "#legal-entities-review"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% call govukFieldset({
+          legend: {
+            text: "Legal entities in this application?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInsetText({
+          html: "<p>Your local authority has added multiple legal entities to the application.</p>
+                      <p>When approved, each legal entity in the application will have its own
+                        unique partnership created and will act independent of each other.</p>
+                      <p>For more information, see help section XXXX in the <a href='#'>Primary authority guidance (opens in new tab)</a></p>"
+        }) }}
+        
+        <h2 class="govuk-heading-m">Legal entities in this application</h2>
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Legal entity 1"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                html: "Wakefield Holdings"
+              }
+            },
+            {
+              key: {
+                text: "Trading name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Group name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Companies house number"
+              },
+              value: {
+                html: "12345678"
+              }
+            },
+            {
+              key: {
+                text: "Business area"
+              },
+              value: {
+                html: "Manufacturing"
+              }
+            },
+            {
+              key: {
+                text: "Legal entity type"
+              },
+              value: {
+                html: "Limited Company"
+              }
+            },
+            {
+              key: {
+                text: "Registered office address"
+              },
+              value: {
+                html: "1 Queens Way<br />London<br />HJ98 9JH"
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Legal entity 2"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                html: "Wakefield Trading"
+              }
+            },
+            {
+              key: {
+                text: "Trading name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Group name"
+              },
+              value: {
+                html: "Wakefield"
+              }
+            },
+            {
+              key: {
+                text: "Companies house number"
+              },
+              value: {
+                html: "12345678"
+              }
+            },
+            {
+              key: {
+                text: "Business area"
+              },
+              value: {
+                html: "Manufacturing"
+              }
+            },
+            {
+              key: {
+                text: "Legal entity type"
+              },
+              value: {
+                html: "Limited Company"
+              }
+            },
+            {
+              key: {
+                text: "Registered office address"
+              },
+              value: {
+                html: "1 Kings Street<br />Birmingham<br />BM14 3SE"
+              }
+            }
+          ]
+        }) }}
+
+        {% set partnershipTypeRadios = {
+          name: "legal-entities-review",
+          fieldset: {
+            legend: {
+              text: "Are these the legal entities for this application?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          value: data['legal-entities-review'],
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, query the details"
+            }
+          ]
+        } %}
+
+        {% if data['legal-entities-review-invalid'] %}
+          {% set partnershipTypeRadios = partnershipTypeRadios | merge({
+            errorMessage: {
+              text: "Select an option"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(partnershipTypeRadios) }}
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,10 +1,7 @@
 {% extends "layouts/main.html" %}
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
 {% block pageTitle %}
-  Partnership Application – {{ serviceName }} – Application complete
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -13,8 +10,8 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "Application complete",
-        html: "Your reference number<br><strong>848394</strong>"
+        titleText: "Application reviewed",
+        html: "Your reference number<br><strong>432532</strong>"
       }) }}
 
       <h2 class="govuk-heading-m">
@@ -25,26 +22,27 @@
         We have sent you a confirmation email.
       </p>
 
+      {% if data['contact-details-review'] == "no" or data['legal-entities-review'] == "no" or data['partnership-type-review'] == "no" or data['primary-authority-name-review'] == "no" %}
       <p>
-        We have sent an email for the organisation to review the application to the primary organisation contact:
-      </p>
-      <p>
-        <a class="govuk-link" href="mailto:{{ data['primary-email-address']}}">{{ data['primary-email-address']}}</a>
+        Thank you for letting us know that some information in the application is incorrect.
       </p>
 
       <p>
-        Once the organisation has confirmed the application, it will be sent to the Office for Product Safety and Standards (OPSS)
-        for review. They will contact you when the partnership has been approved or if more information is needed.
+        Your application will be sent back to your primary authority for revision. They will work with you for any 
+        incorrect details and send you a new application for review when ready.
       </p>
-
-      <p>If you have any queries, contact OPSS at<br />
-        <a class="govuk-link" href="mailto:pa@businessandtrade.gov.uk">pa@businessandtrade.gov.uk</a>
+      {% else %}
+      <p>
+        Thank you for letting us know all the information is correct.
+      </p>
+      {% endif %}
+      <p>
+        If you have any queries, contact your primary authority.
       </p>
 
       <p>
-        <a class="govuk-link" href="/partnership-table/draft-applications">View all draft applications</a>
+        <a class="govuk-link" href="#">View all your partnerships</a>
       </p>
-
     </div>
   </div>
 

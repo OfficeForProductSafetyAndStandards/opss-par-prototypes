@@ -1,0 +1,161 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Parthership Application Review – {{ serviceName }} – Contact details
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Apply for partnership",
+      href: "{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-application-review/contact-details-answer" method="post">
+
+      {% if data['contact-details-review-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select an option",
+              href: "#contact-details-review"
+            }
+          ]
+        }) }}
+      {% endif %}
+
+        {% call govukFieldset({
+          legend: {
+            text: "Are these the legal entity contacts?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Wakefield Holdings"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Environmental Health"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            },
+            {
+              key: {
+                text: "Trading Standards"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Wakefield Trading"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Environmental Health"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            },
+            {
+              key: {
+                text: "Trading Standards"
+              },
+              value: {
+                html: "Sara Jonson<br />sarah.jonson@wakefield.com"
+              }
+            }
+          ]
+        }) }}
+
+        {% set partnershipTypeRadios = {
+          name: "contact-details-review",
+          value: data['contact-details-review'],
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, query the details"
+            }
+          ]
+        } %}
+
+        {% if data['contact-details-review-invalid'] %}
+          {% set partnershipTypeRadios = partnershipTypeRadios | merge({
+            errorMessage: {
+              text: "Select an option"
+            }
+          }) %}
+        {% endif %}
+
+        {{ govukRadios(partnershipTypeRadios) }}
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="{{ 
+              data['redirected'] | 
+              equals(
+                true, 
+                '/redirect-done?redirect=/partnership-application-review/check-answers', 
+                '/redirect-done?redirect=/partnership-application-review/task-list'
+              ) }}">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Task List
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Partnership application</h1>      
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <p class="govuk-body">You have confirmed <span class="govuk-!-font-weight-bold">
+        {% if (data['contact-preference']) %}
+          3
+        {% elseif (data['primary-authority-name-confirmed']) %}
+          2
+        {% elseif (data['partnership-type-confirmed']) %}
+          1
+        {% else %}
+          0
+        {% endif %}
+      </span> of <span class="govuk-!-font-weight-bold">4</span> sections.</p>
+
+      {% set cannotStartYetStatus = {
+        tag: {
+          text: "Cannot start yet",
+          classes: "govuk-tag--grey"
+        }
+      } %}
+
+      {% set notYetStartedStatus = {
+        tag: {
+          text: "Not yet started",
+          classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {% set queryStatus = {
+        tag: {
+          text: "Being queried",
+          classes: "govuk-tag--red"
+        }
+      } %}
+
+      {% set completedStatus = {
+        tag: {
+          text: "Completed",
+          classes: "govuk-tag--green"
+        } 
+      } %}
+
+      <h2 class="govuk-heading-m">1. Parthership Type</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Confirm partnership type"
+            },
+            href: "/partnership-application-review/partnership-type",
+            status: (completedStatus if data['partnership-type-confirmed'] == "yes" else (queryStatus if data['partnership-type-confirmed'] == "no" else notYetStartedStatus))
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">2. Primary authority details</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Confirm primary authority name"
+            },
+            href: ("/partnership-application-review/primary-authority-name" if data['partnership-type-confirmed']),
+            status: (completedStatus if data['primary-authority-name-confirmed'] == "yes" else (queryStatus if data['primary-authority-name-confirmed'] == "no" else (notYetStartedStatus if data['partnership-type-confirmed'] else cannotStartYetStatus)))
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">3. Your Organisation details</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Confirm legal entities"
+            },
+            href: ("/partnership-application-review/legal-entities" if data['primary-authority-name-confirmed']),
+            status: (completedStatus if data['legal-entities-confirmed'] == "yes" else (queryStatus if data['legal-entities-confirmed'] == "no" else (notYetStartedStatus if data['primary-authority-name-confirmed'] else cannotStartYetStatus)))
+          },
+          {
+            title: {
+              text: "Confirm contacts"
+            },
+            href: ("/partnership-application-review/contact-details" if data['legal-entities-confirmed']),
+            status: (completedStatus if data['contact-details-confirmed'] == "yes" else (queryStatus if data['contact-details-confirmed'] == "no" else (notYetStartedStatus if data['legal-entities-confirmed'] else cannotStartYetStatus)))
+          },
+          {
+            title: {
+              text: "Confirm contact preference"
+            },
+            href: ("/partnership-application-review/contact-preference" if data['contact-details-confirmed']),
+            status: (completedStatus if data['contact-preference'] else (notYetStartedStatus if data['contact-details-confirmed'] else cannotStartYetStatus))
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">4. Review and submit</h2>
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Review all details and submit"
+            },
+            href: ("/partnership-application-review/check-answers" if data['contact-preference']),
+            status: (notYetStartedStatus if data['contact-preference'] else cannotStartYetStatus)
+          }
+        ]
+      }) }}
+
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <h3 class="govuk-heading-s">
+        Local Authority:
+      </h3>
+        <ul class="govuk-list">
+          <li>
+            Milton Keynes Council
+          </li>
+        </ul>
+      <h3 class="govuk-heading-s">
+        Regulatory functions:
+      </h3>
+        <ul class="govuk-list">
+          {% for item in data['session-regulatory-functions'] %}
+            <li>{{ data['regulatory-functions'] | find('value', item) | value('text') }}</li>
+          {% else %}
+            <li>None</li>
+          {% endfor %}
+        </ul>
+      <h3 class="govuk-heading-s">
+        Parthership type:
+      </h3>
+        <ul class="govuk-list">
+          <li>
+            Direct
+          </li>
+        </ul>
+    </div>
+  </div>
+{% endblock %}
