@@ -53,9 +53,9 @@
         }
       } %}
 
-      {% set completedStatus = {
+      {% set confirmedStatus = {
         tag: {
-          text: "Completed",
+          text: "Confirmed",
           classes: "govuk-tag--green"
         } 
       } %}
@@ -69,7 +69,7 @@
               text: "Confirm partnership type"
             },
             href: "/partnership-application-review/partnership-type",
-            status: (completedStatus if data['partnership-type-confirmed'] == "yes" else (queryStatus if data['partnership-type-confirmed'] == "no" else notYetStartedStatus))
+            status: (confirmedStatus if data['partnership-type-confirmed'] == "yes" else (queryStatus if data['partnership-type-confirmed'] == "no" else notYetStartedStatus))
           }
         ]
       }) }}
@@ -83,7 +83,7 @@
               text: "Confirm primary authority name"
             },
             href: ("/partnership-application-review/primary-authority-name" if data['partnership-type-confirmed']),
-            status: (completedStatus if data['primary-authority-name-confirmed'] == "yes" else (queryStatus if data['primary-authority-name-confirmed'] == "no" else (notYetStartedStatus if data['partnership-type-confirmed'] else cannotStartYetStatus)))
+            status: (confirmedStatus if data['primary-authority-name-confirmed'] == "yes" else (queryStatus if data['primary-authority-name-confirmed'] == "no" else (notYetStartedStatus if data['partnership-type-confirmed'] else cannotStartYetStatus)))
           }
         ]
       }) }}
@@ -97,21 +97,21 @@
               text: "Confirm legal entities"
             },
             href: ("/partnership-application-review/legal-entities" if data['primary-authority-name-confirmed']),
-            status: (completedStatus if data['legal-entities-confirmed'] == "yes" else (queryStatus if data['legal-entities-confirmed'] == "no" else (notYetStartedStatus if data['primary-authority-name-confirmed'] else cannotStartYetStatus)))
+            status: (confirmedStatus if data['legal-entities-confirmed'] == "yes" else (queryStatus if data['legal-entities-confirmed'] == "no" else (notYetStartedStatus if data['primary-authority-name-confirmed'] else cannotStartYetStatus)))
           },
           {
             title: {
               text: "Confirm contacts"
             },
             href: ("/partnership-application-review/contact-details" if data['legal-entities-confirmed']),
-            status: (completedStatus if data['contact-details-confirmed'] == "yes" else (queryStatus if data['contact-details-confirmed'] == "no" else (notYetStartedStatus if data['legal-entities-confirmed'] else cannotStartYetStatus)))
+            status: (confirmedStatus if data['contact-details-confirmed'] == "yes" else (queryStatus if data['contact-details-confirmed'] == "no" else (notYetStartedStatus if data['legal-entities-confirmed'] else cannotStartYetStatus)))
           },
           {
             title: {
               text: "Confirm contact preference"
             },
             href: ("/partnership-application-review/contact-preference" if data['contact-details-confirmed']),
-            status: (completedStatus if data['contact-preference'] else (notYetStartedStatus if data['contact-details-confirmed'] else cannotStartYetStatus))
+            status: (confirmedStatus if data['contact-preference'] else (notYetStartedStatus if data['contact-details-confirmed'] else cannotStartYetStatus))
           }
         ]
       }) }}
