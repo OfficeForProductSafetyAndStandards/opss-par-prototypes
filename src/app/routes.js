@@ -23,7 +23,7 @@ router.post('/partnership-application/partnership-type-answer', function (req, r
     if (answer) {
         req.session.data['partnership-type-invalid'] = undefined;
         if (req.session.data['redirected']) {
-            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/review-details');
+            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/check-answers');
         } else {
             res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/task-list');
         }
@@ -539,7 +539,7 @@ router.post('/partnership-application/contact-details/edit/save-contact', functi
     req.session.data['selected-legal-entity-contact-index'] = undefined;
 
     req.session.data['contact-details-success-message'] = "Contact updated for " + org.legalName;
-    res.redirect('/partnership-application/review-details');
+    res.redirect('/partnership-application/check-answers');
 })
 
 router.post('/partnership-application/contact-details/primary-contact-answer', function (req, res) {
@@ -555,7 +555,7 @@ router.post('/partnership-application/contact-details/primary-contact-answer', f
 
     if (firstName && lastName && phoneNumber && emailAddress) {
         if (req.session.data['redirected']) {
-            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/review-details');
+            res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/check-answers');
         } else {
             res.redirect('/partnership-application/redirect-done?redirect=/partnership-application/task-list');
         }
@@ -596,7 +596,7 @@ router.post('/partnership-application/try-submit', function (req, res) {
     }
     else {
         req.session.data['confirm-invalid'] = true;
-        res.redirect('/partnership-application/review-details');
+        res.redirect('/partnership-application/check-answers');
     }
 })
 
