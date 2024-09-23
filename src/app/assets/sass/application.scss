@@ -92,3 +92,14 @@
         padding-right: 15px;
     }
 }
+.govuk-display-none-from-desktop {
+    @include govuk-media-query($from: desktop) {
+        display: none;
+    }
+}
+
+.govuk-display-none-until-desktop {
+    @include govuk-media-query($until: desktop) {
+        display: none;
+    }
+}

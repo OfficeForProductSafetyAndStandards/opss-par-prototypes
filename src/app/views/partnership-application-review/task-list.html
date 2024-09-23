@@ -18,6 +18,36 @@
     </div>
   </div>
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-display-none-from-desktop">
+      <h3 class="govuk-heading-s">
+        Local Authority:
+      </h3>
+        <ul class="govuk-list">
+          <li>
+            Milton Keynes Council
+          </li>
+        </ul>
+      <h3 class="govuk-heading-s">
+        Regulatory functions:
+      </h3>
+        <ul class="govuk-list">
+          {% for item in data['session-regulatory-functions'] %}
+            <li>{{ data['regulatory-functions'] | find('value', item) | value('text') }}</li>
+          {% else %}
+            <li>None</li>
+          {% endfor %}
+        </ul>
+      <h3 class="govuk-heading-s">
+        Parthership type:
+      </h3>
+        <ul class="govuk-list">
+          <li>
+            Direct
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
       <p class="govuk-body">You have confirmed <span class="govuk-!-font-weight-bold">
@@ -131,7 +161,7 @@
       }) }}
 
     </div>
-    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-display-none-until-desktop">
       <h3 class="govuk-heading-s">
         Local Authority:
       </h3>
