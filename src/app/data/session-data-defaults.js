@@ -159,5 +159,7 @@ module.exports = {
   "active-partnerships-page-index": 0,
   "draft-partnerships-page-index": 0,
   "pending-partnerships-page-index": 0,
-  "revocations-partnerships-page-index": 0
+  "revocations-partnerships-page-index": 0,
+  "assigned-to-me-page-index": 0,
+  "all-partnerships-page-index": 0
 }

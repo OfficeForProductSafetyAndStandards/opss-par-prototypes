@@ -1,0 +1,271 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Application details
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to list of assigned applications",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-heading-group">
+        <h1 class="govuk-heading-l">
+          34853 Partnership application
+        </h1>
+        <span class="govuk-caption-l">Confirmed by Organisation</span>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {{ govukButton({
+        text: "Go to checks",
+        classes: "govuk-button--width-full"
+      }) }}
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      {{ govukButton({
+        text: "Send query to authority",
+        classes: "govuk-button--secondary govuk-button--width-full"
+      }) }}
+      {{ govukButton({
+        text: "Add new note",
+        classes: "govuk-button--secondary govuk-button--width-full"
+      }) }}
+      {{ govukButton({
+        text: "Reassign",
+        classes: "govuk-button--secondary govuk-button--width-full"
+      }) }}
+      {{ govukButton({
+        text: "Reset SLA's",
+        classes: "govuk-button--secondary govuk-button--width-full"
+      }) }}
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      {{ govukButton({
+        text: "Reject application",
+        classes: "govuk-button--warning govuk-button--width-full"
+      }) }}
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Assigned to</h2>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "1st check"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          },
+          {
+            key: {
+              text: "2nd check"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          },
+          {
+            key: {
+              text: "Review"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          },
+          {
+            key: {
+              text: "SoS"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          }
+          ]
+      })}}
+
+      <h2 class="govuk-heading-m">Partnership details</h2>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text: "Direct"
+            }
+          },
+          {
+            key: {
+              text: "Authority"
+            },
+            value: {
+              text: "Wakefield Council"
+            }
+          },
+          {
+            key: {
+              text: "Group name of legal entities"
+            },
+            value: {
+              text: "Car Planet"
+            }
+          },
+          {
+            key: {
+              text: "Category"
+            },
+            value: {
+              text: "Not set"
+            }
+          },
+          {
+            key: {
+              text: "Regulatory functions"
+            },
+            value: {
+              html: "Trading standards<br />Environmental health"
+            }
+          }
+          ]
+      })}}
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% set legalEntitiesHtml %}
+        <h2 class="govuk-heading-l">Legal entities (2)</h2>
+        <h3 class="govuk-heading-m">Legal entity 1</h2>
+        {{ govukSummaryList({
+          rows: [
+          {
+              key: { text: "Name" },
+              value: { text: "Car Planet Trading" }
+            }, 
+            {
+              key: { text: "Trading name" },
+              value: { text: "Cat Planet" }
+            }, 
+            {
+              key: { text: "Companies house number" },
+              value: { text: "78588875" }
+            }, 
+            {
+              key: { text: "Business area" },
+              value: { text: "Manufacturing" }
+            }, 
+            {
+              key: { text: "Legal entity type" },
+              value: { text: "Limited company" }
+            }, 
+            {
+              key: { text: "Registered office address" },
+              value: { html: "1 Kings Street<br />Birmingham<br />BM14 9SE" }
+            }]
+        })}}
+        {{ govukAccordion({
+          id: "accordion-default",
+          classes: "govuk-accordion__controls-hidden",
+          items: [
+            {
+              heading: {
+                text: "Existing active partnerships"
+              },
+              content: {
+                html: '<p class="govuk-body">This is the content for Writing well for the web.</p>'
+              }
+            }]
+        })}}
+      {% endset -%}
+
+      {% set entitiesContactsHtml %}
+      <h2 class="govuk-heading-l">Entities contacts</h2>
+
+      {% endset -%}
+
+      {% set authoritiesDetailsHtml %}
+      <h2 class="govuk-heading-l">Authority details</h2>
+
+      {% endset -%}
+
+      {% set notesHtml %}
+      <h2 class="govuk-heading-l">Notes (3)</h2>
+
+      {% endset -%}
+
+      {% set checksHtml %}
+      <h2 class="govuk-heading-l">Checks</h2>
+
+      {% endset -%}
+
+      {% set queriesHtml %}
+      <h2 class="govuk-heading-l">Queries</h2>
+
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Legal entities (2)",
+            id: "legal-entities",
+            panel: {
+              html: legalEntitiesHtml
+            }
+          },
+          {
+            label: "Entities contacts",
+            id: "entities-contacts",
+            panel: {
+              html: entitiesContactsHtml
+            }
+          },
+          {
+            label: "Authority details",
+            id: "authority-details",
+            panel: {
+              html: authoritiesDetailsHtml
+            }
+          },
+          {
+            label: "Notes (3)",
+            id: "notes",
+            panel: {
+              html: notesHtml
+            }
+          },
+          {
+            label: "Checks",
+            id: "checks",
+            panel: {
+              html: checksHtml
+            }
+          },
+          {
+            label: "Queries (0)",
+            id: "queries",
+            panel: {
+              html: queriesHtml
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

@@ -8,30 +8,17 @@
 {% from "moj/components/sub-navigation/macro.njk" import mojSubNavigation %}
 
 {% set allPartnerships = "./app/data/partnerships.json" | read_json %}
-{% set partnerships = allPartnerships | searchArray("Status", "Draft") %}
+{% set partnerships = allPartnerships | searchArray("Status", "Pending") | take(36) %}
 
-{% set pageName="Home" %}
+{% set pageName="Partnership applications - Mine" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      Parthership applications
     </h1>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p>
-      Manage your partnerships and apply for new partnerships with organisations.</p>
-  </div>
-  <div class="govuk-grid-column-one-third">
-    {{ govukButton({
-      text: "Start new application",
-      classes: "govuk-button--secondary",
-      href: "/partnership-application/start"
-    }) }}
   </div>
 </div>
 
@@ -40,18 +27,12 @@
     {{ mojSubNavigation({
   label: 'Sub navigation',
   items: [{
-    text: "Active partnerships (" + ( allPartnerships | searchArray("Status", "Active") | length ) + ")",
-    href: '/partnership-table/active-partnerships'
-  }, {
-    text: "Draft applications (" + ( allPartnerships | searchArray("Status", "Draft") | length ) + ")",
-    href: '/partnership-table/draft-applications',
+    text: "Assigned to me",
+    href: '/partnership-applications/assigned-to-me',
     active: true
   }, {
-    text: "Pending applications (" + ( allPartnerships | searchArray("Status", "Pending") | length ) + ")",
-    href: '/partnership-table/pending-applications'
-  }, {
-    text: "Pending revocations (" + ( allPartnerships | searchArray("Status", "Revocation") | length ) + ")",
-    href: '/partnership-table/pending-revocations'
+    text: "All applications",
+    href: '/partnership-applications/all-applications'
   }]
 }) }}
   </div>
@@ -59,14 +40,12 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
-    <h2 class="govuk-heading-l">Draft partnerships</h2>
-
-    {% set rows = [] %}
+    
+  {% set rows = [] %}
     {% for partnership in partnerships %}
-      {% set rows = rows | push([
+      {% set row = [
           {
-            html: "<a href='#' class='govuk-link'>" + partnership.Id + "</a>"
+            html: "<a href='/partnership-applications/application-details' class='govuk-link'>" + partnership.Id + "</a>"
           },
           {
             text: partnership["Primary Authority"]
@@ -76,11 +55,27 @@
           },
           {
             text: partnership["Partnership Type"]
-          }
-        ]) %}
+          },
+          {
+            text: "20 Sep 25"
+          }] %}
+      {% if partnership.State == "Confirmed" %}
+        {% set row = row | push({
+            html: "<strong class='govuk-tag govuk-tag--blue govuk-!-text-align-centre'>Confirmed By Organisation</strong>"
+          }) %}
+      {% elif partnership.State == "Awaiting" %}
+        {% set row = row | push({
+            html: "<strong class='govuk-tag govuk-tag--yellow govuk-!-text-align-centre'>Awaiting Organisation</strong>"
+          }) %}
+      {% elif partnership.State == "Disputed" %}
+        {% set row = row | push({
+            html: "<strong class='govuk-tag govuk-tag--red govuk-!-text-align-centre'>Disputed By Organisation</strong>"
+          }) %}
+      {% endif %}
+      {% set rows = rows | push(row) %}
     {% endfor %}
 
-    {{ govukTable({
+        {{ govukTable({
       head: [
         {
           text: "Id"
@@ -93,22 +88,29 @@
         },
         {
           text: "Partnership type"
+        },
+        {
+          text: "Target completion"
+        },
+        {
+          text: " "
         }
       ],
-      rows: rows | skip((data['draft-partnerships-page-index'] * 10)) | take(10)
-    }) }}
+      rows: rows | skip((data['assigned-to-me-page-index'] * 10)) | take(10)
+        })
+    }}
 
     {% if (rows | length) > 10 %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full govuk-grid-column-three-quarters-from-desktop">
-        {% set pagerObject = partnerships | createPager(data['draft-partnerships-page-index'], "/set-page?redirect=/partnership-table/draft-applications&indexKey=draft-partnerships-page-index&index=") %}
+        {% set pagerObject = partnerships | createPager(data['assigned-to-me-page-index'], "/set-page?redirect=/partnership-applications/assigned-to-me&indexKey=assigned-to-me-page-index&index=") %}
         {{ govukPagination(pagerObject) }}
       </div>
 
       <div class="govuk-grid-column-full govuk-grid-column-one-quarter-from-desktop">
         <div class="govuk-pagination-description">
           <p class="govuk-body govuk-pagination-description__text">
-            Showing items<br /><span class="govuk-!-font-weight-bold">{{ (data['draft-partnerships-page-index'] * 10) + 1 }}</span> to <span class="govuk-!-font-weight-bold">{{ rows | length | min((data['draft-partnerships-page-index'] * 10) + 10) }}</span> of <span class="govuk-!-font-weight-bold">{{ rows | length }}</span></p>
+            Showing items<br /><span class="govuk-!-font-weight-bold">{{ (data['assigned-to-me-page-index'] * 10) + 1 }}</span> to <span class="govuk-!-font-weight-bold">{{ rows | length | min((data['assigned-to-me-page-index'] * 10) + 10) }}</span> of <span class="govuk-!-font-weight-bold">{{ rows | length }}</span></p>
         </div>
       </div>
     </div>

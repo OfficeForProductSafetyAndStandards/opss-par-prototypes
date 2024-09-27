@@ -81,7 +81,7 @@
     {% for partnership in partnerships %}
       {% set rows = rows | push([
           {
-            html: "<a href='#'' class='govuk-link'>" + partnership.Id + "</a>"
+            html: "<a href='#' class='govuk-link'>" + partnership.Id + "</a>"
           },
           {
             text: partnership["Primary Authority"]
@@ -107,7 +107,7 @@
           text: "Organisation"
         },
         {
-          text: "Partnership Type"
+          text: "Partnership type"
         }
       ],
       rows: rows | skip((data['active-partnerships-page-index'] * 10)) | take(10)

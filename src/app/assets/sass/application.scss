@@ -131,3 +131,35 @@
         display: none;
     }
 }
+.govuk-button--width-full {
+    width: 100%;
+}
+
+.govuk-heading-group {
+
+    .govuk-heading-xl,
+    .govuk-heading-l,
+    .govuk-heading-m,
+    .govuk-heading-s {
+        margin-bottom: 0;
+    }
+
+    .govuk-caption-xl {
+        @include govuk-responsive-margin(8, "bottom");
+    }
+
+    .govuk-caption-l {
+        @include govuk-responsive-margin(6, "bottom");
+    }
+
+    .govuk-caption-m,
+    .govuk-caption-s {
+        @include govuk-responsive-margin(4, "bottom");
+    }
+}
+
+.govuk-accordion__controls-hidden {
+    .govuk-accordion__controls {
+        display: none;
+    }
+}
