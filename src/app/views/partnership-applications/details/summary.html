@@ -1,0 +1,68 @@
+{% extends "partnership-applications/details/layout.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Application details
+{% endblock %}
+
+{% block applicationHead %}
+  <h1 class="govuk-heading-l">
+    34853 Partnership application
+  </h1>
+  <span class="govuk-caption-l">Confirmed by Organisation</span>
+{% endblock %}
+
+{% set activeTab = 'Summary' %}
+
+{% block applicationContent %}
+
+      <h1 class="govuk-heading-l">Summary</h1>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text: "Direct"
+            }
+          },
+          {
+            key: {
+              text: "Authority"
+            },
+            value: {
+              text: "Wakefield Council"
+            }
+          },
+          {
+            key: {
+              text: "Group name of legal entities"
+            },
+            value: {
+              text: "Car Planet"
+            }
+          },
+          {
+            key: {
+              text: "Category"
+            },
+            value: {
+              text: "Not set"
+            }
+          },
+          {
+            key: {
+              text: "Regulatory functions"
+            },
+            value: {
+              html: "Trading standards<br />Environmental health"
+            }
+          }
+          ]
+      })}}
+
+      
+      <h2 class="govuk-heading-m">Additional details</h2>
+      <p>Sara is available on Tuesday to Thursday only as she works half time. It have found that Car planet has a couple other partnerships, but none of them are with the functions that we offer so shouldn't be any issues.</p>
+  </div>
+{% endblock %}

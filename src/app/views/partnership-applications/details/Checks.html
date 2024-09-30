@@ -1,0 +1,250 @@
+{% extends "partnership-applications/details/layout.html" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Application details
+{% endblock %}
+
+{% block applicationHead %}
+  <h1 class="govuk-heading-l">
+    34853 Partnership application
+  </h1>
+  <span class="govuk-caption-l">Confirmed by Organisation</span>
+{% endblock %}
+
+{% set activeTab = 'Checks' %}
+
+{% block applicationContent %}
+
+      <h1 class="govuk-heading-l">Checks</h1>
+
+{{ govukTable({
+  caption: "LAU Coordinator vetting",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Check"
+    },
+    {
+      text: "Completed"
+    },
+    {
+      text: "Completed by"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "Coordinator is genuine<br />and elegible"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  caption: "1st Check",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Check"
+    },
+    {
+      text: "Completed"
+    },
+    {
+      text: "Completed by"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "All legal entities are<br />genuine and elegible"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "All legal entities' business<br />sector are correct"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "All registered addresses<br />are genuine and correct"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "All information in this<br />application has been<br />checked"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  caption: "2nd Check",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Check"
+    },
+    {
+      text: "Completed"
+    },
+    {
+      text: "Completed by"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "Parthership category set"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  caption: "Review",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Check"
+    },
+    {
+      text: "Completed"
+    },
+    {
+      text: "Completed by"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "All legal entities are<br />genuine and elegible"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "All legal entities' business<br />sector are correct"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "All registered addresses<br />are genuine and correct"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "All information in this<br />application has been<br />checked"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "Parthership category set<br />correctly"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  caption: "SoS check",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Check"
+    },
+    {
+      text: "Completed"
+    },
+    {
+      text: "Completed by"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "Full application approved"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ]
+  ]
+}) }}
+      
+  </div>
+{% endblock %}
