@@ -1,0 +1,59 @@
+{% extends "partnership-applications/details/layout.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Application details
+{% endblock %}
+
+{% block applicationHead %}
+  <h1 class="govuk-heading-l">
+    34853 Partnership application
+  </h1>
+  <span class="govuk-caption-l">Confirmed by Organisation</span>
+{% endblock %}
+
+{% set activeTab = 'Assignments' %}
+
+{% block applicationContent %}
+
+      <h1 class="govuk-heading-l">Assignments</h1>
+            {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "1st check"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          },
+          {
+            key: {
+              text: "2nd check"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          },
+          {
+            key: {
+              text: "Review"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          },
+          {
+            key: {
+              text: "SoS"
+            },
+            value: {
+              text: "Unassigned"
+            }
+          }
+          ]
+      })}}
+
+      <h2 class="govuk-heading-m">Assignment history</h2>
+      
+  </div>
+{% endblock %}

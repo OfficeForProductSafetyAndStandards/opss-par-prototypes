@@ -1,0 +1,37 @@
+{% extends "partnership-applications/details/layout.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Application details
+{% endblock %}
+
+{% block applicationHead %}
+  <h1 class="govuk-heading-l">
+    34853 Partnership application
+  </h1>
+  <span class="govuk-caption-l">Confirmed by Organisation</span>
+{% endblock %}
+
+{% set activeTab = 'AuthorityDetails' %}
+
+{% block applicationContent %}
+
+      <h1 class="govuk-heading-l">Authority details</h1>
+      <h2 class="govuk-heading-m">Authority name</h2>
+      <p>Wakefield Council</p>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Regulatory function contacts</h2>
+        {{ govukSummaryList({
+          rows: [
+          {
+              key: { text: "Environmental health" },
+              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.com", "07382 432 543"] | join('<br />') }
+            }, 
+            {
+              key: { text: "Trading standards" },
+              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.com", "07382 432 543"] | join('<br />') }
+            }]
+        })}}
+      
+  </div>
+{% endblock %}

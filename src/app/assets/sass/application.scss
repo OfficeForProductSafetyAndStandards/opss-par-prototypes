@@ -163,3 +163,9 @@
         display: none;
     }
 }
+
+.govuk-background-light-grey {
+    background-color: govuk-colour("light-grey");
+    @include govuk-responsive-padding(4);
+    @include govuk-responsive-margin(4, "bottom");
+}

@@ -45,7 +45,7 @@
     {% for partnership in partnerships %}
       {% set row = [
           {
-            html: "<a href='/partnership-applications/application-details' class='govuk-link'>" + partnership.Id + "</a>"
+            html: "<a href='/partnership-applications/details/summary' class='govuk-link'>" + partnership.Id + "</a>"
           },
           {
             text: partnership["Primary Authority"]

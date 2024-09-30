@@ -756,3 +756,20 @@ router.get('/set-page', function (req, res) {
 
     res.redirect(redirect);
 })
+
+
+//---------------------------------------------------------------------------------------------------
+// Hack to fix MoJ menu images
+//---------------------------------------------------------------------------------------------------
+router.get('/assets/images/icon-arrow-white-down.svg', function (req, res) {
+    res.redirect('/public/images/icon-arrow-white-down.svg');
+})
+router.get('/assets/images/icon-arrow-white-up.svg', function (req, res) {
+    res.redirect('/public/images/icon-arrow-white-up.svg');
+})
+router.get('/assets/images/icon-arrow-black-down.svg', function (req, res) {
+    res.redirect('/public/images/icon-arrow-black-down.svg');
+})
+router.get('/assets/images/icon-arrow-black-up.svg', function (req, res) {
+    res.redirect('/public/images/icon-arrow-black-up.svg');
+})

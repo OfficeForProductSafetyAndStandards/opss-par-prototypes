@@ -1,0 +1,189 @@
+{% extends "partnership-applications/details/layout.html" %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Application details
+{% endblock %}
+
+{% block applicationHead %}
+  <h1 class="govuk-heading-l">
+    34853 Partnership application
+  </h1>
+  <span class="govuk-caption-l">Confirmed by Organisation</span>
+{% endblock %}
+
+{% set activeTab = 'LegalEntities' %}
+
+{% block applicationContent %}
+
+      <h1 class="govuk-heading-l">Legal entities (2)</h1>
+      <h2 class="govuk-heading-m">Legal entity 1</h2>
+        {{ govukSummaryList({
+          rows: [
+          {
+              key: { text: "Name" },
+              value: { text: "Car Planet Trading" }
+            }, 
+            {
+              key: { text: "Trading name" },
+              value: { text: "Car Planet" }
+            }, 
+            {
+              key: { text: "Companies house number" },
+              value: { text: "78588875" }
+            }, 
+            {
+              key: { text: "Business area" },
+              value: { text: "Manufacturing" }
+            }, 
+            {
+              key: { text: "Legal entity type" },
+              value: { text: "Limited company" }
+            }, 
+            {
+              key: { text: "Registered office address" },
+              value: { html: "1 Kings Street<br />Birmingham<br />BM14 9SE" }
+            }]
+        })}}
+        {{ govukAccordion({
+          id: "accordion-default",
+          classes: "govuk-accordion__controls-hidden",
+          items: [
+            {
+              heading: {
+                text: "Existing active partnerships"
+              },
+              content: {
+                html: '<dl class="govuk-summary-list govuk-summary-list--no-border">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            <a href="#">34892</a>
+                          </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Authority
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Reading Borough Council (Direct)
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row_border">
+                          <dt class="govuk-summary-list__key">
+                            Regulatory functions
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Licensing<br />Petrol storage certification<br />Explosives licensing
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            <a href="#">2345</a>
+                          </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Authority
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Surrey County Council (Direct)
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Regulatory functions
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Fire safety
+                          </dd>
+                        </div>
+                      </dl>'
+              }
+            }]
+        })}}
+      <h2 class="govuk-heading-m">Legal entity 2</h2>
+        {{ govukSummaryList({
+          rows: [
+          {
+              key: { text: "Name" },
+              value: { text: "Car Planet Warehouse" }
+            }, 
+            {
+              key: { text: "Trading name" },
+              value: { text: "Car Planet" }
+            }, 
+            {
+              key: { text: "Companies house number" },
+              value: { text: "23482937" }
+            }, 
+            {
+              key: { text: "Business area" },
+              value: { text: "Manufacturing" }
+            }, 
+            {
+              key: { text: "Legal entity type" },
+              value: { text: "Limited company" }
+            }, 
+            {
+              key: { text: "Registered office address" },
+              value: { html: "1 Queens Road<br />London<br />HJ32 4SE" }
+            }]
+        })}}
+        {{ govukAccordion({
+          id: "accordion-default",
+          classes: "govuk-accordion__controls-hidden",
+          items: [
+            {
+              heading: {
+                text: "Existing active partnerships"
+              },
+              content: {
+                html: '<dl class="govuk-summary-list govuk-summary-list--no-border">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            <a href="#">34892</a>
+                          </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Authority
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Reading Borough Council (Direct)
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row_border">
+                          <dt class="govuk-summary-list__key">
+                            Regulatory functions
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Licensing<br />Petrol storage certification<br />Explosives licensing
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            <a href="#">2345</a>
+                          </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Authority
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Surrey County Council (Direct)
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Regulatory functions
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Fire safety
+                          </dd>
+                        </div>
+                      </dl>'
+              }
+            }]
+        })}}
+      
+  </div>
+{% endblock %}
