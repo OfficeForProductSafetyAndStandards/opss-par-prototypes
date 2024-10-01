@@ -4,6 +4,7 @@
 {% from "govuk/components/tabs/macro.njk" import govukTabs %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
 
@@ -14,7 +15,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back to list of assigned applications",
-    href: "javascript:window.history.back()"
+    href: "/partnership-applications/assigned-to-me"
   }) }}
 {% endblock %}
 
@@ -57,46 +58,56 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-quarter">
-
-      {{ mojSideNavigation({
-        label: 'Side navigation',
-        items: [{
+      {% set navItems = [{
           text: 'Summary',
-          href: 'Summary',
+          href: 'summary',
           active: activeTab == 'Summary'
         }, {
           text: 'Assignments',
-          href: 'Assignments',
+          href: 'assignments',
           active: activeTab == 'Assignments'
         }, {
           text: 'Legal entities (2)',
-          href: 'LegalEntities',
+          href: 'legal-entities',
           active: activeTab == 'LegalEntities'
         }, {
           text: 'Entites contacts',
-          href: 'EntitesContacts',
+          href: 'entites-contacts',
           active: activeTab == 'EntitesContacts'
         }, {
           text: 'Authority details',
-          href: 'AuthorityDetails',
+          href: 'authority-details',
           active: activeTab == 'AuthorityDetails'
         }, {
-          text: 'Notes (0)',
-          href: 'Notes',
+          text: "Notes (" + data['all-notes'] | length + ")",
+          href: 'notes',
           active: activeTab == 'Notes'
         }, {
           text: 'Checks',
-          href: 'Checks',
+          href: 'checks',
           active: activeTab == 'Checks'
         }, {
           text: 'Queries (0)',
-          href: 'Queries',
+          href: 'queries',
           active: activeTab == 'Queries'
         }, {
           text: 'Attachments (0)',
-          href: 'Attachments',
+          href: 'attachments',
           active: activeTab == 'Attachments'
-        }]
+        }] %}
+
+      {{ mojSideNavigation({
+        classes: 'govuk-display-none-until-tablet',
+        label: 'Side navigation',
+        items: navItems
+      }) }}
+
+      {{ govukServiceNavigation({
+        classes: 'govuk-display-none-from-tablet govuk-service-navigation__side-navigation',
+        menuButtonText: 'Application sections',
+        ariaLabel: 'Side navigation',
+        navigationId: 'Side navigation',
+        navigation: navItems
       }) }}
 
     </div>

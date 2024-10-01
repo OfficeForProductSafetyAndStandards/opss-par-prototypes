@@ -727,6 +727,26 @@ router.post('/partnership-application-review/submit-query', function (req, res) 
 })
 
 //---------------------------------------------------------------------------------------------------
+// Partnership Applications
+//---------------------------------------------------------------------------------------------------
+router.post('/partnership-applications/details/new-note-answer', function (req, res) {
+    let note = req.session.data['new-note'];
+
+    let allNotes = req.session.data['all-notes'];
+    if (!allNotes) {
+        allNotes = [];
+    }
+
+    allNotes.push(note);
+
+    req.session.data['all-notes'] = allNotes;
+
+    req.session.data['new-note'] = undefined;
+
+    res.redirect('/partnership-applications/details/notes');
+})
+
+//---------------------------------------------------------------------------------------------------
 // Generic Items
 //---------------------------------------------------------------------------------------------------
 router.get('/redirect', function (req, res) {
