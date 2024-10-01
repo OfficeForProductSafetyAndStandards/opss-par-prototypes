@@ -3,7 +3,9 @@
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 // 
 
-// Add extra styles here
+/******************************************************/
+/* Pagination description                             */
+/******************************************************/
 .govuk-pagination-description {
     display: table;
     width: 100%
@@ -14,23 +16,10 @@
     vertical-align: middle;
     text-align: right;
 }
-.govuk-keep-right {
-    display: table; 
-    margin-left: auto;
-}
-.govuk-totally-hidden {
-    display: none;
-}
 
-.govuk-summary-list--no-border .govuk-summary-list__row_border {
-    border-bottom: 1px solid #b1b4b6;
-}
-.govuk-button--align-centre {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
+/******************************************************/
+/* Star Rating                                        */
+/******************************************************/
 .star-rating {
     display: table;
     margin-left: auto;
@@ -73,9 +62,18 @@
         }
     }
 }
+
+/******************************************************/
+/* Summar list hacks                                  */
+/******************************************************/
+.govuk-summary-list--no-border .govuk-summary-list__row_border {
+    border-bottom: 1px solid #b1b4b6;
+}
+
 .govuk-summary-list__heading-row.govuk-summary-list--no-border .govuk-summary-list__row:first-child:not(:only-child) {
     border-bottom: 1px solid $govuk-border-colour;
 }
+
 .govuk-summary-list__heading-row {
     border: 1px solid $govuk-border-colour;
 
@@ -120,21 +118,11 @@
         }
     }
 }
-.govuk-display-none-from-desktop {
-    @include govuk-media-query($from: desktop) {
-        display: none;
-    }
-}
 
-.govuk-display-none-until-desktop {
-    @include govuk-media-query($until: desktop) {
-        display: none;
-    }
-}
-.govuk-button--width-full {
-    width: 100%;
-}
-
+/******************************************************/
+/* Heading groups                                     */
+/*    Alows caption below heading                     */
+/******************************************************/
 .govuk-heading-group {
 
     .govuk-heading-xl,
@@ -158,14 +146,72 @@
     }
 }
 
+/******************************************************/
+/* Button hacks                                       */
+/******************************************************/
+.govuk-button--align-centre {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.govuk-button--width-full {
+    width: 100%;
+}
+
+/******************************************************/
+/* Hidden accordion controls                          */
+/******************************************************/
 .govuk-accordion__controls-hidden {
     .govuk-accordion__controls {
         display: none;
     }
 }
 
+/******************************************************/
+/* Section colours                                    */
+/******************************************************/
 .govuk-background-light-grey {
     background-color: govuk-colour("light-grey");
     @include govuk-responsive-padding(4);
     @include govuk-responsive-margin(4, "bottom");
+}
+
+/******************************************************/
+/* Service navigation hacks                           */
+/*    Fix padding for mobile                          */
+/******************************************************/
+.govuk-service-navigation__side-navigation {
+    @include govuk-responsive-padding(2, "top");
+    @include govuk-responsive-margin(2, "bottom");
+}
+
+/******************************************************/
+/* Generic Styles                                     */
+/******************************************************/
+.govuk-display-none-from-desktop {
+    @include govuk-media-query($from: desktop) {
+        display: none;
+    }
+}
+.govuk-display-none-until-desktop {
+    @include govuk-media-query($until: desktop) {
+        display: none;
+    }
+}
+.govuk-display-none-from-tablet {
+    @include govuk-media-query($from: tablet) {
+        display: none;
+    }
+}
+.govuk-display-none-until-tablet {
+    @include govuk-media-query($until: tablet) {
+        display: none;
+    }
+}
+.govuk-keep-right {
+    display: table; 
+    margin-left: auto;
+}
+.govuk-totally-hidden {
+    display: none;
 }

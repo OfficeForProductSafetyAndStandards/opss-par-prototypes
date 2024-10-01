@@ -1,5 +1,7 @@
 {% extends "partnership-applications/details/layout.html" %}
 
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Application details
 {% endblock %}
@@ -16,11 +18,27 @@
 {% block applicationContent %}
 
       <h1 class="govuk-heading-l">Notes</h1>
-      
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+{{ govukButton({
+  text: "Add new note",
+  classes: "govuk-button--secondary",
+  href: "new-note"
+}) }}
+      
+{% if data['all-notes'] %}
+  {% set noteRows = [] %}
+ {% for note in data['all-notes'] %}
+  {% set noteRows = noteRows | push([{text: note}]) %}
+ {% endfor %}
+ {{ govukTable({
+  firstCellIsHeader: false,
+  rows: noteRows})}}
+{% else %}
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
       <p>No notes added</p>
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+{% endif %}
+
       
   </div>
 {% endblock %}
