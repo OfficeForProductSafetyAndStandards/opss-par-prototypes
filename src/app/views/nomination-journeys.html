@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      {{ serviceName }} Coded Prototypes
+    </h1>
+
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Nominations',
+        href: '#',
+        active: true
+      }, {
+        text: 'Revocations',
+        href: '#'
+      }, {
+        text: 'Enforcement',
+        href: '#'
+      }, {
+        text: 'Determination',
+        href: '#'
+      }, {
+        text: 'Homepages',
+        href: '#'
+      }]
+    }) }}
+
+
+{{ govukTable({
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "User journey"
+    },
+    {
+      text: "Iteration"
+    },
+    {
+      text: "Persona"
+    },
+    {
+      text: "Link"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Initiate application"
+      },
+      {
+        text: "1.4"
+      },
+      {
+        text: "Local authority Account Manager"
+      },
+      {
+        html: "<a href='/partnership-table/active-partnerships'>PARv4 Alpha - Nomination - 1.4 - Initiating partnership application</a>"
+      }
+    ],
+    [
+      {
+        text: "Review application (Direct)"
+      },
+      {
+        text: "2.3"
+      },
+      {
+        text: "Organisation Managing Director"
+      },
+      {
+        html: "<a href='/partnership-application-review/start'>PARv4 Alpha - Nomination 2.3 - Direct Organisation Review</a>"
+      }
+    ],
+    [
+      {
+        text: "Assign 1st check"
+      },
+      {
+        text: "3.1"
+      },
+      {
+        text: "OSU Team leader"
+      },
+      {
+        html: "<a href='/partnership-applications/all-applications'>PARv4 Alpha Nomination 3.1 - OSU Assign application"
+      }
+    ]
+  ]
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}
