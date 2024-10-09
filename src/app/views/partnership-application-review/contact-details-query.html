@@ -52,7 +52,8 @@
       <form class="form" action="/partnership-application-review/submit-query" method="post">
 
         {{ govukTextarea({
-          name: "query-details",
+          name: "contact-details-query",
+          value: data['contact-details-query'],
           label: {
             text: "Enter reasons for your query"
           }

@@ -52,7 +52,8 @@
       <form class="form" action="/partnership-application-review/submit-query" method="post">
 
         {{ govukTextarea({
-          name: "query-details",
+          name: "primary-authority-name-query",
+          value: data['primary-authority-name-query'],
           label: {
             text: "Enter reasons for your query"
           }
