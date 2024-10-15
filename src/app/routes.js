@@ -70,7 +70,7 @@ router.post('/partnership-application/legal-entities/create-organisation/compani
             let legalEntity = req.session.data['legal-entity-types'].find(obj => {
                 return obj['value'] == req.session.data['legal-entity-type']
             });
-            req.session.data['new-organisation'].legalEntityType = legalEntity.text;
+            req.session.data['new-organisation'].legalEntityType = legalEntity.value;
             res.redirect('/partnership-application/legal-entities/create-organisation/organisation-confirmation');
         } else {
             req.session.data['companies-house-number-error'] = true;
