@@ -47,10 +47,10 @@
                   value: {
                     text: entityContact.emailAddress
                   },
-                  actions: [{
-                        href: "/partnership-application/additional-addresses/remove-address?function=" + sessionRegulatoryFunction + "&address=" + loop.index0,
+                  actions: { items: [{
+                        href: "/partnership-application/regulatory-function-contacts/remove-contact?function=" + entityContact.regulatoryFunction + "&contact=" + entityContact.emailAddress,
                         text: "Remove"
-                      }]
+                      }]}
           }) %}
         {% else %}
         {% set contactRows = [{

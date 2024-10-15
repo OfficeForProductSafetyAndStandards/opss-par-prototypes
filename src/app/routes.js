@@ -70,7 +70,7 @@ router.post('/partnership-application/legal-entities/create-organisation/compani
             let legalEntity = req.session.data['legal-entity-types'].find(obj => {
                 return obj['value'] == req.session.data['legal-entity-type']
             });
-            req.session.data['new-organisation'].legalEntityType = legalEntity.text;
+            req.session.data['new-organisation'].legalEntityType = legalEntity.value;
             res.redirect('/partnership-application/legal-entities/create-organisation/organisation-confirmation');
         } else {
             req.session.data['companies-house-number-error'] = true;
@@ -272,6 +272,25 @@ router.post('/partnership-application/regulatory-function-contacts/details-answe
     });
 
     res.redirect('/partnership-application/regulatory-function-contacts/show-list');
+})
+router.get('/partnership-application/regulatory-function-contacts/remove-contact', function (req, res) {
+
+    let emailAddress = req.query.contact;
+    let functionName = req.query.function;
+
+    let contacts = req.session.data['regulatory-function-contacts'];
+
+    let newContacts = [];
+
+    contacts.forEach(element => {
+        if (!(element['regulatoryFunction'] == functionName && element['emailAddress'] == emailAddress)) {
+            newContacts.push(element);
+        }
+    });
+
+    req.session.data['regulatory-function-contacts'] = newContacts;
+
+    res.redirect('/partnership-application/regulatory-function-contacts/list');
 })
 
 // Route to go to the legal-entity list
