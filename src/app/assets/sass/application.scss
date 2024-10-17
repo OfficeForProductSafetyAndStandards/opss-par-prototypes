@@ -215,3 +215,36 @@
 .govuk-totally-hidden {
     display: none;
 }
+.icon-confirmed {
+    width: 35px;
+    height: 35px;
+    background-image: url(/public/images/icon-confirmed.png);
+}
+
+.govuk-summary-list__row.flex .govuk-summary-list__value {
+    display: flex;
+}
+
+.govuk-summary-list__value .icon-pre-text {
+    display: inline-flex;
+    height: 35px;
+    vertical-align: middle;
+    line-height: 35px;
+    @include govuk-responsive-margin(2, "right");
+}
+
+.govuk-summary-list__value .icon {
+    display: inline-flex;
+}
+
+.visually-hidden,
+.visuallyhidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}

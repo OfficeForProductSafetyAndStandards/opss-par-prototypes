@@ -112,8 +112,16 @@
               value: { text: "Car Planet" }
             }, 
             {
+              classes: "flex",
               key: { text: "Companies house number" },
-              value: { text: "23482937" }
+              value: { html: "<span class='icon-pre-text'>23482937</span> <i class='icon icon-confirmed'><span class='visually-hidden'>Auto-confirmed</span></i>" },
+              actions: {
+                items: [{
+                  href: 'https://find-and-update.company-information.service.gov.uk/company/23482937',
+                  text: "View in companies house"
+                }
+                ]
+              }
             }, 
             {
               key: { text: "Business area" },
