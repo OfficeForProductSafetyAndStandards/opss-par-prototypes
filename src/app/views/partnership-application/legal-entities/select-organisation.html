@@ -109,7 +109,8 @@
             html: "<span class='govuk-!-font-weight-bold'>"+ item.legalName + "</span>"
           },
           {
-            text: item.legalName
+            text: item.legalName,
+            classes: "govuk-display-none-until-tablet"
           },
           {
             text: item.companiesHouseNumber
@@ -127,12 +128,14 @@
     {% endfor %}
 
     {{ govukTable({
+      classes: "govuk-table--small-text-until-tablet",
       head: [
         {
           text: "Legal name"
         },
         {
-          text: "Trading name"
+          text: "Trading name",
+          classes: "govuk-display-none-until-tablet"
         },
         {
           text: "Companies house number"
