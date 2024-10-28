@@ -215,3 +215,76 @@
 .govuk-totally-hidden {
     display: none;
 }
+
+/******************************************************/
+/* Min height for main container                      */
+/******************************************************/
+.govuk-width-container + .govuk-width-container {
+    min-height: calc(100vh - 339px);
+}
+
+/******************************************************/
+/* Dark mode                                          */
+/******************************************************/
+@media screen and (prefers-color-scheme: dark) {
+    body.govuk-template__body {
+      background-color: #191919;
+      color: govuk-colour("white");
+    }
+    header.govuk-header, div.govuk-header__container {
+      border-bottom: 10px solid #1d70b8;
+    }
+    .app-related-items {
+      border-top: 10px solid #1d70b8;
+    }
+    h1, h2, h3, h4, h5, h6, p,
+    .govuk-heading-xl, .govuk-heading-l, .govuk-heading-m, .govuk-heading-s, .govuk-heading-xs,
+    .govuk-list, .govuk-table, .govuk-inset-text, .govuk-label, .govuk-task-list__name-and-hint, 
+    .govuk-summary-list,
+    .moj-sub-navigation__link[aria-current=page] {
+      color: govuk-colour("white") !important;
+    }
+    a:link, .govuk-link:link {
+      color: #5694CA;
+    }
+    a:visited, .govuk-link:visited {
+      color: #DA3984;
+    }
+    a:hover, .govuk-link:hover {
+      color: lighten(#5694CA, 10%);
+    }
+    a:active, .govuk-link:active {
+      color: $govuk-link-active-colour;
+    }
+    .govuk-back-link, .govuk-breadcrumbs__link {
+      color: govuk-colour("white") !important;
+      &:link,
+      &:visited,
+      &:hover,
+      &:active,
+      &:focus {
+        color: govuk-colour("white") !important;
+      }
+    }
+    .govuk-caption-xl, .govuk-caption-l, .govuk-caption-m, .govuk-caption-s, .govuk-caption-xs {
+      color: govuk-colour("dark-grey");
+    }
+    .govuk-hint {
+      color: govuk-colour("light-grey");
+    }
+    div.govuk-panel--confirmation {
+      background-color: #008F4C;
+    }
+    button.govuk-button {
+      background-color: #008F4C;
+    }
+    .js-step-title-text {
+      color: govuk-colour("white");
+    }
+    .app-step-nav-header {
+      background-color: govuk-colour("black");
+    }
+    .govuk-footer, .govuk-summary-card__title-wrapper {
+        background-color: govuk-colour("dark-grey") !important;
+    }
+  }
