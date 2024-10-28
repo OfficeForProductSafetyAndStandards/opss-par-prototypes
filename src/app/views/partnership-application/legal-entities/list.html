@@ -137,20 +137,9 @@
           classes: "govuk-totally-hidden"
         }) }}
 
-        <div class="govuk-button-group">
           {{ govukButton({
             text: "Save and continue"
           }) }}
-          <a 
-            class="govuk-link" 
-            href="{{ 
-              data['redirected'] | 
-              equals(
-                true, 
-                '/partnership-application/check-answers', 
-                '/redirect-done?redirect=/partnership-application/task-list'
-              ) }}">Cancel</a>
-        </div>
       </form>
     </div>
   </div>
