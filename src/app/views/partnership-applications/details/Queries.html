@@ -6,7 +6,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -15,11 +15,34 @@
 
 {% block applicationContent %}
 
-      <h1 class="govuk-heading-l">Queries</h1>
+      <h1 class="govuk-heading-l">Queries to authority (0)</h1>
+
+      <p>
+        Queries are emailed to the application contact at the Primary authority.
+      </p>
+
+      {{ govukSummaryList({
+        classes: "govuk-summary-list--no-border",
+        rows: [
+          {
+            key: {
+              html: "Clara Echo"
+            },
+            value: {
+              text: "clara.echo@wakefield.gov.uk"
+            }
+          }
+          ]
+      }) }}
+
+{{ govukButton({
+  text: "Send query to authority",
+  classes: "govuk-button--secondary"
+}) }}
       
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <p>No queries added</p>
+      <p>No queries sent</p>
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
       
   </div>

@@ -8,7 +8,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -18,36 +18,6 @@
 {% block applicationContent %}
 
       <h1 class="govuk-heading-l">Checks</h1>
-
-{{ govukTable({
-  caption: "LAU Coordinator vetting",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  head: [
-    {
-      text: "Check"
-    },
-    {
-      text: "Completed"
-    },
-    {
-      text: "Completed by"
-    }
-  ],
-  rows: [
-    [
-      {
-        html: "Coordinator is genuine<br />and elegible"
-      },
-      {
-        text: ""
-      },
-      {
-        text: ""
-      }
-    ]
-  ]
-}) }}
 
 {{ govukTable({
   caption: "1st Check",
@@ -78,7 +48,7 @@
     ],
     [
       {
-        html: "All legal entities' business<br />sector are correct"
+        html: "All legal entities' Standard<br />Industrial Classification (SIC)<br /> are correct"
       },
       {
         text: ""
@@ -130,7 +100,18 @@
   rows: [
     [
       {
-        html: "Parthership category set"
+        html: "Nomination type set"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "Regulatory function set"
       },
       {
         text: ""
@@ -171,7 +152,7 @@
     ],
     [
       {
-        html: "All legal entities' business<br />sector are correct"
+        html: "All legal entities' Standard<br />Industrial Classification (SIC)<br />are correct"
       },
       {
         text: ""
@@ -204,7 +185,18 @@
     ],
     [
       {
-        html: "Parthership category set<br />correctly"
+        html: "Nomination type is correct"
+      },
+      {
+        text: ""
+      },
+      {
+        text: ""
+      }
+    ],
+    [
+      {
+        html: "Regulatory functions are <br />correct"
       },
       {
         text: ""
@@ -217,7 +209,7 @@
 }) }}
 
 {{ govukTable({
-  caption: "SoS check",
+  caption: "Secretary of State approval",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
   head: [
@@ -234,7 +226,7 @@
   rows: [
     [
       {
-        html: "Full application approved"
+        html: "Application approved"
       },
       {
         text: ""
