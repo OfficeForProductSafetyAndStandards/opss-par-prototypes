@@ -14,7 +14,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to list of assigned applications",
+    text: "Back to homepage",
     href: "/partnership-applications/assigned-to-me"
   }) }}
 {% endblock %}
@@ -30,18 +30,14 @@
       </div>
         {{ mojButtonMenu({
           items: [{
-            text: "Assign 1st check",
+            text: "Complete my checks",
             href: "#"
           }, {
-            text: "Add new note",
+            text: "Add comment",
             href: "#",
             classes: "govuk-button--secondary"
           }, {
-            text: "Reassign",
-            href: "#",
-            classes: "govuk-button--secondary"
-          }, {
-            text: "Reset SLA's",
+            text: "Send query to authority",
             href: "#",
             classes: "govuk-button--secondary"
           }]
@@ -59,11 +55,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-quarter">
       {% set navItems = [{
-          text: 'Summary',
+          text: 'About partnership',
           href: 'summary',
           active: activeTab == 'Summary'
         }, {
-          text: 'Assignments',
+          text: 'Check assignments',
           href: 'assignments',
           active: activeTab == 'Assignments'
         }, {
@@ -79,19 +75,19 @@
           href: 'authority-details',
           active: activeTab == 'AuthorityDetails'
         }, {
-          text: "Notes (" + data['all-notes'] | length + ")",
+          text: "Comments (" + data['all-notes'] | length + ")",
           href: 'notes',
           active: activeTab == 'Notes'
         }, {
-          text: 'Checks',
+          text: 'Check log',
           href: 'checks',
           active: activeTab == 'Checks'
         }, {
-          text: 'Queries (0)',
+          text: 'Queries to authority (0)',
           href: 'queries',
           active: activeTab == 'Queries'
         }, {
-          text: 'Attachments (0)',
+          text: 'Documents (0)',
           href: 'attachments',
           active: activeTab == 'Attachments'
         }] %}
@@ -118,5 +114,8 @@
       
     </div>
   </div>
+
+  {% block preFooter %}
+  {% endblock %}
 
 {% endblock %}

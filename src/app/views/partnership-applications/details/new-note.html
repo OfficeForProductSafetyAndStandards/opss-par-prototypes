@@ -4,12 +4,7 @@
   Partnership Application – {{ serviceName }} – Confirm agreement to setup the partnership
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "notes"
-}) }}
-{% endblock %}
+
 
 {% block content %}
 
@@ -23,18 +18,18 @@
           id: "new-note",
           maxwords: 150,
           label: {
-            text: "Add new note",
+            text: "Add new comment",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "Your note will be displayed on the application only and will not show on the partnership details once the partnership is active."
+            text: "Your comment will be displayed on the application only and will not show on the partnership details once the partnership is active."
           }
         }) }}
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save note"
+            text: "Save comment"
           }) }}
           <a 
             class="govuk-link" 

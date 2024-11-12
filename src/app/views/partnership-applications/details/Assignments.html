@@ -1,4 +1,5 @@
 {% extends "partnership-applications/details/layout.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} – Application details
@@ -6,7 +7,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -23,7 +24,14 @@
               text: "1st check"
             },
             value: {
-              text: "Unassigned"
+              text: "Emma Cotgreve"
+            },
+            actions: {
+              items: [
+                {
+                  html: "<strong class='govuk-tag govuk-tag--blue'>In Progress</strong>"
+                }
+              ]
             }
           },
           {
@@ -52,8 +60,41 @@
           }
           ]
       })}}
-
-      <h2 class="govuk-heading-m">Assignment history</h2>
       
+      {{ govukTable({
+  caption: "Assignment history",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Assigner"
+    },
+    {
+      text: "Check"
+    },
+    {
+      text: "Assignee"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "20 Sep 24"
+      },
+      {
+        text: "Simon Reeves"
+      },
+      {
+        text: "1st check"
+      },
+      {
+        text: "Emma Cotgreve"
+      }
+    ]
+  ]
+}) }}
   </div>
 {% endblock %}

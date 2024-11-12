@@ -6,7 +6,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -16,9 +16,17 @@
 {% block applicationContent %}
 
       <h1 class="govuk-heading-l">Authority details</h1>
-      <h2 class="govuk-heading-m">Authority name</h2>
-      <p>Wakefield Council</p>
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        {{ govukSummaryList({
+          rows: [
+          {
+              key: { text: "Primary authority" },
+              value: { text: "Wakefield Council" }
+            }, 
+            {
+              key: { text: "Application contact" },
+              value: { html: ["Clara Echo", "clara.echo@wakefield.gov.uk", "07268 465 468"] | join('<br />') }
+            }]
+        })}}
 
       <h2 class="govuk-heading-m">Regulatory function contacts</h2>
         {{ govukSummaryList({

@@ -6,7 +6,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -15,12 +15,12 @@
 
 {% block applicationContent %}
 
-      <h1 class="govuk-heading-l">Summary</h1>
+      <h1 class="govuk-heading-l">About partnership</h1>
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Type"
+              html: "Parthership type <a href='#partnership-type'>[1]</a>"
             },
             value: {
               text: "Direct"
@@ -28,7 +28,7 @@
           },
           {
             key: {
-              text: "Authority"
+              html: "Primary authority <a href='#primary-authority'>[2]</a>"
             },
             value: {
               text: "Wakefield Council"
@@ -36,7 +36,7 @@
           },
           {
             key: {
-              text: "Group name of legal entities"
+              html: "Organisation group <a href='#organisation-group'>[3]</a>"
             },
             value: {
               text: "Car Planet"
@@ -44,25 +44,85 @@
           },
           {
             key: {
-              text: "Category"
+              html: "Nomination type <a href='#nomination-type'>[4]</a>"
             },
             value: {
-              text: "Not set"
+              text: "Not set (is set on 2nd check)"
             }
           },
           {
             key: {
-              text: "Regulatory functions"
+              html: "Correspondence method <a href='#correspondence-method'>[5]</a>"
+            },
+            value: {
+              html: "Email"
+            }
+          },
+          {
+            key: {
+              html: "Offered regulatory functions <a href='#offered-regulatory-functions'>[6]</a>"
             },
             value: {
               html: "Trading standards<br />Environmental health"
+            }
+          },
+          {
+            key: {
+              html: "Approved regulatory functions <a href='#approved-regulatory-functions'>[7]</a>"
+            },
+            value: {
+              text: "Not set (is set on 2nd check)"
             }
           }
           ]
       })}}
 
       
-      <h2 class="govuk-heading-m">Additional details</h2>
-      <p>Sara is available on Tuesday to Thursday only as she works half time. It have found that Car planet has a couple other partnerships, but none of them are with the functions that we offer so shouldn't be any issues.</p>
+      <h2 class="govuk-heading-m">Additional details from the Primary authority</h2>
+      <p>
+        Car Planet sells used 2nd hand cars for private owners. Owners who want to seel their
+        car but don't want the hassle of dealing with the sale can list their car through Car
+        Planet. Car Planet will advertise, store and organise test drives with potential buyers.
+      </p>
+      <p>
+        They currently have 2 sites in the UK. Each site has a kitchen and serves hot food.
+        They ahve 34 staff members over the 2 sites in total.
+      </p>
+      <p>
+        Sara who deals with their regularities comliances, is available on Tuesday to
+        Thursday only as she works half time.
+      </p>
+      <p>
+        I have found that Car Planet has a couple other partnerships, but non of them are with
+        the functions that we offer so shouldn't be any issues. I believe the partnership from
+        this application can be for both regulatory functions that we offer.
+      </p>
   </div>
+
+{% endblock %}
+
+{% block preFooter %}
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="govuk-width-container">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m">Glossary</h2>
+
+      <ol class="govuk-list govuk-list--number">
+        <li id="partnership-type"><span class="govuk-body govuk-!-font-weight-bold">Partnership type:</span> Shows if the partnership is Direct or Coordinated.</li>
+        <li id="primary-authority"><span class="govuk-body govuk-!-font-weight-bold">Primary authority:</span> The registered Primary authority for the partnership.</li>
+        <li id="organisation-group"><span class="govuk-body govuk-!-font-weight-bold">Organisation group:</span> The group wich all legal entities belong to.</li>
+        <li id="nomination-type"><span class="govuk-body govuk-!-font-weight-bold">Nomination type:</span> Shows if the partnership is Normal, Sequenced or Bespoke. This is set by 2nd check.</li>
+        <li id="correspondence-method"><span class="govuk-body govuk-!-font-weight-bold">Correspondence method:</span> Shows if the organisation needs emails or letters.</li>
+        <li id="offered-regulatory-functions"><span class="govuk-body govuk-!-font-weight-bold">Offered regulatory functions:</span> Lists all regulatory functions the authority is able to offer.</li>
+        <li id="approved-regulatory-functions"><span class="govuk-body govuk-!-font-weight-bold">Approved regulatory functions:</span> Lists all regulatory functions approved from the 2nd check.</li>
+      </ol>
+
+    </div>
+  </div>
+  </div>
+
 {% endblock %}
