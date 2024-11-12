@@ -226,6 +226,7 @@
 /******************************************************/
 /* Dark mode                                          */
 /******************************************************/
+/*
 @media screen and (prefers-color-scheme: dark) {
     body.govuk-template__body {
       background-color: #191919;
@@ -271,9 +272,9 @@
     }
     .govuk-section-header .govuk-caption-xl, 
     .govuk-section-header .govuk-caption-l,
-     .govuk-section-header .govuk-caption-m,
-      .govuk-section-header .govuk-caption-s, 
-      .govuk-section-header .govuk-caption-xs {
+    .govuk-section-header .govuk-caption-m,
+    .govuk-section-header .govuk-caption-s, 
+    .govuk-section-header .govuk-caption-xs {
       color: govuk-colour("light-grey");
     }
     .govuk-hint {
@@ -295,3 +296,4 @@
         background-color: govuk-colour("dark-grey") !important;
     }
   }
+    */

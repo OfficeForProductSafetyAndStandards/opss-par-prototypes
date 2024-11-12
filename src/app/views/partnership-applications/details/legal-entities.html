@@ -6,7 +6,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -16,6 +16,12 @@
 {% block applicationContent %}
 
       <h1 class="govuk-heading-l">Legal entities (2)</h1>
+
+      <p>
+        If an application contains multiple legal entities, when approves, each legal entity will
+        create one partnership. You can read more about this in the <a href="#">Primary authority register 
+          guidance (opens in new tab)</a>.
+      </p>
       <h2 class="govuk-heading-m">Legal entity 1</h2>
         {{ govukSummaryList({
           rows: [
@@ -28,12 +34,23 @@
               value: { text: "Car Planet" }
             }, 
             {
-              key: { text: "Companies house number" },
-              value: { text: "78588875" }
+              key: { text: "Organisation group" },
+              value: { text: "Car Planet" }
             }, 
             {
-              key: { text: "Business area" },
-              value: { text: "Manufacturing" }
+              key: { text: "Companies house number" },
+              value: { text: "78588875" },
+              actions: {
+                items: [
+                  {
+                    text: "Launch in Companies house (new tab)"
+                  }
+                ]
+              }
+            }, 
+            {
+              key: { text: "Standard Industrial Classification (SIC)" },
+              value: { text: "45112 Sale of used cars and light motor vehicles" }
             }, 
             {
               key: { text: "Legal entity type" },
@@ -112,12 +129,23 @@
               value: { text: "Car Planet" }
             }, 
             {
-              key: { text: "Companies house number" },
-              value: { text: "23482937" }
+              key: { text: "Organisation group" },
+              value: { text: "Car Planet" }
             }, 
             {
-              key: { text: "Business area" },
-              value: { text: "Manufacturing" }
+              key: { text: "Companies house number" },
+              value: { text: "23482937" },
+              actions: {
+                items: [
+                  {
+                    text: "Launch in Companies house (new tab)"
+                  }
+                ]
+              }
+            }, 
+            {
+              key: { text: "Standard Industrial Classification (SIC)" },
+              value: { text: "45112 Sale of used cars and light motor vehicles" }
             }, 
             {
               key: { text: "Legal entity type" },

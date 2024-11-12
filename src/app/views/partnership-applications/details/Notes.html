@@ -8,7 +8,7 @@
 
 {% block applicationHead %}
   <h1 class="govuk-heading-l">
-    34853 Partnership application
+    Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
 {% endblock %}
@@ -17,10 +17,14 @@
 
 {% block applicationContent %}
 
-      <h1 class="govuk-heading-l">Notes</h1>
+      <h1 class="govuk-heading-l">Comments</h1>
+
+      <p>
+        Comments are internal and only visible to authorised internal staff.
+      </p>
 
 {{ govukButton({
-  text: "Add new note",
+  text: "Add comment",
   classes: "govuk-button--secondary",
   href: "new-note"
 }) }}
@@ -35,7 +39,7 @@
   rows: noteRows})}}
 {% else %}
   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      <p>No notes added</p>
+      <p>No comments added</p>
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 {% endif %}
 
