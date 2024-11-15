@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Complete first checks
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-applications/details/complete-1st-checks-answer" method="post">
+
+        {{ govukCheckboxes({
+          name: "1st-checks",
+          fieldset: {
+            legend: {
+              text: "Complete 1st checks",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "Tick all confirmed checks.<br/>You can save and come back to this page until you have confirmed all.<br />When all checks are confirmed the assessment can be completed."
+          },
+          items: [
+            {
+              value: "entities-genuine",
+              text: "All legal entities are genuine entities",
+              checked: data['1st-checks'] and "entities-genuine" in data['1st-checks']
+            },
+            {
+              value: "sic-correct",
+              text: "All legal entities' Standard Industrial Classification (SIC) are correct",
+              checked: data['1st-checks'] and "sic-correct" in data['1st-checks']
+            },
+            {
+              value: "addresses-genuine",
+              text: "All registered addresses are genuine addresses",
+              checked: data['1st-checks'] and "addresses-genuine" in data['1st-checks']
+            },
+            {
+              value: "information-correct",
+              text: "All information contained in this application is correct",
+              checked: data['1st-checks'] and "information-correct" in data['1st-checks']
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="javascript:history.back()">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -769,6 +769,15 @@ router.post('/partnership-applications/details/new-note-answer', function (req, 
     res.redirect('/partnership-applications/details/notes');
 })
 
+router.post('/partnership-applications/details/complete-1st-checks-answer', function (req, res) {
+    let checks = req.session.data['1st-checks'] || "";
+
+    if (checks.length == 4)
+        res.redirect('/partnership-applications/details/completed-1st-checks');
+    else
+        res.redirect('/partnership-applications/details/summary');
+})
+
 //---------------------------------------------------------------------------------------------------
 // Generic Items
 //---------------------------------------------------------------------------------------------------

@@ -16,7 +16,7 @@
 {% block applicationContent %}
 
       <h1 class="govuk-heading-l">Entites contacts</h1>
-      <h2 class="govuk-heading-m">Primary application contact</h2>
+      <h2 class="govuk-heading-m">Organisation group contact</h2>
         {{ govukSummaryList({
           classes: 'govuk-summary-list--no-border',
           rows: [
@@ -26,7 +26,7 @@
             }, 
             {
               key: { text: "Email" },
-              value: { text: "sarah.johnson@carplanet.com" }
+              value: { text: "sarah.johnson@carplanet.test" }
             }, 
             {
               key: { text: "Phone number" },
@@ -50,11 +50,11 @@
             }, 
           {
               key: { text: "Environmental health" },
-              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.com", "07382 432 543"] | join('<br />') }
+              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.test", "07382 432 543"] | join('<br />') }
             }, 
             {
               key: { text: "Trading standards" },
-              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.com", "07382 432 543"] | join('<br />') },
+              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.test", "07382 432 543"] | join('<br />') },
               classes: 'govuk-summary-list__row_border'
             },
           {
@@ -63,11 +63,11 @@
             }, 
           {
               key: { text: "Environmental health" },
-              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.com", "07382 432 543"] | join('<br />') }
+              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.test", "07382 432 543"] | join('<br />') }
             }, 
             {
               key: { text: "Trading standards" },
-              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.com", "07382 432 543"] | join('<br />') }
+              value: { html: ["Sara Johnson", "sarah.johnson@carplanet.test", "07382 432 543"] | join('<br />') }
             }]
         })}}
       

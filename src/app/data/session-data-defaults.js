@@ -139,11 +139,11 @@ module.exports = {
   "local-authority-contacts": [{
     firstName: "Emma",
     lastName: "Smith",
-    emailAddress: "emma.smith@wakefield.gov.uk"
+    emailAddress: "emma.smith@wakefield.gov.test"
   }, {
     firstName: "John",
     lastName: "Siemens",
-    emailAddress: "john.siemens@wakefield.gov.uk"
+    emailAddress: "john.siemens@wakefield.gov.test"
   }],
 
   // Insert values here

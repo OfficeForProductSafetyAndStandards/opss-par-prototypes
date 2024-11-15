@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block applicationHead %}
-  <h1 class="govuk-heading-l">
+  <h1 class="govuk-heading-l" id="page-top">
     Direct partnership application (34853)
   </h1>
   <span class="govuk-caption-l">Confirmed by Organisation</span>
@@ -20,7 +20,7 @@
         rows: [
           {
             key: {
-              html: "Parthership type <a href='#partnership-type'>[1]</a>"
+              html: "Partnership type <a href='#partnership-type'>[1]</a>"
             },
             value: {
               text: "Direct"
@@ -120,6 +120,8 @@
         <li id="offered-regulatory-functions"><span class="govuk-body govuk-!-font-weight-bold">Offered regulatory functions:</span> Lists all regulatory functions the authority is able to offer.</li>
         <li id="approved-regulatory-functions"><span class="govuk-body govuk-!-font-weight-bold">Approved regulatory functions:</span> Lists all regulatory functions approved from the 2nd check.</li>
       </ol>
+
+<p style="govuk-body"><a href="#page-top" class="govuk-link">Back to the top</a></p>
 
     </div>
   </div>

@@ -8,7 +8,7 @@
 {% from "moj/components/sub-navigation/macro.njk" import mojSubNavigation %}
 
 {% set allPartnerships = "./app/data/partnerships.json" | read_json %}
-{% set partnerships = allPartnerships | searchArray("Status", "Pending") | take(36) %}
+{% set partnerships = allPartnerships | searchArray("State", "Confirmed") | take(3) %}
 
 {% set pageName="Partnership applications - Mine" %}
 
@@ -17,7 +17,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      Parthership applications
+      Applications
     </h1>
   </div>
 </div>
@@ -48,6 +48,9 @@
             html: "<a href='/partnership-applications/details/summary' class='govuk-link'>" + partnership.Id + "</a>"
           },
           {
+            text: "Partnership"
+          },
+          {
             text: partnership["Primary Authority"]
           },
           {
@@ -55,9 +58,6 @@
           },
           {
             text: partnership["Partnership Type"]
-          },
-          {
-            text: "20 Sep 25"
           }] %}
       {% if partnership.State == "Confirmed" %}
         {% set row = row | push({
@@ -69,7 +69,7 @@
           }) %}
       {% elif partnership.State == "Disputed" %}
         {% set row = row | push({
-            html: "<strong class='govuk-tag govuk-tag--red govuk-!-text-align-centre'>Disputed By Organisation</strong>"
+            html: "<strong class='govuk-tag govuk-tag--red govuk-!-text-align-centre'>Queried By Organisation</strong>"
           }) %}
       {% endif %}
       {% set rows = rows | push(row) %}
@@ -81,16 +81,16 @@
           text: "Id"
         },
         {
+          text: "Application"
+        },
+        {
           text: "Primary Authority"
         },
         {
-          text: "Organisation"
+          text: "Partner"
         },
         {
           text: "Partnership type"
-        },
-        {
-          text: "Target completion"
         },
         {
           text: " "
