@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Complete first checks
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/partnership-applications/details/confirmed-1st-checks" method="post">
+
+        <h1 class="govuk-heading-l">All 1st checks are completed</h1>
+
+        <p class="govuk-body">You can now complete your assignment. By completing your assignment, 
+          the application is ready to be assigned for the next checks.
+        </p>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Complete assignment"
+          }) }}
+          <a 
+            class="govuk-link" 
+            href="javascript:history.back()">Back</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

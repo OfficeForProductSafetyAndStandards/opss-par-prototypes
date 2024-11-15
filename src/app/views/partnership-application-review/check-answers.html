@@ -6,7 +6,7 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block pageTitle %}
-  Parthership Application Review – {{ serviceName }} – Check answers
+  Partnership Application Review – {{ serviceName }} – Check answers
 {% endblock %}
 
 {% block beforeContent %}
@@ -85,7 +85,7 @@
 
       {% set partnershipDetails = partnershipDetails | push({
               key: {
-                text: "Parthership type"
+                text: "Partnership type"
               },
               value: {
                 text: "Direct"

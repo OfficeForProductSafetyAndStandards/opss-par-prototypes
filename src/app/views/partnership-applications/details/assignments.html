@@ -16,7 +16,7 @@
 
 {% block applicationContent %}
 
-      <h1 class="govuk-heading-l">Assignments</h1>
+      <h1 class="govuk-heading-l">Check assignments</h1>
             {{ govukSummaryList({
         rows: [
           {
@@ -52,7 +52,7 @@
           },
           {
             key: {
-              text: "SoS"
+              text: "Secretary of state"
             },
             value: {
               text: "Unassigned"
@@ -62,7 +62,7 @@
       })}}
       
       {{ govukTable({
-  caption: "Assignment history",
+  caption: "Check assignment history",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
   head: [
@@ -82,7 +82,7 @@
   rows: [
     [
       {
-        text: "20 Sep 24"
+        text: "20 Sep 2024"
       },
       {
         text: "Simon Reeves"

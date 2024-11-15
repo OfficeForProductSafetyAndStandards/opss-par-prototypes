@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Partnership Application – {{ serviceName }} – Complete first checks
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {{ govukPanel({
+        titleText: "1st check assignment completed",
+        html: "Application<br><strong>34853</strong>"
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        1st check is done and the assignment is completed. The 
+        application can be found in the unassigned applications list
+        and is ready to be assigned for 2nd cehck.
+      </p>
+      <p class="govuk-body">
+        You can still view the application and add comments
+      </p>
+
+      <p class="govuk-body">
+        <a href="/partnership-applications/details/summary" class="govuk-link">View application</a><br />
+        <a href="/partnership-applications/unassigned" class="govuk-link">View unassigned applications</a><br />
+        <a href="/partnership-applications/assigned-to-me" class="govuk-link">View all your assigned applications</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
