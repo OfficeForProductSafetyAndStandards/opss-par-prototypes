@@ -53,8 +53,9 @@
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-TODO:
       <form class="form" action="/partnership-application/confirmation" method="post">
+
+        {% if(data['star-rating'] == undefined) %}
           {% call govukFieldset({
                     legend: {
                       text: "Overall, how would you rate your experience with the Primary Authority Register today?",
@@ -93,7 +94,93 @@ TODO:
               text: "Submit and continue"
             }) }}
 
-          {% endcall %}
+            {% endcall %}
+
+          {% elseif(data['any-issues'] == undefined) %}
+            <p class="govuk-body">
+        <img src="/public/images/green-tick.png" style="height: 20px; margin-right: 5px;" /> Thank you for submitting your rating
+      </p>
+
+        <p>
+          To help us improve our service, we'd like to know more about your experience today.
+        </p>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "any-issues",
+  fieldset: {
+    legend: {
+      text: "Did you experience any of the following issues?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "1",
+      text: "I did not find what I was looking for"
+    },
+    {
+      value: "2",
+      text: "I found it difficult to navigate the service"
+    },
+    {
+      value: "3",
+      text: "The service lacks a feature I need"
+    },
+    {
+      value: "4",
+      text: "I was unable to load/refresh/enter a page"
+    },
+    {
+      value: "5",
+      text: "Other"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "I did not experience any issue",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
+
+{{ govukCharacterCount({
+  name: "improve-service",
+  id: "improve-service",
+  maxlength: 1200,
+  label: {
+    text: "How could we improve this service (optional)?",
+    classes: "govuk-label--m",
+    isPageHeading: false
+  },
+  hint: {
+    text: "Do not include personal or financial information, like your National Insurance number or credit card details"
+  }
+}) }}
+<div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit and Continue"
+        }) }}
+
+  {{ govukButton({
+    text: "Cancel",
+    classes: "govuk-button--secondary",
+    href: "/partnership-table/active-partnerships"
+  }) }}
+</div>
+
+{% else %}
+            <p class="govuk-body">
+        <img src="/public/images/green-tick.png" style="height: 20px; margin-right: 5px;" /> Thank you for helping us to improve this service
+      </p>
+          {% endif %}
         </form>
 
     </div>
