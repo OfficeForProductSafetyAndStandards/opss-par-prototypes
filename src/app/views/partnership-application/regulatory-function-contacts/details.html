@@ -37,11 +37,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data['new-regulatory-function-contact-invalid'] %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "You must select a contact for the selected regulatory function",
+              href: "#new-regulatory-function-contact"
+            }
+          ]
+        }) }}
+      {% endif %}
+
       <h1 class="govuk-heading-l">
         Select contact for the selected regulatory function(s)
       </h1>
-
-      TODO: {{data['new-regulatory-function-contact-invalid']}}
 
       {{ govukDetails({
         summaryText: "Are you missing a contact from the drop down list?",
@@ -66,15 +76,25 @@
             }) %}
 
         {% endfor %}
-        
-        {{ govukSelect({
+
+        {% set selectBox = {
           id: "new-regulatory-function-contact",
           name: "new-regulatory-function-contact",
           label: {
             text: "Select contact"
           },
           items: contactOptions
-        }) }}
+        } %}
+        
+      {% if data['new-regulatory-function-contact-invalid'] %}
+          {% set selectBox = selectBox | merge({
+            errorMessage: {
+              text: "You must select a contact for the selected regulatory function"
+            }
+          }) %}
+      {% endif %}
+        
+        {{ govukSelect(selectBox) }}
 
         <div class="govuk-button-group">
           {{ govukButton({
