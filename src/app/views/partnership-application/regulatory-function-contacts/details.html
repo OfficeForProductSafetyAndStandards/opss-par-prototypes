@@ -41,6 +41,8 @@
         Select contact for the selected regulatory function(s)
       </h1>
 
+      TODO: {{data['new-regulatory-function-contact-invalid']}}
+
       {{ govukDetails({
         summaryText: "Are you missing a contact from the drop down list?",
         text: "The drop down list will display all people with an account from your
@@ -50,7 +52,11 @@
 
       <form class="form" action="/partnership-application/regulatory-function-contacts/details-answer" method="post">
 
-        {% set contactOptions = [] %}
+        {% set contactOptions = [{
+      value: "choose",
+      text: "Select",
+      selected: true
+    }] %}
         {% for contact in data['local-authority-contacts'] %}
 
           {% set contactOptions = contactOptions | push(

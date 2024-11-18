@@ -88,7 +88,7 @@
           }) %}
       {% elif partnership.State == "Disputed" %}
         {% set row = row | push({
-            html: "<strong class='govuk-tag govuk-tag--red govuk-!-text-align-centre'>Disputed By Organisation</strong>"
+            html: "<strong class='govuk-tag govuk-tag--red govuk-!-text-align-centre'>Queried By Organisation</strong>"
           }) %}
       {% endif %}
       {% set rows = rows | push(row) %}

@@ -17,16 +17,60 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Heading or question goes here
+        Thank you for submitting your rating
       </h1>
 
       <form class="form" action="/path/of/next/page" method="post">
 
         <p>
-          [Insert question content here - see the
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-          for examples]
+          To help us improve our service, we'd like to know more about your experience today.
         </p>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "countries",
+  fieldset: {
+    legend: {
+      text: "Did you experience any of the following issues?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "1",
+      text: "I did not find what I was looking for"
+    },
+    {
+      value: "2",
+      text: "I found it difficult to navigate the service"
+    },
+    {
+      value: "3",
+      text: "The service lacks a feature I need"
+    },
+    {
+      value: "4",
+      text: "I was unable to load/refresh/enter a page"
+    },
+    {
+      value: "5",
+      text: "Other"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "I did not experience any issue",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
 
         {{ govukButton({
           text: "Continue"
