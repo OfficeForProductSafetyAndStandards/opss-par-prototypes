@@ -3,7 +3,7 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-{% set organisations = "./app/data/organisations.json" | read_json %}
+{% set organisations = "./app/data/organisations.json" | read_json | searchArray("hideFromList", "false") %}
 
 {% block pageTitle %}
   Partnership Application – {{ serviceName }} - Select Organisation - Page {{ (data['legal-entity-list-page-index'] + 1) }} of {{ ((organisations | length) / 10) }}

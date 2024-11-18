@@ -257,6 +257,13 @@ router.post('/partnership-application/regulatory-function-contacts/details-answe
     let index = req.session.data['new-regulatory-function-contact'];
     let functions = req.session.data['new-contact-regulatory-function'];
 
+    if (index == "choose") {
+        req.session.data['new-regulatory-function-contact-invalid'] = true;
+        res.redirect('/partnership-application/regulatory-function-contacts/details');
+        return;
+    }
+
+    req.session.data['new-regulatory-function-contact-invalid'] = undefined;
     let selectedContact = contacts[index];
 
     if (!req.session.data['regulatory-function-contacts'])

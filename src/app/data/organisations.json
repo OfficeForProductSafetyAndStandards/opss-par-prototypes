@@ -10,7 +10,8 @@
         "line1": "55 Bragg Street",
         "town": "Neahkahnie",
         "postcode": "BB3 2IE"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Accent Group Limited",
@@ -23,7 +24,8 @@
         "line1": "1 Cass Place",
         "town": "Hardyville",
         "postcode": "IC9 4CM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "AKS Holding Ltd",
@@ -36,7 +38,8 @@
         "line1": "86 Ridgewood Place",
         "town": "Mathews",
         "postcode": "NV6 6EP"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Allsop Letting and Management Limited",
@@ -49,7 +52,8 @@
         "line1": "94 Humboldt Street",
         "town": "Rowe",
         "postcode": "TL1 7ZC"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Association of Convenience Stores Limited",
@@ -62,7 +66,8 @@
         "line1": "81 Erasmus Street",
         "town": "Sandston",
         "postcode": "VS9 4BW"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Beverage Services Limited",
@@ -75,7 +80,8 @@
         "line1": "22 Ebony Court",
         "town": "Efland",
         "postcode": "RV5 3PR"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Birchgrove (Surrey) LLP",
@@ -88,7 +94,8 @@
         "line1": "62 Garden Street",
         "town": "Belfair",
         "postcode": "VU9 7ZC"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Birchgrove (Berkshire) LLP",
@@ -101,7 +108,8 @@
         "line1": "27 Indiana Place",
         "town": "Morningside",
         "postcode": "AO6 2OL"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Birchgrove (Hampshire) LLP",
@@ -114,7 +122,8 @@
         "line1": "23 Kent Street",
         "town": "Guilford",
         "postcode": "XN4 6UM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "British Soft Drink Association Limited",
@@ -127,7 +136,8 @@
         "line1": "13 Vanderbilt Street",
         "town": "Harrison",
         "postcode": "ML8 4OH"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Career Advisor Help",
@@ -140,7 +150,8 @@
         "line1": "4 Chester Avenue",
         "town": "Lydia",
         "postcode": "KO9 4SX"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Car Planet Trading",
@@ -153,7 +164,22 @@
         "line1": "93 Melba Court",
         "town": "Collins",
         "postcode": "SD9 5VX"
-    }
+    },
+    "hideFromList": "false"
+},
+{
+    "legalName": "Car Planet Holdings",
+    "tradingName": "Car Planet",
+    "groupName": "Car Planet",
+    "companiesHouseNumber": 35081822,
+    "businessArea": "explosives-licensing",
+    "legalEntityType": "trust",
+    "address": {
+        "line1": "341 Trabe Lane",
+        "town": "Reading",
+        "postcode": "RG9 5VX"
+    },
+    "hideFromList": "true"
 },
 {
     "legalName": "Sultraxin",
@@ -166,7 +192,8 @@
         "line1": "37 Seigel Court",
         "town": "Magnolia",
         "postcode": "SN1 5ZV"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Aquazure",
@@ -179,7 +206,8 @@
         "line1": "89 Croton Loop",
         "town": "Innsbrook",
         "postcode": "KW8 0GU"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Recritube",
@@ -192,7 +220,8 @@
         "line1": "25 Crown Street",
         "town": "Cochranville",
         "postcode": "QE7 7GE"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Venoflex",
@@ -205,7 +234,8 @@
         "line1": "71 Metrotech Courtr",
         "town": "Tioga",
         "postcode": "OD1 7SA"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Orbin",
@@ -218,7 +248,8 @@
         "line1": "38 Grand Avenue",
         "town": "Advance",
         "postcode": "VJ7 1MQ"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Daisu",
@@ -231,7 +262,8 @@
         "line1": "22 Landis Court",
         "town": "Waumandee",
         "postcode": "SG8 4QM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Medmex",
@@ -244,7 +276,8 @@
         "line1": "65 Varick Avenue",
         "town": "Dola",
         "postcode": "OV0 4BR"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Zoid",
@@ -257,7 +290,8 @@
         "line1": "87 Maple Avenue",
         "town": "Muir",
         "postcode": "XB3 8YF"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Orboid",
@@ -270,7 +304,8 @@
         "line1": "15 Conklin Avenue",
         "town": "Manila",
         "postcode": "GX4 2HM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Viasia",
@@ -283,7 +318,8 @@
         "line1": "27 Harwood Place",
         "town": "Caron",
         "postcode": "OR4 3VM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Iplax",
@@ -296,7 +332,8 @@
         "line1": "24 Brigham Street",
         "town": "Fillmore",
         "postcode": "JQ2 7TN"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Pearlesex",
@@ -309,7 +346,8 @@
         "line1": "51 Lamont Court",
         "town": "Gorst",
         "postcode": "XC2 3YT"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Billmed",
@@ -322,7 +360,8 @@
         "line1": "100 Havemeyer Street",
         "town": "Greer",
         "postcode": "AB5 0CP"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Bulljuice",
@@ -335,7 +374,8 @@
         "line1": "62 Legion Street",
         "town": "Staples",
         "postcode": "YD3 2AF"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Solgan",
@@ -348,7 +388,8 @@
         "line1": "51 Decatur Street",
         "town": "Rivereno",
         "postcode": "DA8 0EC"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Assistix",
@@ -361,7 +402,8 @@
         "line1": "4 Winthrop Street",
         "town": "Gila",
         "postcode": "RY1 3EJ"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Corepan",
@@ -374,7 +416,8 @@
         "line1": "59 Oxford Street",
         "town": "Yonah",
         "postcode": "RX9 0GL"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Futurity",
@@ -387,7 +430,8 @@
         "line1": "64 Jardine Place",
         "town": "Grimsley",
         "postcode": "CK1 6SZ"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Digigene",
@@ -400,7 +444,8 @@
         "line1": "32 Church Lane",
         "town": "Takilma",
         "postcode": "XE3 5PM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Bunga",
@@ -413,7 +458,8 @@
         "line1": "73 Balfour Place",
         "town": "Grenelefe",
         "postcode": "OK8 4TJ"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Kog",
@@ -426,7 +472,8 @@
         "line1": "19 Evans Street",
         "town": "Calpine",
         "postcode": "OC5 6VM"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Extremo",
@@ -439,7 +486,8 @@
         "line1": "61 Minna Street",
         "town": "Remington",
         "postcode": "XI0 8ZO"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Zanilla",
@@ -452,7 +500,8 @@
         "line1": "75 Eldert Lane",
         "town": "Bancroft",
         "postcode": "BZ1 8GP"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Geekfarm",
@@ -465,7 +514,8 @@
         "line1": "35 Belmont Avenue",
         "town": "Murillo",
         "postcode": "DD3 3RJ"
-    }
+    },
+    "hideFromList": "false"
 },
 {
     "legalName": "Kiosk",

@@ -52,45 +52,43 @@
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-      <form class="form" action="/partnership-application/rate" method="post">
+      <form class="form" action="/partnership-application/confirmation" method="post">
           {% call govukFieldset({
                     legend: {
                       text: "Overall, how would you rate your experience with the Primary Authority Register today?",
-                      classes: "govuk-fieldset__legend--m govuk-!-text-align-centre",
+                      classes: "govuk-fieldset__legend--m",
                       isPageHeading: false
                     }
                   }) %}
 
             {{ govukRadios({
               name: "star-rating",
-              classes: "star-rating",
               items: [
                 {
                   value: "1",
-                  text: "1"
+                  text: "Very satisfied"
                 },
                 {
                   value: "2",
-                  text: "2"
+                  text: "Satisfied"
                 },
                 {
                   value: "3",
-                  text: "3"
+                  text: "Neither satisfied or dissatisfied"
                 },
                 {
                   value: "4",
-                  text: "4"
+                  text: "Dissatisfied"
                 },
                 {
                   value: "5",
-                  text: "5"
+                  text: "Very dissatisfied"
                 }
               ]
             }) }}
 
             {{ govukButton({
-              text: "Continue",
-              classes: "govuk-button--secondary govuk-button--align-centre"
+              text: "Submit and continue"
             }) }}
 
           {% endcall %}
