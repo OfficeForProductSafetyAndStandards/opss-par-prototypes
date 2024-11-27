@@ -39,9 +39,13 @@ router.post('/partnership-application/partnership-type-answer', function (req, r
 
 router.post('/partnership-application/legal-entities/create-organisation/legal-entity-type-answer', function (req, res) {
     let answer = req.session.data['legal-entity-type'];
+    req.session.data['legal-entity-type-invalid'] = undefined;
     if (answer) {
-        req.session.data['legal-entity-type-invalid'] = undefined;
-        res.redirect('/partnership-application/legal-entities/create-organisation/have-companies-house-number');
+        if (answer == "sole-trader") {
+            res.redirect('/partnership-application/legal-entities/create-organisation/organisation-name');
+        } else {
+            res.redirect('/partnership-application/legal-entities/create-organisation/have-companies-house-number');
+        }
     } else {
         req.session.data['legal-entity-type-invalid'] = true;
         res.redirect('/partnership-application/legal-entities/create-organisation/legal-entity-type');
