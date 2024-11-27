@@ -145,6 +145,14 @@ router.post('/partnership-application/legal-entities/create-organisation/organis
         res.redirect('/partnership-application/legal-entities/create-organisation/organisation-address');
     }
 })
+router.post('/partnership-application/legal-entities/create-organisation/business-area-answer', function (req, res) {
+    let answer = req.session.data['legal-entity-type'];
+    if (answer == "sole-trader" || answer == "limited-company") {
+        res.redirect('/partnership-application/legal-entities/create-organisation/new-organisation-answer');
+    } else {
+        res.redirect('/partnership-application/legal-entities/create-organisation/belongs-to-group');
+    }
+})
 
 router.post('/partnership-application/legal-entities/create-organisation/belongs-to-group-answer', function (req, res) {
     let answer = req.session.data['belongs-to-group'];
